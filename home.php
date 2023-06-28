@@ -21,27 +21,102 @@ get_header();
 		if ( have_posts() ) :
 
 			if ( is_home() && ! is_front_page() ) :
-				?>
+								?>
 				<header>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
 				<?php
 			endif;
+			?>
 
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			
+			<section>
+				<?php
+				//display the title and the intro paragraph
 
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				get_template_part( 'template-parts/content', get_post_type() );
+				if (function_exists('get_field')){ 
+					
+					if (get_field('activities_hero_title', 14)){
+						echo '<h1>';
+						the_field('activities_hero_title', 14);
+						echo '</h1>';
+					}
+					
+					if ( get_field( 'activities_hero_content', 14 ) ) {
+						echo '<p>';
+						the_field( 'activities_hero_content', 14 );
+						echo '</p>';
+					}
+				}
+				
+				?>
+			</section>
+			
+			<?php
+			//display the posts sorted by the categories
+			
+			$taxonomies = get_object_taxonomies( array( 'post_type' => 'post' ) );
+			
+			foreach( $taxonomies as $taxonomy ) :
+			
+				$terms = get_terms( $taxonomy );
+			
+				foreach( $terms as $term ) : ?>
 
-			endwhile;
+					<?php
+					$args = array(
+							'post_type' => 'post',
+							'posts_per_page' => -1,  
+							'tax_query' => array(
+								array(
+									'taxonomy' => $taxonomy,
+									'field' => 'slug',
+									'terms' => $term->slug,
+								)
+							)
+			
+						);
 
-			the_posts_navigation();
+					$query = new WP_Query($args);
+			
+					if( $query->have_posts() ) :  
+					
+						echo '<h2>' . esc_html( $term->name ) . '</h2>';
+						$counter = 0;
+						$total_posts = $query->found_posts;
+						
+						while( $query->have_posts() ) : 
+						$query->the_post(); 
+						$counter++;
+						?>
+				
+						<article>
+							<h3><?php the_title(); ?></h3>
+							<?php the_post_thumbnail( 'medium' );?>
+							<a href="<?php the_permalink();?>">View Activity</a>
+						</article>
+							
+			
+						<?php 
+
+						// display the Get More Posts button when reaching the third post
+						if ( $counter == 3 && $counter < $total_posts ) {
+							?>
+							<button class="get-more-posts">Get More Posts</button>
+							<div class="hidden-posts" style="display:none;">
+							<?php
+						}
+										
+						endwhile; 
+						echo '</div>';
+						wp_reset_postdata();
+
+																			
+					endif; ?>
+			
+				<?php endforeach;
+			
+			endforeach; 
 
 		else :
 
