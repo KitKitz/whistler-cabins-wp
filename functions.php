@@ -131,6 +131,7 @@ function whistler_cabins_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	
 }
 add_action( 'widgets_init', 'whistler_cabins_widgets_init' );
 
@@ -146,6 +147,11 @@ function whistler_cabins_scripts() {
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
+
+	if(is_home()){
+		wp_enqueue_script( 'getMorePostsBtn.js', get_template_directory_uri() .'/js/getMorePostsBtn.js');
+	}
+	
 }
 add_action( 'wp_enqueue_scripts', 'whistler_cabins_scripts' );
 
