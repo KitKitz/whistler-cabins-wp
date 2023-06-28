@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
+ * Template part for displaying gift card section
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
@@ -8,56 +8,23 @@
  */
 
 ?>
-
-<article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<header class="entry-header">
+<?php
+$giftCardProductId = 54;
+$product = wc_get_product($giftCardProductId);
+$permalink = $product->get_permalink();
+?>
+	<section class="gift-card-banner">
 		<?php
-		if ( is_singular() ) :
-			the_title( '<h1 class="entry-title">', '</h1>' );
-		else :
-			the_title( '<h2 class="entry-title"><a href="' . esc_url( get_permalink() ) . '" rel="bookmark">', '</a></h2>' );
-		endif;
-
-		if ( 'post' === get_post_type() ) :
-			?>
-			<div class="entry-meta">
-				<?php
-				whistler_cabins_posted_on();
-				whistler_cabins_posted_by();
-				?>
-			</div><!-- .entry-meta -->
-		<?php endif; ?>
-	</header><!-- .entry-header -->
-
-	<?php whistler_cabins_post_thumbnail(); ?>
-
-	<div class="entry-content">
-		<?php
-		the_content(
-			sprintf(
-				wp_kses(
-					/* translators: %s: Name of current post. Only visible to screen readers */
-					__( 'Continue reading<span class="screen-reader-text"> "%s"</span>', 'whistler-cabins' ),
-					array(
-						'span' => array(
-							'class' => array(),
-						),
-					)
-				),
-				wp_kses_post( get_the_title() )
-			)
-		);
-
-		wp_link_pages(
-			array(
-				'before' => '<div class="page-links">' . esc_html__( 'Pages:', 'whistler-cabins' ),
-				'after'  => '</div>',
-			)
-		);
+			if(function_exists('get_field')){
+				if(get_field('gc_section_title')){
+					?><h1><?php the_field('gc_section_title');?></h1><?php
+				}
+				if(get_field('gc_section_content')){
+					?><p><?php the_field('gc_section_content');?></p><?php
+				}
+				if(get_field('gc_section_button')){
+					?><a href="<?php echo $permalink?>"><?php the_field('gc_section_button')?></a><?php
+				}
+			}
 		?>
-	</div><!-- .entry-content -->
-
-	<footer class="entry-footer">
-		<?php whistler_cabins_entry_footer(); ?>
-	</footer><!-- .entry-footer -->
-</article><!-- #post-<?php the_ID(); ?> -->
+	</section>

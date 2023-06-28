@@ -16,22 +16,62 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
+		<div class="hero-banner">
+			<?php
+			if(function_exists('get_field')){
+				if(get_field('home_hero_title')){
+					?><h1><?php the_field('home_hero_title');?></h1><?php
+				}
+				if(get_field('home_hero_content')){
+					?><p><?php the_field('home_hero_content');?></p><?php
+				}
+			}
+			?>
+		</div>
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+		<!-- FEATURED ACTIVITES SECTION -->
+		<section class="featured-section">
+			<?php
+				if (function_exists('get_field')){
+					if(get_field('fbp_section_title')){
+						?><h1><?php the_field('fbp_section_title');?></h1><?php
+					}
+					if(get_field('fbp_section_content')){
+						?><p><?php the_field('fbp_section_title');?></p><?php
+					}
+					if(get_field('fbp_section_button')){
+						?><a href="<?php get_post_type_archive_link( 'post' );?>"><?php the_field('fbp_section_button');?></a><?php
+					}
 
-			get_template_part( 'template-parts/content', 'page' );
+				}
+				// ADD ARGS HERE (will modify when more activity content)
+				$args = array (
+					'post_type' 	 =>'post',
+					'posts_per_page' => 2,
+				);
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
-
-		endwhile; // End of the loop.
-		?>
-
-		<?php get_template_part('template-parts/testimonial'); ?>
+				$query = new WP_Query ($args);
+					if($query->have_posts()){
+						while($query->have_posts()){
+							$query->the_post();
+							?>
+							<article>
+						
+							<a href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail(); ?>
+							<h3><?php the_title(); ?></h3>
+							</a>
+					</article>
+							<?php
+							
+						}
+						wp_reset_postdata();
+					}
+			?>
+		</section>
+		
+		<!-- GIFT CARD TEMPLATE PART SECITION -->
+		<?php get_template_part('template-parts/content', 'gift-card')?>
 
 	</main><!-- #main -->
 
