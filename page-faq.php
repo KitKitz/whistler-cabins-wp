@@ -17,21 +17,54 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-		<?php
-		while ( have_posts() ) :
-			the_post();
+		<header class="page-header">
+			<!-- Page title and overview (acf) -->
+			<h1 class="page-title"><?php the_title() ?></h1> <?php
 
-			get_template_part( 'template-parts/content', 'page' );
+			if( function_exists('get_field') ) :
+				if( get_field('faq_page_overview') ) : ?>
+					<p><?php the_field('faq_page_overview') ?></p> <?php
+				endif;
+			endif; ?>
+		</header>
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+		<?php 
+		// Get FAQ CPT
+		$args = array (
+			'post_type'     => 'whi-faq',
+			'orderby'			 	=> 'date',
+			'order'			 		=> 'asc',
+		);
+		$query = new WP_Query($args); 
 
-		endwhile; // End of the loop.
-		?>
+		if( $query -> have_posts() ) :
+			while ( $query->have_posts() ) :
+				$query -> the_post(); ?>
+				<section>
+					<h2><?php the_title(); ?></h2> <?php
+					
+					// Check if ACF Repeater rows exist and loop 
+					if( function_exists('get_field') && have_rows( 'faq_repeater' ) ) :
+						while( have_rows( 'faq_repeater' ) ) : the_row() ?>
+							<div class="single-qa">
+								<h3><?php the_sub_field( 'faq_question' ); ?></h3>
+								<p><?php the_sub_field( 'faq_answer' ); ?></p>
+							</div> <?php
+						endwhile;
+					
+					else: ?>
+					<p><?php _e( 'Sorry, no FAQs to display.', 'whistler-cabins' ); ?></p> <?php
+					endif; ?> 
 
-	</main><!-- #main -->
+				</section> <?php
+			endwhile;
+			wp_reset_postdata();
+
+		else: ?>
+			<p><?php _e( 'Sorry, no FAQs to display.', 'whistler-cabins' ); ?></p> <?php
+		endif; ?>
+
+	</main>
 
 <?php
 get_sidebar();
