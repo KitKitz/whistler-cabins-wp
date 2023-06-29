@@ -143,6 +143,8 @@ function whistler_cabins_scripts() {
 
 	wp_enqueue_script( 'whistler-cabins-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
+	wp_enqueue_script( 'custom-map', get_template_directory_uri() . '/js/custom-map.js', array( 'jquery' ), '1.0', true );
+	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
 	}
@@ -182,3 +184,13 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
+/**
+ * ACF Google Map API Key
+ */
+function my_acf_init() {
+    
+    acf_update_setting('google_api_key', 'AIzaSyDpY5bD4tfgPVeApcgQBI0sR76IAX8NrLg');
+}
+
+add_action('acf/init', 'my_acf_init');
