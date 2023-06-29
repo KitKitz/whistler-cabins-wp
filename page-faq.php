@@ -39,7 +39,19 @@ get_header();
 					while ( $query->have_posts() ) :
 						$query -> the_post(); ?>
 						<section>
-							<h2><?php the_title(); ?></h2> 
+							<h2><?php the_title(); ?></h2>
+							<?php
+							// Check if ACF Repeater rows exist and loop 
+							if( have_rows( 'faq_repeater' ) ) :
+								while( have_rows( 'faq_repeater' ) ) : the_row() ?>
+									<div class="single-qa">
+										<h3><?php the_sub_field( 'faq_question' ); ?></h3>
+										<p><?php the_sub_field( 'faq_answer' ); ?></p>
+									</div>
+								<?php
+								endwhile;
+							endif;
+							?> 
 						</section>
 						<?php
 					endwhile;
