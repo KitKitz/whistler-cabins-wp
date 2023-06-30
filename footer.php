@@ -12,21 +12,31 @@
 ?>
 
 	<footer id="colophon" class="site-footer">
-		<div class="site-info">
-			<a href="<?php echo esc_url( __( 'https://wordpress.org/', 'whistler-cabins' ) ); ?>">
-				<?php
-				/* translators: %s: CMS name, i.e. WordPress. */
-				printf( esc_html__( 'Proudly powered by %s', 'whistler-cabins' ), 'WordPress' );
-				?>
-			</a>
-			<span class="sep"> | </span>
-				<?php
-				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'whistler-cabins' ), 'whistler-cabins', '<a href="https://whistlercabins.bcitwebdeveloper.ca/">FWD 33</a>' );
-				?>
-		</div><!-- .site-info -->
-	</footer><!-- #colophon -->
-</div><!-- #page -->
+
+		<section class="site-branding">
+			<?php	the_custom_logo(); ?>
+			<h2><?php bloginfo( 'name' ); ?> </h2>
+			<?php 
+			if( function_exists( 'get_field' ) && get_field( 'acknowledgement_content' )) : ?>
+				<p> <?php the_field( 'acknowledgement_content' ) ?> <p>
+			<?php
+			endif;
+			?>
+		</section>
+
+		<nav id="site-navigation" class="footer-navigation">
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'menu-2',
+					'menu_id'        => 'footer-menu',
+				)
+			);
+			?>
+		</nav>
+
+	</footer>
+</div>
 
 <?php wp_footer(); ?>
 

@@ -46,10 +46,11 @@ function whistler_cabins_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
 
-	// This theme uses wp_nav_menu() in one location.
+	// Register menu location(s). Output menu(s) using wp_nav_menu()
 	register_nav_menus(
 		array(
 			'menu-1' => esc_html__( 'Primary', 'whistler-cabins' ),
+			'menu-2' => esc_html__( 'Footer', 'whistler-cabins' ),
 		)
 	);
 
