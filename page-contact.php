@@ -66,7 +66,9 @@ get_header();
 	}
 	?>
 
-	<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpY5bD4tfgPVeApcgQBI0sR76IAX8NrLg"></script>
+	<script 
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpY5bD4tfgPVeApcgQBI0sR76IAX8NrLg&callback=Function.prototype"
+	></script>
 
 	</main><!-- #main -->
 
