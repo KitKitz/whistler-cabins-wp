@@ -16,12 +16,39 @@
 		<section class="site-branding">
 			<?php	the_custom_logo(); ?>
 			<h2><?php bloginfo( 'name' ); ?> </h2>
-			<?php 
-			if( function_exists( 'get_field' ) && get_field( 'acknowledgement_content' )) : ?>
-				<p> <?php the_field( 'acknowledgement_content' ) ?> <p>
+
 			<?php
-			endif;
-			?>
+			if (function_exists('get_field') && get_field( 'footer_acknowledgement', 'option' )) :
+				?>
+
+				<p><?php the_field( 'footer_acknowledgement', 'option' )?></p>
+				<?php
+
+			endif ?>
+
+		</section>
+
+		<section class="business-info">
+		<?php
+			if (function_exists('get_field')) :
+				
+				if (get_field( 'business_address', 'option' )) : ?>
+					<p><?php the_field( 'business_address', 'option' )?></p>
+					<?php
+				endif; 
+
+				if (get_field( 'business_phone', 'option' )) : ?>
+					<p><?php the_field( 'business_phone', 'option' )?></p>
+					<?php
+				endif;
+
+				if (get_field( 'business_phone', 'option' )) : ?>
+					<p><?php the_field( 'business_email', 'option' )?></p>
+					<?php
+				endif;
+
+			endif ?>
+
 		</section>
 
 		<nav id="site-navigation" class="footer-navigation">
