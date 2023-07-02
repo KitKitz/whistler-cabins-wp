@@ -201,3 +201,14 @@ function my_acf_init() {
 }
 
 add_action('acf/init', 'my_acf_init');
+
+/**
+ * ACF Options page. All data saved on an options page is global.
+ * @link https://www.advancedcustomfields.com/resources/options-page/
+ */
+
+ if( function_exists('acf_add_options_page') ) {
+    
+	acf_add_options_page();
+	
+}
