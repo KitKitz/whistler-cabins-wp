@@ -9,9 +9,10 @@
 
 ?>
 <?php
-$giftCardProductId = 54;
-$product = wc_get_product($giftCardProductId);
-$permalink = $product->get_permalink();
+if(is_shop() || is_front_page()){
+	$giftCardProductId = 54;
+	$product = wc_get_product($giftCardProductId);
+	$permalink = $product->get_permalink();
 ?>
 	<section class="gift-card-banner">
 		<?php
@@ -28,3 +29,6 @@ $permalink = $product->get_permalink();
 			}
 		?>
 	</section>
+<?php
+}
+

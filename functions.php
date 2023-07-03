@@ -202,6 +202,7 @@ function my_acf_init() {
 
 add_action('acf/init', 'my_acf_init');
 
+
 /**
  * ACF Options page. All data saved on an options page is global.
  * @link https://www.advancedcustomfields.com/resources/options-page/
@@ -212,3 +213,40 @@ add_action('acf/init', 'my_acf_init');
 	acf_add_options_page();
 	
 }
+
+/**
+ * Editing WooCommerce Shop Page 
+ * 
+ */ 
+function whistler_cabins_shop_init(){
+
+	function whistler_cabins_shop_giftcard_section(){
+		$giftCardProductId = 54;
+		$product = wc_get_product($giftCardProductId);
+		$permalink = $product->get_permalink();
+		?>
+		<section class="gift-card-banner">
+		<?php
+			if(function_exists('get_field')){
+				if(get_field('gc_section_title', 25)){
+					?><h1><?php the_field('gc_section_title', 25);?></h1><?php
+				}
+				if(get_field('gc_section_content' , 25)){
+					?><p><?php the_field('gc_section_content' , 25);?></p><?php
+				}
+				if(get_field('gc_section_button' , 25)){
+					?><a href="<?php echo $permalink?>"><?php the_field('gc_section_button', 25)?></a><?php
+				}
+			}
+		?>
+		</section>
+		<?php
+	}
+	add_action(
+		'woocommerce_after_shop_loop',
+		'whistler_cabins_shop_giftcard_section',
+		9
+	);
+
+}
+add_action('init', 'whistler_cabins_shop_init');

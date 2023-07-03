@@ -71,7 +71,7 @@ get_header();
 		</section>
 		
 		<!-- GIFT CARD TEMPLATE PART SECITION -->
-		<?php get_template_part('template-parts/content', 'gift-card')?>
+		<?php get_template_part('template-parts/content', 'gift-card');?>
 
 	</main><!-- #main -->
 
