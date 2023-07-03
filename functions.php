@@ -132,6 +132,17 @@ function whistler_cabins_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__('Secondary Sidebar', 'whistler-cabins'),
+			'id'            => 'sidebar-2',
+			'description'   => esc_html__('Add widgets here.', 'whistler-cabins'),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 	
 }
 add_action( 'widgets_init', 'whistler_cabins_widgets_init' );
@@ -202,6 +213,7 @@ function my_acf_init() {
 
 add_action('acf/init', 'my_acf_init');
 
+
 /**
  * ACF Options page. All data saved on an options page is global.
  * @link https://www.advancedcustomfields.com/resources/options-page/
@@ -212,3 +224,78 @@ add_action('acf/init', 'my_acf_init');
 	acf_add_options_page();
 	
 }
+
+/**
+ * Editing WooCommerce Shop Page 
+ * 
+ */ 
+function whistler_cabins_shop_init(){
+
+	function whistler_cabins_shop_giftcard_section(){
+		$giftCardProductId = 54;
+		$product = wc_get_product($giftCardProductId);
+		$permalink = $product->get_permalink();
+		?>
+		<section class="gift-card-banner">
+		<?php
+			if(function_exists('get_field')){
+				if(get_field('gc_section_title', 25)){
+					?><h1><?php the_field('gc_section_title', 25);?></h1><?php
+				}
+				if(get_field('gc_section_content' , 25)){
+					?><p><?php the_field('gc_section_content' , 25);?></p><?php
+				}
+				if(get_field('gc_section_button' , 25)){
+					?><a href="<?php echo $permalink?>"><?php the_field('gc_section_button', 25)?></a><?php
+				}
+			}
+		?>
+		</section>
+		<?php
+	}
+	add_action(
+		'woocommerce_after_shop_loop',
+		'whistler_cabins_shop_giftcard_section',
+		9
+	);
+	function whistler_cabins_sidebar(){
+		get_sidebar();
+	}
+	add_action(
+		'woocommerce_before_shop_loop',
+		'whistler_cabins_sidebar',
+		31
+	);
+
+	function whistler_cabins_category($category_ids) {
+		if (is_shop()) {
+			global $product;
+			$product_categories = wp_get_post_terms($product->get_id(), 'product_cat', array('fields' => 'ids'));
+	
+			// Check if any of the product's categories match the specified category IDs
+			$matches = array_intersect($product_categories, $category_ids);
+	
+			if (!empty($matches)) {
+				// Loop through the matched categories and display them
+				foreach ($matches as $cat_id) {
+					$category = get_term($cat_id, 'product_cat');
+					?><p><a href="<?php echo get_term_link($category)?>"><?php echo $category->name; ?></a></p><?php
+				}
+			}
+		}
+	}
+	
+	add_action('woocommerce_after_shop_loop_item_title', 
+				function() {
+					whistler_cabins_category(array(25, 27, 44, 45, 46, 47));
+				}, 
+				11
+	);
+
+	add_filter( 'woocommerce_product_add_to_cart_text', 'woocommerce_add_to_cart_button_text_archives' );  
+	function woocommerce_add_to_cart_button_text_archives() {
+    return __( 'View Cabin', 'woocommerce' );
+	}
+
+}
+add_action('init', 'whistler_cabins_shop_init');

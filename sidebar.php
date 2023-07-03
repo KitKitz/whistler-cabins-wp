@@ -7,7 +7,7 @@
  * @package Whistler_Cabins
  */
 
-if ( ! is_active_sidebar( 'sidebar-1' ) ) {
+if ( ! is_active_sidebar( 'sidebar-1' ) || ! is_active_sidebar( 'sidebar-2' )) {
 	return;
 }
 
@@ -16,8 +16,11 @@ if ( ! is_active_sidebar( 'sidebar-1' ) ) {
 
 <aside id="secondary" class="widget-area">
 
-	<?php if(is_home() || is_archive()){
+	<?php 
+	if(is_home() || is_archive() && !is_shop()){
 		dynamic_sidebar( 'sidebar-1' );
+	}else if (is_shop()){
+		dynamic_sidebar( 'sidebar-2' ); 
 	} ?>
 
 </aside><!-- #secondary -->
