@@ -132,6 +132,17 @@ function whistler_cabins_widgets_init() {
 			'after_title'   => '</h2>',
 		)
 	);
+	register_sidebar(
+		array(
+			'name'          => esc_html__('Secondary Sidebar', 'whistler-cabins'),
+			'id'            => 'sidebar-2',
+			'description'   => esc_html__('Add widgets here.', 'whistler-cabins'),
+			'before_widget' => '<section id="%1$s" class="widget %2$s">',
+			'after_widget'  => '</section>',
+			'before_title'  => '<h2 class="widget-title">',
+			'after_title'   => '</h2>',
+		)
+	);
 	
 }
 add_action( 'widgets_init', 'whistler_cabins_widgets_init' );
@@ -246,6 +257,14 @@ function whistler_cabins_shop_init(){
 		'woocommerce_after_shop_loop',
 		'whistler_cabins_shop_giftcard_section',
 		9
+	);
+	function whistler_cabins_sidebar(){
+		get_sidebar();
+	}
+	add_action(
+		'woocommerce_before_shop_loop',
+		'whistler_cabins_sidebar',
+		31
 	);
 
 }
