@@ -58,11 +58,16 @@ get_header();
 							<article>
 						
 							<a href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail(); ?>
+							<?php the_post_thumbnail(); ?></a>
 							<h3><?php the_title(); ?></h3>
-							<p><?php whistler_cabins_category(array(25, 27, 44, 45, 46, 47)); ?></p>
-							</a>
-							<p><?php echo $product->get_price_html(); ?></p>
+							<?php if(function_exists('get_field')){
+							if (get_field('cabin_view')){
+								?><p><?php the_field('cabin_view');?></p><?php
+							}
+							if (get_field('cabin_sleeps')){
+								?><p><?php the_field('cabin_sleeps');?></p><?php
+							}
+							}?>
 							<a href="<?php the_permalink(); ?>">View Cabin</a>
 							</article>
 							<?php
