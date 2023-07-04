@@ -127,7 +127,12 @@ function whistler_cabins_shop_init(){
 								$tag = get_term_by( 'id', $tag_id, 'product_tag' );
 					
 								if ( $tag ) {
-									echo '<li>' . $tag->name . '</li>';
+									?>
+									<li><?php if (function_exists('z_taxonomy_image')) 
+										echo z_taxonomy_image($tag_id, 'thumbnail');?>
+										<?php echo $tag->name ?> 
+									</li>
+									<?php
 								}
 							}
 							?>
