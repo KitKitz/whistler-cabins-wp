@@ -29,6 +29,42 @@ get_header();
 			?>
 		</div>
 
+		<!-- CABINS SECTION  -->
+		<div class="cabins">
+			<h1>Our Cabins</h1>
+		<?php
+		$args = array (
+					'post_type' 	 =>'product',
+					'posts_per_page' => 3,
+				);
+
+				$query = new WP_Query ($args);
+					if($query->have_posts()){
+						while($query->have_posts()){
+							$query->the_post();
+							$product = wc_get_product(get_the_ID());
+							
+							?>
+							<article>
+						
+							<a href="<?php the_permalink(); ?>">
+							<?php the_post_thumbnail(); ?>
+							<h3><?php the_title(); ?></h3>
+							<p><?php whistler_cabins_category(array(25, 27, 44, 45, 46, 47)); ?></p>
+							</a>
+							<p><?php echo $product->get_price_html(); ?></p>
+							<a href="<?php the_permalink(); ?>">View Cabin</a>
+							</article>
+							<?php
+							
+						}
+						wp_reset_postdata();
+					}
+					?>
+
+		</div>
+
+
 		<!-- FEATURED ACTIVITES SECTION -->
 		<section class="featured-section">
 			<?php
