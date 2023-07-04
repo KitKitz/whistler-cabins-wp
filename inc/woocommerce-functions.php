@@ -43,7 +43,7 @@ function whistler_cabins_shop_init(){
 	);
 
 	function whistler_cabins_category($category_ids) {
-		if (is_shop()) {
+		if (is_shop() || is_front_page()) {
 			global $product;
 			$product_categories = wp_get_post_terms($product->get_id(), 'product_cat', array('fields' => 'ids'));
 	
