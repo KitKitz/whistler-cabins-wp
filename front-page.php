@@ -15,6 +15,8 @@
 get_header();
 ?>
 
+
+
 	<main id="primary" class="site-main">
 		<div class="hero-banner">
 			<?php
@@ -108,6 +110,57 @@ get_header();
 		
 		<!-- GIFT CARD TEMPLATE PART SECITION -->
 		<?php get_template_part('template-parts/content', 'gift-card');?>
+
+		<!-- MAP SECTION -->
+		
+		<section class="home-map-section">
+			<?php
+			if (get_field('map_legend')) {
+				$map_legend = get_field('map_legend'); // Assuming 'map_legend' is the repeater field name
+
+				if (get_field('map_legend')) {
+					$map_legend = get_field('map_legend'); // Assuming 'map_legend' is the repeater field name
+			
+					if ($map_legend) {
+						foreach ($map_legend as $row) {
+							$home_map_icon = $row['home_map_icon']; 
+							$home_map_text = $row['home_map_text']; 
+
+							?>
+							<div class="map-item">
+							<img class="home-map-icon" src="<?php echo $home_map_icon; ?>" alt="<?php echo $home_map_text; ?>">
+							<p class="home-map-text"><?php echo $home_map_text; ?></p>
+							</div>
+						<?php
+						}
+					}
+				}
+			
+				if (have_rows('locations')) :
+					?>
+					<div class="acf-map">
+						<?php while (have_rows('locations')) : the_row();
+							$location = get_sub_field('location');
+							$map_icon = get_sub_field('icon');
+							?>
+							<div class="marker" 
+								data-lat="<?php echo $location['lat']; ?>" 
+								data-lng="<?php echo $location['lng']; ?>" 
+								data-icon="<?php echo $map_icon; ?>">
+									<h4><?php the_sub_field('title'); ?></h4>
+									<p><?php the_sub_field('description'); ?></p>
+							</div>
+						<?php endwhile; ?>
+					</div>
+				<?php
+				endif;
+			}
+			?>
+		</section>
+	
+	<script 
+		src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDpY5bD4tfgPVeApcgQBI0sR76IAX8NrLg&callback=Function.prototype&map_id=b2f5f9f3dfa42c1c"
+	></script>
 
 	</main><!-- #main -->
 
