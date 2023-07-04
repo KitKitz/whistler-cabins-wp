@@ -24,28 +24,21 @@ function whistler_cabins_shop_init(){
 		31
 	);
 
-	function whistler_cabins_category($category_ids) {
+	function whistler_cabins_category() {
 		if (is_shop() || is_front_page()) {
-			global $product;
-			$product_categories = wp_get_post_terms($product->get_id(), 'product_cat', array('fields' => 'ids'));
-	
-			// Check if any of the product's categories match the specified category IDs
-			$matches = array_intersect($product_categories, $category_ids);
-	
-			if (!empty($matches)) {
-				// Loop through the matched categories and display them
-				foreach ($matches as $cat_id) {
-					$category = get_term($cat_id, 'product_cat');
-					?><p><a href="<?php echo get_term_link($category)?>"><?php echo $category->name; ?></a></p><?php
+			if(function_exists('get_field')){
+				if (get_field('cabin_view')){
+					?><p><?php the_field('cabin_view');?></p><?php
+				}
+				if (get_field('cabin_sleeps')){
+					?><p><?php the_field('cabin_sleeps');?></p><?php
 				}
 			}
 		}
 	}
 	
 	add_action('woocommerce_after_shop_loop_item_title', 
-				function() {
-					whistler_cabins_category(array(25, 27, 44, 45, 46, 47));
-				}, 
+				'whistler_cabins_category', 
 				11
 	);
 
