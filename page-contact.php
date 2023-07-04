@@ -48,21 +48,16 @@ get_header();
 			echo '<p>Email: <a href="mailto:' . $email . '">' . $email . '</a></p>';
 		}
 		
-		if (have_rows('locations')) :
-			?>
-			<div class="acf-map">
-				<?php while (have_rows('locations')) : the_row();
-					$location = get_sub_field('location');
-					?>
-
-					<div class="marker" data-lat="<?php echo $location['lat']; ?>" data-lng="<?php echo $location['lng']; ?>">
-						<h4><?php the_sub_field('title'); ?></h4>
-						<p><?php the_sub_field('description'); ?></p>
-					</div>
-				<?php endwhile; ?>
+		$contact_map = get_field('contact_map');
+		$map_icon = get_field('contact_map_icon');
+		if( $contact_map ): ?>
+			<div class="acf-map" data-zoom="16">
+				<div class="marker" 
+				data-lat="<?php echo esc_attr($contact_map['lat']); ?>" 
+				data-lng="<?php echo esc_attr($contact_map['lng']); ?>"
+				data-icon="<?php echo $map_icon?>"></div>
 			</div>
-		<?php
-		endif;
+		<?php endif; 
 	}
 	?>
 
