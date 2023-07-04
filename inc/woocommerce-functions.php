@@ -62,7 +62,7 @@ function whistler_cabins_shop_init(){
 	
 	add_action('woocommerce_after_shop_loop_item_title', 
 				function() {
-					whistler_cabins_category(array(25, 27, 44, 45, 46, 47));
+					whistler_cabins_category(array(25, 27, 43, 44, 45, 46));
 				}, 
 				11
 	);

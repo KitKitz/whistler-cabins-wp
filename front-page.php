@@ -35,9 +35,17 @@ get_header();
 		<div class="cabins">
 			<h1>Our Cabins</h1>
 		<?php
+		$tax_query[] = array(
+			'taxonomy' 	=> 'product_visibility',
+			'field'		=> 'name',
+			'terms'		=> 'featured',
+			'operator'	=> 'IN',
+		);
 		$args = array (
 					'post_type' 	 =>'product',
 					'posts_per_page' => 3,
+					'tax_query'		 => $tax_query
+		
 				);
 
 				$query = new WP_Query ($args);
@@ -75,7 +83,7 @@ get_header();
 						?><h1><?php the_field('fbp_section_title');?></h1><?php
 					}
 					if(get_field('fbp_section_content')){
-						?><p><?php the_field('fbp_section_title');?></p><?php
+						?><p><?php the_field('fbp_section_content');?></p><?php
 					}
 					if(get_field('fbp_section_button')){
 						?><a href="<?php get_post_type_archive_link( 'post' );?>"><?php the_field('fbp_section_button');?></a><?php
