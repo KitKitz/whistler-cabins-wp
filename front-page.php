@@ -15,11 +15,15 @@
 get_header();
 ?>
 
-
-
 	<main id="primary" class="site-main">
+		
+	<!-- HERO SECTION  -->
 		<div class="hero-banner">
 			<?php
+			if (has_post_thumbnail()){
+				the_post_thumbnail();
+			}
+
 			if(function_exists('get_field')){
 				if(get_field('home_hero_title')){
 					?><h1><?php the_field('home_hero_title');?></h1><?php
@@ -34,37 +38,33 @@ get_header();
 		<!-- CABINS SECTION  -->
 		<div class="cabins">
 			<h1>Our Cabins</h1>
-		<?php
-		$args = array (
-					'post_type' 	 =>'product',
-					'posts_per_page' => 3,
-				);
+			<?php
+			$args = array (
+						'post_type' 	 =>'product',
+						'posts_per_page' => 3,
+					);
 
-				$query = new WP_Query ($args);
-					if($query->have_posts()){
-						while($query->have_posts()){
-							$query->the_post();
-							$product = wc_get_product(get_the_ID());
-							
-							?>
-							<article>
-						
+			$query = new WP_Query ($args);
+				if($query->have_posts()){
+					while($query->have_posts()){
+						$query->the_post();
+						$product = wc_get_product(get_the_ID());
+						?>
+
+						<article>
 							<a href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail(); ?>
-							<h3><?php the_title(); ?></h3>
-							<p><?php whistler_cabins_category(array(25, 27, 44, 45, 46, 47)); ?></p>
+								<?php the_post_thumbnail(); ?>
+								<h3><?php the_title(); ?></h3>
+								<p><?php whistler_cabins_category(array(25, 27, 44, 45, 46, 47)); ?></p>
 							</a>
-							<p><?php echo $product->get_price_html(); ?></p>
 							<a href="<?php the_permalink(); ?>">View Cabin</a>
-							</article>
-							<?php
-							
+						</article>
+						<?php
 						}
 						wp_reset_postdata();
 					}
 					?>
-
-		</div>
+			</div>
 
 
 		<!-- FEATURED ACTIVITES SECTION -->
@@ -75,7 +75,7 @@ get_header();
 						?><h1><?php the_field('fbp_section_title');?></h1><?php
 					}
 					if(get_field('fbp_section_content')){
-						?><p><?php the_field('fbp_section_title');?></p><?php
+						?><p><?php the_field('fbp_section_content');?></p><?php
 					}
 					if(get_field('fbp_section_button')){
 						?><a href="<?php get_post_type_archive_link( 'post' );?>"><?php the_field('fbp_section_button');?></a><?php
@@ -94,12 +94,11 @@ get_header();
 							$query->the_post();
 							?>
 							<article>
-						
-							<a href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail(); ?>
-							<h3><?php the_title(); ?></h3>
-							</a>
-					</article>
+								<a href="<?php the_permalink(); ?>">
+								<?php the_post_thumbnail(); ?>
+								<h3><?php the_title(); ?></h3>
+								</a>
+							</article>
 							<?php
 							
 						}
