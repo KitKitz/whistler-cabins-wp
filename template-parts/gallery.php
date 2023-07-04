@@ -1,6 +1,6 @@
 <?php
 /**
- * Template part for displaying testimonial
+ * Template part for displaying product gallery
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
