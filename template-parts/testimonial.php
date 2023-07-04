@@ -19,12 +19,18 @@ if ($query -> have_posts()){
     while($query -> have_posts()){
         $query -> the_post();
         if(function_exists('get_field')){
-            if(get_field('testimonial_content')){
-                echo '<p>'. the_field ('testimonial_content') . '</p>';
-            }
-            if(get_field('testimonial_author')){
-                echo '<p>' . the_field('testimonial_author') . '</p>'; 
-            }
+            ?>
+            <blockquote>
+                <?php 
+                if(get_field('testimonial_content')){
+                    echo '<p>'. the_field ('testimonial_content') . '</p>';
+                }
+                if(get_field('testimonial_author')){
+                    echo '<p>' . the_field('testimonial_author') . '</p>'; 
+                }
+                ?>
+            </blockquote>
+            <?php 
         }
     }
     wp_reset_postdata();
