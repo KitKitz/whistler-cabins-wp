@@ -15,11 +15,15 @@
 get_header();
 ?>
 
-
-
 	<main id="primary" class="site-main">
+		
+	<!-- HERO SECTION  -->
 		<div class="hero-banner">
 			<?php
+			if (has_post_thumbnail()){
+				the_post_thumbnail();
+			}
+
 			if(function_exists('get_field')){
 				if(get_field('home_hero_title')){
 					?><h1><?php the_field('home_hero_title');?></h1><?php
@@ -48,15 +52,14 @@ get_header();
 		
 				);
 
-				$query = new WP_Query ($args);
-					if($query->have_posts()){
-						while($query->have_posts()){
-							$query->the_post();
-							$product = wc_get_product(get_the_ID());
-							
-							?>
-							<article>
-						
+			$query = new WP_Query ($args);
+				if($query->have_posts()){
+					while($query->have_posts()){
+						$query->the_post();
+						$product = wc_get_product(get_the_ID());
+						?>
+
+						<article>
 							<a href="<?php the_permalink(); ?>">
 							<?php the_post_thumbnail(); ?></a>
 							<h3><?php the_title(); ?></h3>
@@ -69,15 +72,13 @@ get_header();
 							}
 							}?>
 							<a href="<?php the_permalink(); ?>">View Cabin</a>
-							</article>
-							<?php
-							
+						</article>
+						<?php
 						}
 						wp_reset_postdata();
 					}
 					?>
-
-		</div>
+			</div>
 
 
 		<!-- FEATURED ACTIVITES SECTION -->
@@ -107,12 +108,11 @@ get_header();
 							$query->the_post();
 							?>
 							<article>
-						
-							<a href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail(); ?>
-							<h3><?php the_title(); ?></h3>
-							</a>
-					</article>
+								<a href="<?php the_permalink(); ?>">
+								<?php the_post_thumbnail(); ?>
+								<h3><?php the_title(); ?></h3>
+								</a>
+							</article>
 							<?php
 							
 						}

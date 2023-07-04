@@ -7,32 +7,14 @@
 function whistler_cabins_shop_init(){
 
 	function whistler_cabins_shop_giftcard_section(){
-		$giftCardProductId = 54;
-		$product = wc_get_product($giftCardProductId);
-		$permalink = $product->get_permalink();
-		?>
-		<section class="gift-card-banner">
-		<?php
-			if(function_exists('get_field')){
-				if(get_field('gc_section_title', 25)){
-					?><h1><?php the_field('gc_section_title', 25);?></h1><?php
-				}
-				if(get_field('gc_section_content' , 25)){
-					?><p><?php the_field('gc_section_content' , 25);?></p><?php
-				}
-				if(get_field('gc_section_button' , 25)){
-					?><a href="<?php echo $permalink?>"><?php the_field('gc_section_button', 25)?></a><?php
-				}
-			}
-		?>
-		</section>
-		<?php
+		get_template_part('template-parts/content', 'gift-card');
 	}
 	add_action(
 		'woocommerce_after_shop_loop',
 		'whistler_cabins_shop_giftcard_section',
 		9
 	);
+
 	function whistler_cabins_sidebar(){
 		get_sidebar();
 	}
@@ -138,6 +120,11 @@ function whistler_cabins_shop_init(){
 		}
 		add_action( 'woocommerce_single_product_summary', 'whistler_cabins_move_description');
 		
+		// Remove Product Short Description field from WooCommerce admin area
+		function remove_short_description() {
+			remove_meta_box( 'postexcerpt', 'product', 'normal');
+		}
+		add_action('add_meta_boxes', 'remove_short_description', 999);
 
 }
 add_action('init', 'whistler_cabins_shop_init');

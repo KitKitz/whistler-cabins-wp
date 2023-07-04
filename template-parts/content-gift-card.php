@@ -17,14 +17,14 @@ if(is_shop() || is_front_page()){
 	<section class="gift-card-banner">
 		<?php
 			if(function_exists('get_field')){
-				if(get_field('gc_section_title')){
-					?><h1><?php the_field('gc_section_title');?></h1><?php
+				if(get_field('gc_section_title', 'option' )){
+					?><h1><?php the_field('gc_section_title', 'option' );?></h1><?php
 				}
-				if(get_field('gc_section_content')){
-					?><p><?php the_field('gc_section_content');?></p><?php
+				if(get_field('gc_section_content', 'option' )){
+					?><p><?php the_field('gc_section_content', 'option' );?></p><?php
 				}
-				if(get_field('gc_section_button')){
-					?><a href="<?php echo $permalink?>"><?php the_field('gc_section_button')?></a><?php
+				if(get_field('gc_section_button', 'option' )){
+					?><a href="<?php echo $permalink?>"><?php the_field('gc_section_button', 'option' ) ?></a><?php
 				}
 			}
 		?>
