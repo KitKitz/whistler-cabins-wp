@@ -14,16 +14,15 @@
 
 get_header();
 ?>
-
+		
 	<main id="primary" class="site-main">
 		
-	<!-- HERO SECTION  -->
+		<!-- HERO SECTION  -->
 		<div class="hero-banner">
 			<?php
 			if (has_post_thumbnail()){
 				the_post_thumbnail();
 			}
-
 			if(function_exists('get_field')){
 				if(get_field('home_hero_title')){
 					?><h1><?php the_field('home_hero_title');?></h1><?php
@@ -38,19 +37,19 @@ get_header();
 		<!-- CABINS SECTION  -->
 		<div class="cabins">
 			<h1>Our Cabins</h1>
-		<?php
-		$tax_query[] = array(
-			'taxonomy' 	=> 'product_visibility',
-			'field'		=> 'name',
-			'terms'		=> 'featured',
-			'operator'	=> 'IN',
-		);
-		$args = array (
-					'post_type' 	 =>'product',
-					'posts_per_page' => 3,
-					'tax_query'		 => $tax_query
-		
-				);
+			<?php
+			$tax_query[] = array(
+				'taxonomy' 	=> 'product_visibility',
+				'field'		=> 'name',
+				'terms'		=> 'featured',
+				'operator'	=> 'IN',
+			);
+
+			$args = array (
+				'post_type' 	 =>'product',
+				'posts_per_page' => 3,
+				'tax_query'		 => $tax_query
+			);
 
 			$query = new WP_Query ($args);
 				if($query->have_posts()){
@@ -63,14 +62,15 @@ get_header();
 							<a href="<?php the_permalink(); ?>">
 							<?php the_post_thumbnail(); ?></a>
 							<h3><?php the_title(); ?></h3>
-							<?php if(function_exists('get_field')){
-							if (get_field('cabin_view')){
-								?><p><?php the_field('cabin_view');?></p><?php
-							}
-							if (get_field('cabin_sleeps')){
-								?><p><?php the_field('cabin_sleeps');?></p><?php
-							}
-							}?>
+							<?php
+							if(function_exists('get_field')){
+								if (get_field('cabin_view')){
+									?><p><?php the_field('cabin_view');?></p><?php
+								}
+								if (get_field('cabin_sleeps')){
+									?><p><?php the_field('cabin_sleeps');?></p><?php
+								}
+								}?>
 							<a href="<?php the_permalink(); ?>">View Cabin</a>
 						</article>
 						<?php
@@ -79,8 +79,7 @@ get_header();
 					}
 					?>
 			</div>
-
-
+			
 		<!-- FEATURED ACTIVITES SECTION -->
 		<section class="featured-section">
 			<?php
@@ -94,14 +93,12 @@ get_header();
 					if(get_field('fbp_section_button')){
 						?><a href="<?php get_post_type_archive_link( 'post' );?>"><?php the_field('fbp_section_button');?></a><?php
 					}
-
 				}
 				// ADD ARGS HERE (will modify when more activity content)
 				$args = array (
 					'post_type' 	 =>'post',
 					'posts_per_page' => 2,
 				);
-
 				$query = new WP_Query ($args);
 					if($query->have_posts()){
 						while($query->have_posts()){

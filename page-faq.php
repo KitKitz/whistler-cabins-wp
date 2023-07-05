@@ -40,15 +40,15 @@ get_header();
 		if( $query -> have_posts() ) :
 			while ( $query->have_posts() ) :
 				$query -> the_post(); ?>
-				<section>
+				<section class="topic-qa">
 					<h2><?php the_title(); ?></h2> <?php
 					
 					// Check if ACF Repeater rows exist and loop 
 					if( function_exists('get_field') && have_rows( 'faq_repeater' ) ) :
 						while( have_rows( 'faq_repeater' ) ) : the_row() ?>
 							<div class="single-qa">
-								<h3><?php the_sub_field( 'faq_question' ); ?></h3>
-								<p><?php the_sub_field( 'faq_answer' ); ?></p>
+								<button class="btn-qa"><p><?php the_sub_field( 'faq_question' ); ?></p></button>
+								<p style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out;"><?php the_sub_field( 'faq_answer' ); ?></p>
 							</div> <?php
 						endwhile;
 					
