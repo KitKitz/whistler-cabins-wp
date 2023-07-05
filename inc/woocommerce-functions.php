@@ -86,20 +86,31 @@ function whistler_cabins_shop_init(){
 		function whistler_cabins_gallery() {
 			if (function_exists('get_field')){
 				$images = get_field( 'gallery' );
-
-				if($images){
-					foreach ( $images as $image ) :
-						$image_id      = $image['ID'];
-						$image_src     = $image['url'];
-						$image_caption = $image['caption'];
+				?>
+				<div class="swiper">
+					<div class="swiper-wrapper">
+						<?php
+						if($images){
+							foreach ( $images as $image ) :
+								$image_id      = $image['ID'];
+								$image_src     = $image['url'];
+								$image_caption = $image['caption'];
+								?>
+									<div class="swiper-slide">
+										<a href="<?php echo esc_url( $image_src ); ?>" title="<?php echo esc_html( $image_caption ); ?>" class="gallery">
+											<?php echo wp_get_attachment_image( $image_id, 'large' ); ?>
+										</a>
+									</div>
+								<?php
+							endforeach;
+						}
 						?>
-							<a href="<?php echo esc_url( $image_src ); ?>" title="<?php echo esc_html( $image_caption ); ?>" class="gallery">
-								<?php echo wp_get_attachment_image( $image_id, 'large' ); ?>
-							</a>
-							<?php
-					endforeach;
-				}
+					</div>
 
+					<div class="swiper-button-prev"></div>
+					<div class="swiper-button-next"></div>
+				</div>
+				<?php
 			}
 		}
 
@@ -128,8 +139,7 @@ function whistler_cabins_shop_init(){
 					
 								if ( $tag ) {
 									?>
-									<li><?php if (function_exists('z_taxonomy_image')) 
-										echo z_taxonomy_image($tag_id, 'thumbnail');?>
+									<li>
 										<?php echo $tag->name ?> 
 									</li>
 									<?php
