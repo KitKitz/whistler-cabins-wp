@@ -166,11 +166,15 @@ function whistler_cabins_scripts() {
 	if(is_home()){
 		wp_enqueue_script( 'getMorePostsBtn.js', get_template_directory_uri() .'/js/getMorePostsBtn.js');
 	}
+  
+  	if (is_product()){
+		wp_enqueue_style( 'swiper-styles', get_template_directory_uri() .'/css/swiper-bundle.css', array(), '10.0.3' );
+		wp_enqueue_script( 'swiper-scripts', get_template_directory_uri() .'/js/swiper-bundle.min.js', array(), '10.0.3', true );
+		wp_enqueue_script( 'swiper-setting', get_template_directory_uri() .'/js/swiper-setting.js', array( 'swiper-scripts' ), _S_VERSION, true );
+    }
 
-	if ( is_front_page() || is_page(17)) {
-
+    if ( is_front_page() || is_page(17)) {
 		wp_enqueue_script( 'custom-map', get_template_directory_uri() . '/js/custom-map.js', array( 'jquery' ), '1.0', true );
-
 		wp_enqueue_script(
 			'google-maps-api',
 			'https://maps.googleapis.com/maps/api/js?key=AIzaSyDpY5bD4tfgPVeApcgQBI0sR76IAX8NrLg&callback=Function.prototype',
@@ -178,8 +182,10 @@ function whistler_cabins_scripts() {
 			null,
 			true
 		);
-	}
+    }
 	
+	
+
 }
 add_action( 'wp_enqueue_scripts', 'whistler_cabins_scripts' );
 
