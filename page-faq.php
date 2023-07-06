@@ -16,7 +16,10 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-
+		<?php
+		while ( have_posts() ) :
+			the_post();
+		?>
 		<section class="hero">
 			<!-- Page title and overview (acf) -->
 			<h1 class="page-title"><?php the_title() ?></h1> <?php
@@ -65,10 +68,10 @@ get_header();
 		else: ?>
 			<p><?php _e( 'Sorry, no FAQs to display.', 'whistler-cabins' ); ?></p> <?php
 		
-		endif; ?>
-
+		endif; 
+	endwhile; ?>
+	
 	</main>
 
 <?php
-get_sidebar();
 get_footer();
