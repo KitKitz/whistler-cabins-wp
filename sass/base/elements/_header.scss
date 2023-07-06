@@ -1,0 +1,10 @@
+header, header.site-header {
+  margin: 2.5rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  > * {
+    display: flex;
+  }
+}
