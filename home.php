@@ -19,9 +19,8 @@ get_header();
 
 		<?php
 		if ( have_posts() ) :
-
 			if ( is_home() && ! is_front_page() ) :
-								?>
+				?>
 				<header>
 					<h1 class="page-title screen-reader-text"><?php single_post_title(); ?></h1>
 				</header>
@@ -29,10 +28,14 @@ get_header();
 			endif;
 			?>
 
-			
-			<section>
+			<section class="hero">
 				<?php
-				//display the title and the intro paragraph
+				// Output the Featured Image of Blog Index: https://wordpress.stackexchange.com/questions/335003/using-featured-image-of-blog-archive-page
+				$blog_index = get_option('page_for_posts');
+				if ( $blog_index && has_post_thumbnail( $blog_index ) ){
+					$thumb_id = get_post_thumbnail_id( $blog_index );
+					echo wp_get_attachment_image( $thumb_id, 'full' );
+				}
 
 				if (function_exists('get_field')){ 
 					
@@ -48,7 +51,6 @@ get_header();
 						echo '</p>';
 					}
 				}
-				
 				?>
 			</section>
 			
@@ -93,7 +95,7 @@ get_header();
 						<article>
 							<h3><?php the_title(); ?></h3>
 							<?php the_post_thumbnail( 'medium' );?>
-							<a href="<?php the_permalink();?>">View Activity</a>
+							<a href="<?php the_permalink();?>" class="button-link">View Activity</a>
 						</article>
 							
 			

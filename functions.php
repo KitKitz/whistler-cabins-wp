@@ -156,8 +156,6 @@ function whistler_cabins_scripts() {
 
 	wp_enqueue_script( 'whistler-cabins-navigation', get_template_directory_uri() . '/js/navigation.js', array(), _S_VERSION, true );
 
-
-
 	
 	if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
@@ -182,7 +180,11 @@ function whistler_cabins_scripts() {
 			null,
 			true
 		);
-    }
+	}
+
+	if (is_page(19)){
+		wp_enqueue_script( 'displayFAQ', get_template_directory_uri() . '/js/displayFAQ.js', array(), '1.0', false );
+	}
 	
 	
 

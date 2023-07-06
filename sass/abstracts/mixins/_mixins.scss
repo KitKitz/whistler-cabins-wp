@@ -9,3 +9,14 @@
 @mixin column-width($numberColumns: 3) {
 	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
 }
+
+
+// Custom
+@mixin button-link {
+	display: block;
+	width: fit-content;
+	border: 1px solid $color__brand;
+	border-radius: 0.25rem;
+	padding: 0.5rem 1rem;
+	margin: 1rem 0;
+}
