@@ -1,5 +1,6 @@
 a {
 	color: $color__link;
+	text-decoration: none;
 
 	&:visited {
 		color: $color__link-visited;
@@ -19,4 +20,8 @@ a {
 	&:active {
 		outline: 0;
 	}
+}
+
+a.button-link {
+	@include button-link;
 }
