@@ -1,0 +1,24 @@
+// section.cabin {
+// styles here
+// }
+
+@media screen and (min-width: $tablet) {
+  section.cabins {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, auto);
+    gap: 1rem;
+
+    h2, a:last-child {
+      grid-column: 1/4;
+    }
+  }
+
+}
+
+section.gift-card, section.featured-activities {
+
+  > p {
+    max-width: 25rem;
+  }
+}

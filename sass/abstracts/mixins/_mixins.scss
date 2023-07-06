@@ -15,8 +15,10 @@
 @mixin button-link {
 	display: block;
 	width: fit-content;
-	border: 1px solid $color__brand;
+	color: inherit;
 	border-radius: 0.25rem;
+	border: 1px solid;
+	border-color: inherit;
 	padding: 0.5rem 1rem;
 	margin: 1rem 0;
 }

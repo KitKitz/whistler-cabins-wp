@@ -3,8 +3,5 @@ header, header.site-header {
   display: flex;
   justify-content: center;
   align-items: center;
-
-  > * {
-    display: flex;
-  }
+  color: $color__brand_dark;
 }
