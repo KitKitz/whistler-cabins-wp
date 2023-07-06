@@ -9,7 +9,6 @@
 
 ?>
 <?php
-if(is_shop() || is_front_page()){
 	$giftCardProductId = 54;
 	$product = wc_get_product($giftCardProductId);
 	$permalink = $product->get_permalink();
@@ -20,7 +19,7 @@ if(is_shop() || is_front_page()){
 		<?php
 			if(function_exists('get_field')){
 				if(get_field('gc_section_title', 'option' )){
-					?><h1><?php the_field('gc_section_title', 'option' );?></h1><?php
+					?><h2><?php the_field('gc_section_title', 'option' );?></h2><?php
 				}
 				if(get_field('gc_section_content', 'option' )){
 					?><p><?php the_field('gc_section_content', 'option' );?></p><?php
@@ -32,5 +31,4 @@ if(is_shop() || is_front_page()){
 		?>
 	</section>
 <?php
-}
 
