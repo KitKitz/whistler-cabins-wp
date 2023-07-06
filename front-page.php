@@ -71,7 +71,7 @@ get_header();
 							<?php
 							if(function_exists('get_field')){
 								if (get_field('cabin_sleeps')){
-									?><p>Sleeps <?php the_field('cabin_sleeps');?></p><?php
+									?><p><?php the_field('cabin_sleeps');?></p><?php
 								}
 								if (get_field('cabin_view')){
 									?><p><?php the_field('cabin_view');?></p><?php
