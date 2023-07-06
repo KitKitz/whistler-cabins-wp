@@ -20,10 +20,8 @@
 			<?php
 			if (function_exists('get_field') && get_field( 'footer_acknowledgement', 'option' )) :
 				?>
-
 				<p><?php the_field( 'footer_acknowledgement', 'option' )?></p>
 				<?php
-
 			endif ?>
 
 		</section>
@@ -33,17 +31,17 @@
 			if (function_exists('get_field')) :
 				
 				if (get_field( 'business_address', 'option' )) : ?>
-					<p><?php the_field( 'business_address', 'option' )?></p>
+					<address><?php the_field( 'business_address', 'option' )?></address>
 					<?php
 				endif; 
 
 				if (get_field( 'business_phone', 'option' )) : ?>
-					<p><?php the_field( 'business_phone', 'option' )?></p>
+					<a href="tel:+1234567890"><?php the_field( 'business_phone', 'option' )?></a>
 					<?php
 				endif;
 
 				if (get_field( 'business_phone', 'option' )) : ?>
-					<p><?php the_field( 'business_email', 'option' )?></p>
+					<a href="mailto:sample@email.com"><?php the_field( 'business_email', 'option' )?></p>
 					<?php
 				endif;
 

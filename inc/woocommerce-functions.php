@@ -147,5 +147,38 @@ function whistler_cabins_shop_init(){
 		}
 		add_action('add_meta_boxes', 'remove_woo_gallery', 999);
 
+		
+		// Add hero section on Shop page, retrieve ACF values as content, get featured image
+		function whistler_cabins_shop_hero() {
+			if (is_shop()){ 
+				if ( has_post_thumbnail( 25 ) ){ ?>
+					<section class="hero"><?php
+					$thumb_id = get_post_thumbnail_id( 25 );
+					echo wp_get_attachment_image( $thumb_id , 'full' );
+				}
+				?>
+				
+				<h1><?php woocommerce_page_title(); ?></h1>
+
+				<?php
+				if(function_exists('get_field')){
+					if(get_field( 'shop_hero_content', 25 )){
+						?><p><?php the_field( 'shop_hero_content', 25 );?></p></section>
+						<?php
+					}
+				}
+			}
+		}
+		add_action( 'woocommerce_before_main_content', 'whistler_cabins_shop_hero', 5 );
+
+		// on Shop, modify the default behaviour of displaying page title
+		add_filter( 'woocommerce_show_page_title', 'whistler_cabins_hide_shop_title' );
+		function whistler_cabins_hide_shop_title($shop_title){
+			if (is_shop()){
+				return false;
+			}
+			return $shop_title;
+		}
+
 }
 add_action('init', 'whistler_cabins_shop_init');

@@ -23,27 +23,22 @@ get_header();
 
 			<section class="hero">
 				<?php
-				// Output the Featured Image of Blog Index: https://wordpress.stackexchange.com/questions/335003/using-featured-image-of-blog-archive-page
 				$blog_index = get_option('page_for_posts');
 				if ( $blog_index && has_post_thumbnail( $blog_index ) ){
 					$thumb_id = get_post_thumbnail_id( $blog_index );
 					echo wp_get_attachment_image( $thumb_id, 'full' );
 				}
-
-				if (function_exists('get_field')){ 
-					
-					if (get_field('activities_hero_title', 14)){
-						echo '<h1>';
-						the_field('activities_hero_title', 14);
-						echo '</h1>';
+				?>
+				<h1><?php echo get_the_title(); ?></h1>
+				
+				<?php
+				if (function_exists('get_field')){
+					if(get_field( 'activities_hero_content', 14 )) {
+						?>
+						<p><?php the_field( 'activities_hero_content' , 14 ); ?></p>
+						<?php
 					}
-					
-					if ( get_field( 'activities_hero_content', 14 ) ) {
-						echo '<p>';
-						the_field( 'activities_hero_content', 14 );
-						echo '</p>';
-					}
-				}
+				} 
 				?>
 			</section>
 			
