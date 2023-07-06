@@ -16,9 +16,15 @@ get_header();
 ?>
 
 	<main id="primary" class="site-main">
-		<h1><?php the_title();?></h1>
 		<?php
+		while ( have_posts() ) :
+			the_post();
+
 		$size = 'medium';
+		?>
+		<h1><?php the_title();?></h1>
+		<section class="about-us">
+		<?php
 			if (function_exists('get_field')){
 				if(get_field('about_page_heading')){
 					?><h1><?php the_field('about_page_heading');?></h1><?php
@@ -38,6 +44,10 @@ get_header();
 				if(get_field('about_text_2')){
 					?><p><?php the_field('about_text_2')?></p><?php
 				}
+				?>
+				</section>
+				<section class="about-video">
+				<?php
 				//video url: https://youtu.be/pqRBvwsh7F4 
 				if(get_field('about_video')){
 					$iframe = get_field('about_video');
@@ -64,9 +74,13 @@ get_header();
 
 				// Display customized HTML.
 				echo $iframe;
+				?>
+				</section>
+				<section class="instagram-feed">
+				<?php
 
 				if(get_field('follow_us_instagram')){
-					?><h1><?php the_field('follow_us_instagram');?></h1><?php
+					?><h2><?php the_field('follow_us_instagram');?></h2><?php
 				}
 				if(get_field('instagram_link')){
 					?><a href="<?php the_field('instagram_link');?>" target="_blank" rel="noreferrer">@alpenglowcabins</a><?php
@@ -76,11 +90,13 @@ get_header();
 				}
 
 				}
+				?>
+				</section><?php
 			}
+		endwhile;
 		?>
 
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

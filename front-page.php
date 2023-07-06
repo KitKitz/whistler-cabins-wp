@@ -105,7 +105,7 @@ get_header();
 				if (function_exists('get_field')){
 					if(get_field('fbp_section_title')){
 						?>
-						<h1><?php the_field('fbp_section_title');?></h1><?php
+						<h2><?php the_field('fbp_section_title');?></h2><?php
 					}
 					if(get_field('fbp_section_content')){
 						?><p><?php the_field('fbp_section_content');?></p><?php
@@ -186,5 +186,4 @@ get_header();
 	</main>
 
 <?php
-get_sidebar();
 get_footer();
