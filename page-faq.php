@@ -17,7 +17,7 @@ get_header();
 
 	<main id="primary" class="site-main">
 
-		<header class="page-header">
+		<section class="hero">
 			<!-- Page title and overview (acf) -->
 			<h1 class="page-title"><?php the_title() ?></h1> <?php
 
@@ -26,7 +26,7 @@ get_header();
 					<p><?php the_field('faq_page_overview') ?></p> <?php
 				endif;
 			endif; ?>
-		</header>
+		</section>
 
 		<?php 
 		// Get FAQ CPT
@@ -37,31 +37,34 @@ get_header();
 		);
 		$query = new WP_Query($args); 
 
-		if( $query -> have_posts() ) :
-			while ( $query->have_posts() ) :
-				$query -> the_post(); ?>
-				<section class="topic-qa">
-					<h2><?php the_title(); ?></h2> <?php
-					
-					// Check if ACF Repeater rows exist and loop 
-					if( function_exists('get_field') && have_rows( 'faq_repeater' ) ) :
-						while( have_rows( 'faq_repeater' ) ) : the_row() ?>
-							<div class="single-qa">
-								<button class="btn-qa"><p><?php the_sub_field( 'faq_question' ); ?></p></button>
-								<p style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out;"><?php the_sub_field( 'faq_answer' ); ?></p>
-							</div> <?php
-						endwhile;
-					
-					else: ?>
-					<p><?php _e( 'Sorry, no FAQs to display.', 'whistler-cabins' ); ?></p> <?php
-					endif; ?> 
 
-				</section> <?php
-			endwhile;
-			wp_reset_postdata();
+		if( $query -> have_posts() ) : ?>
+			<?php
+				while ( $query->have_posts() ) :
+					$query -> the_post(); ?>
+					<section class="topic-qa">
+						<button class="btn-topic"><p><?php the_title(); ?></p></button> <?php
+						
+						// Check if ACF Repeater rows exist and loop 
+						if( function_exists('get_field') && have_rows( 'faq_repeater' ) ) :
+							while( have_rows( 'faq_repeater' ) ) : the_row() ?>
+								<div class="single-qa" style="display: none;">
+									<button class="btn-qa"><p><?php the_sub_field( 'faq_question' ); ?></p></button>
+									<p style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out;"><?php the_sub_field( 'faq_answer' ); ?></p>
+								</div> <?php
+							endwhile;
+						
+						else: ?>
+						<p><?php _e( 'Sorry, no FAQs to display.', 'whistler-cabins' ); ?></p> <?php
+						endif; ?> 
 
+					</section> <?php
+				endwhile;
+				wp_reset_postdata();
+		
 		else: ?>
 			<p><?php _e( 'Sorry, no FAQs to display.', 'whistler-cabins' ); ?></p> <?php
+		
 		endif; ?>
 
 	</main>
