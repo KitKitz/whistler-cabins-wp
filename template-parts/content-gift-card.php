@@ -13,8 +13,10 @@ if(is_shop() || is_front_page()){
 	$giftCardProductId = 54;
 	$product = wc_get_product($giftCardProductId);
 	$permalink = $product->get_permalink();
+	$photo = wp_get_attachment_image( $product->get_image_id(), 'large' );
 ?>
-	<section class="gift-card-banner">
+	<section class="gift-card">
+		<?php echo $photo ?>
 		<?php
 			if(function_exists('get_field')){
 				if(get_field('gc_section_title', 'option' )){
@@ -24,7 +26,7 @@ if(is_shop() || is_front_page()){
 					?><p><?php the_field('gc_section_content', 'option' );?></p><?php
 				}
 				if(get_field('gc_section_button', 'option' )){
-					?><a href="<?php echo $permalink?>"><?php the_field('gc_section_button', 'option' ) ?></a><?php
+					?><a href="<?php echo $permalink?>" class="button-link"><?php the_field('gc_section_button', 'option' ) ?></a><?php
 				}
 			}
 		?>
