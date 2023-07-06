@@ -71,18 +71,6 @@ function whistler_cabins_setup() {
 		)
 	);
 
-	// Set up the WordPress core custom background feature.
-	add_theme_support(
-		'custom-background',
-		apply_filters(
-			'whistler_cabins_custom_background_args',
-			array(
-				'default-color' => 'ffffff',
-				'default-image' => '',
-			)
-		)
-	);
-
 	// Add theme support for selective refresh for widgets.
 	add_theme_support( 'customize-selective-refresh-widgets' );
 
@@ -246,10 +234,10 @@ add_action('acf/init', 'my_acf_init');
  * ACF Options page. All data saved on an options page is global.
  * @link https://www.advancedcustomfields.com/resources/options-page/
  */
-
- if( function_exists('acf_add_options_page') ) {
-    
-	acf_add_options_page();
-	
-}
-
+if ( function_exists('acf_add_options_page') ) {
+	acf_add_options_page(array(
+		'page_title' => 'General Content',
+		'menu_title' => 'General Content',
+		'menu_slug' => 'general-content',
+	));
+};
