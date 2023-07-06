@@ -39,7 +39,7 @@ get_header();
 			
 			<?php
 			if(function_exists('get_field') && get_field('cabins_section_title')){ ?>
-				<h1><?php the_field('cabins_section_title') ?></h1><?php
+				<h2><?php the_field('cabins_section_title') ?></h2><?php
 			}
 			?>
 

@@ -1,3 +1,17 @@
+// Custom
+$color__invert: #fff;
+$color__body: #fafafa;
+$color__brand: #64816a;
+$color__brand_dark: #38483B;
+$color__accent: #574964;
+$color__accent_dark: #3E3447;
+
+$color__text-main: #282828;
+$color__link: $color__text-main;
+$color__link-visited: $color__text-main;
+$color__link-hover: $color__text-main;
+//
+
 $color__background-body: #fff;
 $color__background-screen: #f1f1f1;
 $color__background-hr: #ccc;
@@ -10,21 +24,9 @@ $color__text-input: #666;
 $color__text-input-focus: #111;
 
 
-$color__border-button: #ccc #ccc #bbb;
-$color__border-button-hover: #ccc #bbb #aaa;
-$color__border-button-focus: #aaa #bbb #bbb;
+$color__border-button: #38483B;
+$color__border-button-hover: #64816a;
+$color__border-button-focus: #64816a;
 $color__border-input: #ccc;
-$color__border-abbr: #666;
+$color__border-abbr: $color__brand;
 
-// Custom
-$color__invert: #fff;
-$color__body: #fafafa;
-$color__brand: #64816A;
-$color__brand_dark: #38483B;
-$color__accent: #574964;
-$color__accent_dark: #3E3447;
-
-$color__text-main: #282828;
-$color__link: $color__text-main;
-$color__link-visited: $color__text-main;
-$color__link-hover: $color__text-main;
