@@ -141,5 +141,11 @@ function whistler_cabins_shop_init(){
 		}
 		add_action('add_meta_boxes', 'remove_short_description', 999);
 
+		//remove woocommerce gallery
+		function remove_woo_gallery() {
+			remove_meta_box( 'woocommerce-product-images', 'product', 'normal');
+		}
+		add_action('add_meta_boxes', 'remove_woo_gallery', 999);
+
 }
 add_action('init', 'whistler_cabins_shop_init');
