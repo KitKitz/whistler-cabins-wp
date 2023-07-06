@@ -23,42 +23,35 @@ get_header();
 
 			get_template_part( 'template-parts/content', 'page' );
 
-			// If comments are open or we have at least one comment, load up the comment template.
-			if ( comments_open() || get_comments_number() ) :
-				comments_template();
-			endif;
+			if (function_exists('get_field')) {
+				if (get_field('business_address')) {
+					$address = get_field('business_address');
+					echo '<p>Address: ' . $address . '</p>';
+				}
+				
+				if (get_field('business_phone')) {
+					$phone = get_field('business_phone');
+					echo '<p>Phone: ' . $phone . '</p>';
+				}
+				
+				if (get_field('business_email')) {
+					$email = get_field('business_email');
+					echo '<p>Email: <a href="mailto:' . $email . '">' . $email . '</a></p>';
+				}
+				
+				$contact_map = get_field('contact_map');
+				$map_icon = get_field('contact_map_icon');
+				if( $contact_map ): ?>
+					<div class="acf-map" data-zoom="16">
+						<div class="marker" 
+						data-lat="<?php echo esc_attr($contact_map['lat']); ?>" 
+						data-lng="<?php echo esc_attr($contact_map['lng']); ?>"
+						data-icon="<?php echo $map_icon?>"></div>
+					</div>
+				<?php endif; 
+			}
 
 		endwhile; // End of the loop.
-	?>
-
-	<?php
-	if (function_exists('get_field')) {
-		if (get_field('business_address')) {
-			$address = get_field('business_address');
-			echo '<p>Address: ' . $address . '</p>';
-		}
-		
-		if (get_field('business_phone')) {
-			$phone = get_field('business_phone');
-			echo '<p>Phone: ' . $phone . '</p>';
-		}
-		
-		if (get_field('business_email')) {
-			$email = get_field('business_email');
-			echo '<p>Email: <a href="mailto:' . $email . '">' . $email . '</a></p>';
-		}
-		
-		$contact_map = get_field('contact_map');
-		$map_icon = get_field('contact_map_icon');
-		if( $contact_map ): ?>
-			<div class="acf-map" data-zoom="16">
-				<div class="marker" 
-				data-lat="<?php echo esc_attr($contact_map['lat']); ?>" 
-				data-lng="<?php echo esc_attr($contact_map['lng']); ?>"
-				data-icon="<?php echo $map_icon?>"></div>
-			</div>
-		<?php endif; 
-	}
 	?>
 
 	</main><!-- #main -->
