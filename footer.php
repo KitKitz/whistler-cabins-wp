@@ -36,12 +36,12 @@
 				endif; 
 
 				if (get_field( 'business_phone', 'option' )) : ?>
-					<a href="tel:+1234567890"><?php the_field( 'business_phone', 'option' )?></a>
+					<a href="<?php the_field( 'business_phone', 'option' )?>"><?php the_field( 'business_phone', 'option' )?></a>
 					<?php
 				endif;
 
 				if (get_field( 'business_phone', 'option' )) : ?>
-					<a href="mailto:sample@email.com"><?php the_field( 'business_email', 'option' )?></p>
+					<a href="mailto:<?php the_field( 'business_email', 'option')?>"><?php the_field( 'business_email', 'option' )?></p>
 					<?php
 				endif;
 
