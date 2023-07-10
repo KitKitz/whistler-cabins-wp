@@ -22,13 +22,3 @@
 	padding: 0.5rem 1rem;
 	margin: 1rem 0;
 }
-
-@mixin wave {
-	position: absolute;
-	background-image: url(../../../assets/wave-white.png);
-	background-position: bottom;
-	background-repeat: no-repeat;
-	background-size: 160% 80%;
-	left: 0;
-	width: 100%;
-}
