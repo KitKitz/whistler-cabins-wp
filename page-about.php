@@ -27,7 +27,7 @@ get_header();
 		<?php
 			if (function_exists('get_field')){
 				if(get_field('about_page_heading')){
-					?><h1><?php the_field('about_page_heading');?></h1><?php
+					?><h2><?php the_field('about_page_heading');?></h2><?php
 				}
 				$image1 = get_field('about_photo_1');
 				if(!empty($image1)){ 
@@ -63,7 +63,8 @@ get_header();
 					'autohide'  => 1,
 					'autoplay'	=> 1,
 					'loop'		=> 1,
-					'mute'		=> 1, 
+					'mute'		=> 1,
+					'playlist'  => 'pqRBvwsh7F4',
 				);
 				$new_src = add_query_arg($params, $src);
 				$iframe = str_replace($src, $new_src, $iframe);

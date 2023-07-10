@@ -29,7 +29,7 @@ get_header();
 				?>
 				
 					<article>
-						<h3><?php the_title(); ?></h3>
+						<h2><?php the_title(); ?></h2>
 						<?php the_post_thumbnail( 'medium' );?>
 						<a href="<?php the_permalink();?>">View Activity</a>
 					</article>
