@@ -51,7 +51,6 @@ function whistler_cabins_setup() {
 		array(
 			'menu-1' => esc_html__( 'Primary', 'whistler-cabins' ),
 			'menu-2' => esc_html__( 'Footer', 'whistler-cabins' ),
-			'menu-3' => esc_html__( 'Footer Social', 'whistler-cabins' ),
 		)
 	);
 
