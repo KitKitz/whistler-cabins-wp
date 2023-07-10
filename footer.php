@@ -26,6 +26,17 @@
 
 		</section>
 
+		<nav id="site-navigation" class="footer-navigation">
+			<?php
+			wp_nav_menu(
+				array(
+					'theme_location' => 'menu-2',
+					'menu_id'        => 'footer-menu',
+				)
+			);
+			?>
+		</nav>
+		
 		<section class="business-info">
 		<?php
 			if (function_exists('get_field')) :
@@ -41,7 +52,7 @@
 				endif;
 
 				if (get_field( 'business_phone', 'option' )) : ?>
-					<a href="mailto:sample@email.com"><?php the_field( 'business_email', 'option' )?></p>
+					<a href="mailto:sample@email.com"><?php the_field( 'business_email', 'option' )?></a>
 					<?php
 				endif;
 
@@ -49,16 +60,21 @@
 
 		</section>
 
-		<nav id="site-navigation" class="footer-navigation">
-			<?php
-			wp_nav_menu(
-				array(
-					'theme_location' => 'menu-2',
-					'menu_id'        => 'footer-menu',
-				)
-			);
-			?>
-		</nav>
+	
+
+		<section>
+			<p><?php _e( '&copy; Alpenglow Cabins 2023', 'whistler-cabins' ) ?></p>
+			<nav>
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-3',
+						'menu_id'        => 'footer-social',
+					)
+				);
+				?>
+			</nav>
+		</section>
 
 	</footer>
 </div>
