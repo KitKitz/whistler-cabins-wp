@@ -1,0 +1,46 @@
+section.gift-card {
+  background-color: $color__accent;
+  color: $color__invert;
+  margin: 5rem 0;
+  padding: 5rem 1rem;
+  display: grid;
+  justify-items: center;
+  position: relative;
+
+  h2 { 
+    text-align: center;
+  }
+
+  p, img {
+    width: 100%;
+    max-width: 30rem;
+  }
+
+  p {
+    max-width: 25rem;
+  }
+
+  a.button-link {
+    background-color: $color__invert;
+    color: $color__accent;
+    font-weight: 600;
+    place-self: start;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  section.gift-card {
+    margin: 10rem 0;
+    grid-template-columns: minmax(auto, 30rem) max-content;
+    grid-template-rows: 1fr auto 1fr;
+    justify-items: start;
+    justify-content: center;
+    align-items: center;
+    column-gap: 2rem;
+    padding: 5rem 2rem;
+
+    img {
+      grid-row: 1/5;
+    }
+  }
+}
