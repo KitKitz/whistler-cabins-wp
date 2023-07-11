@@ -1,3 +1,4 @@
+@use '../../abstracts/mixins/mixins' as*;
 ul.products {
 	margin: 0;
 	padding: 0;
@@ -6,6 +7,9 @@ ul.products {
 		list-style: none;
 		position: relative;
 		margin-bottom: 2em;
+		width:18rem;
+		position:relative;
+		// display:flex;
 
 		img {
 			display: block;
@@ -13,6 +17,12 @@ ul.products {
 
 		.button {
 			display: block;
+			position:absolute;
+			right:0;
+			bottom:0;
+
+			@include button-main;
+			
 		}
 	}
 }
@@ -22,18 +32,20 @@ ul.products {
 	ul.products {
 
 		li.product {
+			width:18rem;
+			position:relative;
 
-			@include column-width(3);
-			float: left;
-			margin-right: $columns__margin;
+			// @include column-width(3);
+			// float: left;
+			// margin-right: $columns__margin;
 
-			&.first {
-				clear: both;
-			}
+			// &.first {
+			// 	clear: both;
+			// }
 
-			&.last {
-				margin-right: 0;
-			}
+			// &.last {
+			// 	margin-right: 0;
+			// }
 		}
 	}
 
@@ -46,15 +58,15 @@ ul.products {
 
 	}
 
-	@for $i from 2 through 6 {
+	// @for $i from 2 through 6 {
 
-		ul.products.columns-#{$i} {
+	// 	ul.products.columns-#{$i} {
 
-			li.product {
+	// 		li.product {
 
-				@include column-width( $i );
-			}
+	// 			@include column-width( $i );
+	// 		}
 
-		}
-	}
+	// 	}
+	// }
 }

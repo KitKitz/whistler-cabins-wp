@@ -43,6 +43,7 @@ get_header();
 			</section>
 			
 			<?php
+			get_sidebar();
 			//display the posts sorted by the categories
 			
 			$taxonomies = get_object_taxonomies( array( 'post_type' => 'post' ) );
@@ -118,5 +119,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

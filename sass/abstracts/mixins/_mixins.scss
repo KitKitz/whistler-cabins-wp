@@ -1,3 +1,4 @@
+@use '../variables/colors';
 // Center block
 @mixin center-block {
 	display: block;
@@ -21,4 +22,16 @@
 	border-color: inherit;
 	padding: 0.5rem 1rem;
 	margin: 1rem 0;
+}
+
+//Custom Main Button - Dark Green 
+@mixin button-main {
+	display: block;
+	width: fit-content;
+	background-color: $color__brand_dark;
+	color: $color__invert;
+	border-radius: 0.25rem;
+	border: 1px solid;
+	border-color: inherit;
+	padding: 0.5rem 1rem;
 }

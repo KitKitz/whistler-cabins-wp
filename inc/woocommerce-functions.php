@@ -47,6 +47,16 @@ function whistler_cabins_shop_init(){
     return __( 'View Cabin', 'woocommerce' );
 	}
 
+	/*Support for larger WooCommerce Thumbnails: 
+	* https://stackoverflow.com/questions/66304605/different-woocommerce-product-thumbnail-size-for-specific-pages
+	*/ 
+	add_filter( 'single_product_archive_thumbnail_size', 'custom_product_archive_thumbnail_size', 1000 );
+	function custom_product_archive_thumbnail_size( $size ) {
+		if( is_shop() || is_front_page() || is_single()) {
+			$size = array('300', '300');
+		}
+		return $size;
+	}
 
 	//Single Cabin functions
 
