@@ -112,15 +112,4 @@
 .footer-navigation {
 	font-size: 1.2rem;
 	font-weight: 600;
-
-	a, a:visited {
-    color: $color__invert;
-    display: block;
-    width: fit-content;
-
-    &:hover, &:active, &:focus {
-      color: inherit;
-    }
-  }
-
 }
