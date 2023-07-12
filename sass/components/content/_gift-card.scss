@@ -1,7 +1,7 @@
 section.gift-card {
   background-color: $color__accent;
   color: $color__invert;
-  margin: 5rem 0;
+  margin: 5rem auto;
   padding: 5rem 1rem;
   display: grid;
   justify-items: center;
@@ -24,8 +24,13 @@ section.gift-card {
     background-color: $color__invert;
     color: $color__accent;
     font-weight: 600;
-    place-self: start;
   }
+
+  &::after {
+    @include wave;
+    background-image: url('./assets/wave-accent.svg');
+  }
+
 }
 
 @media screen and (min-width: $tablet) {
