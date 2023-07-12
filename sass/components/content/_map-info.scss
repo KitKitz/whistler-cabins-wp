@@ -1,0 +1,19 @@
+.map-info {
+    background-color: $color__brand;
+    display: grid;
+    grid-template-columns: repeat(2, minmax(3rem, auto));
+    justify-content: center;
+    padding: 2rem 0;
+    gap: 1rem;
+
+    .home-map-text {
+        color: $color__body;
+    }
+}
+
+@media screen and (min-width: $tablet) {
+    .map-info {
+        width: 40%;
+        align-content: center
+    }
+}
