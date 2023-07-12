@@ -1,4 +1,5 @@
 @use '../../abstracts/variables/colors';
+@use '../../abstracts/variables/breakpoints';
 
 ul,
 ol {
@@ -17,10 +18,11 @@ dd {
 #secondary #block-6 {
 	ul {
 		padding: 0;
-		display: flex;
-		justify-content: flex-start;
-		gap: 2rem;
-
+		@media (min-width:$tablet) {
+			display: flex;
+			justify-content: flex-start;
+			gap: 2rem;
+		}
 		li a {
 			color: $color__brand;
 		}

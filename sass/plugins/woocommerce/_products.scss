@@ -1,4 +1,42 @@
 @use '../../abstracts/mixins/mixins' as*;
+//REMOVE shop page filter before products
+.woocommerce-result-count, .woocommerce-ordering{
+	display:none;
+}
+
+//Cabin Tiles Home Page
+.cabins{
+	article{
+		position:relative;
+		width:300px;
+		margin:2rem 0;
+		a img{
+			width: 300px;
+			height:300px;
+			object-fit: cover;
+			object-position: 50% 50%;
+			border-radius:0.5rem;
+		}
+		h3{
+			font-weight: 500;
+			font-size:1.5rem;
+		}
+		.cabin-info{
+			display:flex;
+			justify-content: flex-start;
+			gap:0.5rem;
+			margin-top:0.5rem;
+		}
+		.button-link{
+			@include button-main;
+			position:absolute;
+			margin:0;
+			bottom:0;
+			right:0;
+		}
+	}
+}
+
 ul.products {
 	margin: 0;
 	padding: 0;
@@ -7,12 +45,29 @@ ul.products {
 		list-style: none;
 		position: relative;
 		margin-bottom: 2em;
-		width:18rem;
+		margin-right:0;
+		width:300px;
 		position:relative;
-		// display:flex;
+		
+		
+		.cabin-info{
+			display:flex;
+			justify-content: flex-start;
+			gap:0.5rem;
+			margin-top:0.5rem;
+		}
 
-		img {
-			display: block;
+		a{
+			display:block;
+			width:300px;
+			.woocommerce-loop-product__title{
+				font-weight: 500;
+				font-size:1.5rem;
+			}
+			img{
+				border-radius:0.5rem;
+			}
+			
 		}
 
 		.button {
@@ -27,12 +82,13 @@ ul.products {
 	}
 }
 
+//Re-write media query/product grid 
+
 @media screen and (min-width: 48em) {
 
 	ul.products {
 
 		li.product {
-			width:18rem;
 			position:relative;
 
 			// @include column-width(3);
