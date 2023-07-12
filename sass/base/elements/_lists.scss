@@ -1,6 +1,11 @@
+@use '../../abstracts/variables/colors';
+@use '../../abstracts/variables/breakpoints';
+
 ul,
 ol {
 	list-style-type: none;
+	margin: 0;
+	padding: 0;
 }
 
 dt {
@@ -9,4 +14,21 @@ dt {
 
 dd {
 	margin: 0 1.5em 1.5em;
+}
+
+.wp-block-woocommerce-product-categories,
+#secondary #block-6 {
+	ul {
+		padding: 0;
+		@media (min-width:$tablet) {
+			display: flex;
+			justify-content: flex-start;
+			gap: 2rem;
+		}
+		li a {
+			color: $color__brand;
+		}
+
+	}
+
 }

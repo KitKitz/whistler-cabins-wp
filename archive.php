@@ -16,12 +16,13 @@ get_header();
 
 			<header class="page-header">
 				<?php
-				the_archive_title( '<h1 class="page-title">', '</h1>' );
+				single_term_title( '<h1 class="page-title">', '</h1>' );
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
 			</header><!-- .page-header -->
 
 			<?php
+			get_sidebar();
 			/* Start the Loop */
 			while ( have_posts() ) :
 				the_post();
@@ -29,7 +30,7 @@ get_header();
 				?>
 				
 					<article>
-						<h3><?php the_title(); ?></h3>
+						<h2><?php the_title(); ?></h2>
 						<?php the_post_thumbnail( 'medium' );?>
 						<a href="<?php the_permalink();?>">View Activity</a>
 					</article>
@@ -58,5 +59,4 @@ get_header();
 	</main><!-- #main -->
 
 <?php
-get_sidebar();
 get_footer();

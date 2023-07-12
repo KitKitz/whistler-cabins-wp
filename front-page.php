@@ -16,7 +16,11 @@ get_header();
 ?>
 		
 	<main id="primary" class="site-main">
-		
+		<?php
+		while ( have_posts() ) :
+			the_post();
+
+		?>
 		<!-- HERO SECTION  -->
 		<section class="hero">
 			<?php
@@ -71,12 +75,13 @@ get_header();
 							<?php
 							if(function_exists('get_field')){
 								if (get_field('cabin_sleeps')){
-									?><p><?php the_field('cabin_sleeps');?></p><?php
+									?><div class="cabin-info guests"><?php get_template_part('icons/user');?><p><?php the_field('cabin_sleeps');?></p></div><?php
 								}
 								if (get_field('cabin_view')){
-									?><p><?php the_field('cabin_view');?></p><?php
+									?><div class="cabin-info view"><?php get_template_part('icons/sea-sun');?><p><?php the_field('cabin_view');?></p></div><?php
 								}
-								}?>
+							}
+							?>
 							<a href="<?php the_permalink(); ?>" class="button-link">View Cabin</a>
 						</article>
 						<?php
@@ -105,7 +110,7 @@ get_header();
 				if (function_exists('get_field')){
 					if(get_field('fbp_section_title')){
 						?>
-						<h1><?php the_field('fbp_section_title');?></h1><?php
+						<h2><?php the_field('fbp_section_title');?></h2><?php
 					}
 					if(get_field('fbp_section_content')){
 						?><p><?php the_field('fbp_section_content');?></p><?php
@@ -179,12 +184,11 @@ get_header();
 				</div>
 			<?php
 			endif;
-			
+		endwhile;
 			?>
 		</section>
 
 	</main>
 
 <?php
-get_sidebar();
 get_footer();
