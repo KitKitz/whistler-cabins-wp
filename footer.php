@@ -47,17 +47,17 @@
 			if (function_exists('get_field')) :
 
 				if (get_field( 'business_address', 'option' )) : ?>
-					<address><?php the_field( 'business_address', 'option' )?></address>
+				<div><?php get_template_part('assets/icons/pin'); ?><address><?php the_field( 'business_address', 'option' )?></address></div>
 					<?php
 				endif; 
 
 				if (get_field( 'business_phone', 'option' )) : ?>
-					<a href="tel:<?php the_field( 'business_phone', 'option' )?>"><?php the_field( 'business_phone', 'option' )?></a>
+				<div><?php get_template_part('assets/icons/phone'); ?><a href="tel:<?php the_field( 'business_phone', 'option' )?>"><?php the_field( 'business_phone', 'option' )?></a></div>
 					<?php
 				endif;
 
 				if (get_field( 'business_email', 'option' )) : ?>
-					<a href="mailto:<?php the_field( 'business_email', 'option')?>"><?php the_field( 'business_email', 'option' )?></a>
+				<div><?php get_template_part('assets/icons/email'); ?><a href="mailto:<?php the_field( 'business_email', 'option')?>"><?php the_field( 'business_email', 'option' )?></a></div>
 					<?php
 				endif;
 

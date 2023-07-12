@@ -18,7 +18,6 @@ footer, footer.site {
 
   a, a:visited {
     color: $color__invert;
-    display: block;
     width: fit-content;
 
     &:hover, &:active, &:focus {
@@ -26,6 +25,13 @@ footer, footer.site {
     }
   }
   
+  section.business-info > div {
+    display: flex;
+    margin: 0.5rem;
+    gap: 0.5rem;
+    align-items: flex-start;
+  }
+
   section:last-child {
     border-top: 1px solid $color__invert;
     display: flex;
