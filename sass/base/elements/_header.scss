@@ -1,7 +1,33 @@
 header, header.site-header {
-  margin: 2.5rem;
+  // margin: 1rem;
+  // width: 100%;
+  // display: flex;
+  // justify-content: center;
+  // align-items: center;
+  
+
+  width: 100%;
+  height: 60px;
+  padding: .5rem;
   display: flex;
-  justify-content: center;
+  justify-content: space-between;  
   align-items: center;
-  color: $color__brand_dark;
+ 
+  .site-branding, 
+  .custom-logo-link {
+    display: inline-block;
+    line-height: 0;
+  }
+
+  .custom-logo {
+    width: 100%;
+    height: 44px;
+  }
+
+  @media screen and (min-width: $tablet) {
+    padding: .5rem 2rem;
+  }
+  
 }
+
+

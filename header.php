@@ -27,12 +27,19 @@
 
 	<header id="masthead" class="site-header">
 		<div class="site-branding">
-			<?php	the_custom_logo(); ?>
-			<p class="site-title"><a href="<?php echo esc_url( home_url( '/' ) ); ?>" rel="home"><?php bloginfo( 'name' ); ?></a></p>		
+			<?php	the_custom_logo(); ?>		
 		</div>
 
 		<nav id="site-navigation" class="main-navigation">
-			<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false"><?php esc_html_e( 'Primary Menu', 'whistler-cabins' ); ?></button>
+		<button class="menu-toggle" aria-controls="primary-menu" aria-expanded="false">
+			<span class="screen-reader-text"><?php esc_html_e( 'Primary Menu', 'whistler-cabins' ); ?></span>
+			<span class="hamburger-icon">
+				<span class="line"></span>
+				<span class="line"></span>
+				<span class="line"></span>
+			</span>
+		</button>
+
 			<?php
 			wp_nav_menu(
 				array(

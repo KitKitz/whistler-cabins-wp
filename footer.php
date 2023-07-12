@@ -13,40 +13,22 @@
 
 	<footer id="colophon" class="site-footer">
 
-		<section class="site-branding">
-			<?php	the_custom_logo(); ?>
-			<h2><?php bloginfo( 'name' ); ?> </h2>
-
+		<section>
 			<?php
-			if (function_exists('get_field') && get_field( 'footer_acknowledgement', 'option' )) :
-				?>
-				<p><?php the_field( 'footer_acknowledgement', 'option' )?></p>
-				<?php
-			endif ?>
-
-		</section>
-
-		<section class="business-info">
-		<?php
 			if (function_exists('get_field')) :
 				
-				if (get_field( 'business_address', 'option' )) : ?>
-					<address><?php the_field( 'business_address', 'option' )?></address>
-					<?php
-				endif; 
+				if (get_field( 'footer_logo', 'option' )) : 
+					echo wp_get_attachment_image( get_field( 'footer_logo', 'option' ), 'full');
+				endif;
 
-				if (get_field( 'business_phone', 'option' )) : ?>
-					<a href="<?php the_field( 'business_phone', 'option' )?>"><?php the_field( 'business_phone', 'option' )?></a>
+				if (get_field('footer_acknowledgement', 'option')) :
+					?>
+						<p><?php the_field('footer_acknowledgement', 'option') ?></p>
 					<?php
 				endif;
 
-				if (get_field( 'business_phone', 'option' )) : ?>
-					<a href="mailto:<?php the_field( 'business_email', 'option')?>"><?php the_field( 'business_email', 'option' )?></p>
-					<?php
-				endif;
-
-			endif ?>
-
+			endif; ?>
+		
 		</section>
 
 		<nav id="site-navigation" class="footer-navigation">
@@ -59,6 +41,43 @@
 			);
 			?>
 		</nav>
+
+		<section class="business-info">
+		<?php
+			if (function_exists('get_field')) :
+
+				if (get_field( 'business_address', 'option' )) : ?>
+				<div><?php get_template_part('assets/icons/pin'); ?><address><?php the_field( 'business_address', 'option' )?></address></div>
+					<?php
+				endif; 
+
+				if (get_field( 'business_phone', 'option' )) : ?>
+				<div><?php get_template_part('assets/icons/phone'); ?><a href="tel:<?php the_field( 'business_phone', 'option' )?>"><?php the_field( 'business_phone', 'option' )?></a></div>
+					<?php
+				endif;
+
+				if (get_field( 'business_email', 'option' )) : ?>
+				<div><?php get_template_part('assets/icons/email'); ?><a href="mailto:<?php the_field( 'business_email', 'option')?>"><?php the_field( 'business_email', 'option' )?></a></div>
+					<?php
+				endif;
+
+			endif ?>
+
+		</section>
+
+		<section>
+			<p><?php _e( '&copy; Alpenglow Cabins 2023', 'whistler-cabins' ) ?></p>
+			<nav>
+				<?php
+				wp_nav_menu(
+					array(
+						'theme_location' => 'menu-3',
+						'menu_id'        => 'footer-social',
+					)
+				);
+				?>
+			</nav>
+		</section>
 
 	</footer>
 </div>

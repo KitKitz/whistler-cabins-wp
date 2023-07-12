@@ -33,3 +33,14 @@
 	border-radius: 0.5rem;
 	padding: 0.5rem 1rem;
 }
+@mixin wave {
+	content: "";
+	position: absolute;
+	background-repeat: no-repeat;
+	background-position: bottom;
+	background-size: 100%;
+	width: 100%;
+	height: 15rem;
+	top: -232px;
+	left: 0;
+}
