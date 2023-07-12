@@ -27,11 +27,11 @@ function whistler_cabins_shop_init(){
 	function whistler_cabins_category() {
 		if (is_shop() || is_front_page()) {
 			if(function_exists('get_field')){
-				if (get_field('cabin_view')){
-					?><p><?php the_field('cabin_view');?></p><?php
-				}
 				if (get_field('cabin_sleeps')){
-					?><p><?php the_field('cabin_sleeps');?></p><?php
+					?><div class="cabin-info guests"><?php get_template_part('icons/user');?><p><?php the_field('cabin_sleeps');?></p></div><?php
+				}
+				if (get_field('cabin_view')){
+					?><div class="cabin-info view"><?php get_template_part('icons/sea-sun');?><p><?php the_field('cabin_view');?></p></div><?php
 				}
 			}
 		}
@@ -47,6 +47,12 @@ function whistler_cabins_shop_init(){
     return __( 'View Cabin', 'woocommerce' );
 	}
 
+	//Support for larger WooCommerce Thumbnails: 
+	add_filter( 'single_product_archive_thumbnail_size', 'custom_product_archive_thumbnail_size', 1000 );
+	function custom_product_archive_thumbnail_size( $size ) {
+		$size = array('300', '300');
+		return $size;
+	}
 
 	//Single Cabin functions
 

@@ -75,12 +75,13 @@ get_header();
 							<?php
 							if(function_exists('get_field')){
 								if (get_field('cabin_sleeps')){
-									?><p><?php the_field('cabin_sleeps');?></p><?php
+									?><div class="cabin-info guests"><?php get_template_part('icons/user');?><p><?php the_field('cabin_sleeps');?></p></div><?php
 								}
 								if (get_field('cabin_view')){
-									?><p><?php the_field('cabin_view');?></p><?php
+									?><div class="cabin-info view"><?php get_template_part('icons/sea-sun');?><p><?php the_field('cabin_view');?></p></div><?php
 								}
-								}?>
+							}
+							?>
 							<a href="<?php the_permalink(); ?>" class="button-link">View Cabin</a>
 						</article>
 						<?php
