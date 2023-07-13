@@ -141,9 +141,11 @@ get_header();
 							?>
 
 							<article>
-								<h3><?php the_title(); ?></h3>
+								<div class="activities-info"> 
+									<h3><?php the_title(); ?></h3>
+									<a href="<?php the_permalink();?>" class="button-link">View Activity</a>
+								</div>
 								<?php the_post_thumbnail( 'large' );?>
-								<a href="<?php the_permalink();?>" class="button-link">View Activity</a>
 							</article>
 							
 							<?php

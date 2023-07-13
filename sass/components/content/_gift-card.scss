@@ -30,6 +30,7 @@ section.gift-card {
     @include wave;
     background-image: url('./assets/wave-accent.svg');
     top: -232px;
+    z-index: -10;
   }
 
 }
