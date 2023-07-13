@@ -2,7 +2,6 @@ footer, footer.site {
   background-color: $color__accent_dark;
   color: $color__invert;
   padding: 5rem 1rem 2.5rem;
-  margin: 5rem auto 0;
   font-size: 0.8rem;
 
   > * {
@@ -27,7 +26,7 @@ footer, footer.site {
   
   section.business-info > div {
     display: flex;
-    margin: 0.5rem;
+    margin: 0.5rem 0;
     gap: 0.5rem;
     align-items: flex-start;
   }
