@@ -27,15 +27,23 @@ get_header();
 			if (has_post_thumbnail()){
 				the_post_thumbnail();
 			}
+			
 			if(function_exists('get_field')){
-				if(get_field('home_hero_title')){
-					?><h1><?php the_field('home_hero_title');?></h1><?php
-				}
-				if(get_field('home_hero_content')){
-					?><p><?php the_field('home_hero_content');?></p><?php
-				}
-			}
+				?>
+				<div class="align-center">
+					<?php 
+					if(get_field('home_hero_title')){
+						?><h1><?php the_field('home_hero_title');?></h1><?php
+					}
+					if(get_field('home_hero_content')){
+						?><p><?php the_field('home_hero_content');?></p><?php
+					}
+					?>
+				</div>
+				<?php 
+			}	
 			?>
+			
 		</section>
 
 		<!-- CABINS SECTION  -->
@@ -150,19 +158,24 @@ get_header();
 			<?php
 
 			if (get_field('map_legend')) {
-				$map_legend = get_field('map_legend'); // Assuming 'map_legend' is the repeater field name
-		
+				$map_legend = get_field('map_legend');
+
 				if ($map_legend) {
-					foreach ($map_legend as $row) {
-						$home_map_icon = $row['home_map_icon']; 
-						$home_map_text = $row['home_map_text']; 
+					?>
+					<div class="map-info">
+						<?php
+						foreach ($map_legend as $row) {
+							$home_map_icon = $row['home_map_icon']; 
+							$home_map_text = $row['home_map_text']; 
+							?>
+							
+								<img class="home-map-icon" src="<?php echo $home_map_icon; ?>" alt="<?php echo $home_map_text; ?>">
+								<p class="home-map-text"><?php echo $home_map_text; ?></p>
+							<?php
+						}
 						?>
-						<div class="map-item">
-							<img class="home-map-icon" src="<?php echo $home_map_icon; ?>" alt="<?php echo $home_map_text; ?>">
-							<p class="home-map-text"><?php echo $home_map_text; ?></p>
-						</div>
+					</div>
 					<?php
-					}
 				}
 			}
 			

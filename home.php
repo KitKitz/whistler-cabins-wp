@@ -29,17 +29,20 @@ get_header();
 					echo wp_get_attachment_image( $thumb_id, 'full' );
 				}
 				?>
-				<h1><?php echo get_the_title(); ?></h1>
-				
-				<?php
-				if (function_exists('get_field')){
-					if(get_field( 'activities_hero_content', 14 )) {
-						?>
-						<p><?php the_field( 'activities_hero_content' , 14 ); ?></p>
-						<?php
-					}
-				} 
-				?>
+
+				<div class="align-center"> 
+					<h1><?php echo get_the_title(); ?></h1>
+					
+					<?php
+					if (function_exists('get_field')){
+						if(get_field( 'activities_hero_content', 14 )) {
+							?>
+							<p><?php the_field( 'activities_hero_content' , 14 ); ?></p>
+							<?php
+						}
+					} 
+					?>
+				</div>
 			</section>
 			
 			<?php
@@ -82,9 +85,12 @@ get_header();
 						?>
 				
 						<article>
-							<h3><?php the_title(); ?></h3>
+							<div class="activities-info"> 
+								<h3><?php the_title(); ?></h3>
+								<a href="<?php the_permalink();?>" class="button-link">View Activity</a>
+							</div>
 							<?php the_post_thumbnail( 'medium' );?>
-							<a href="<?php the_permalink();?>" class="button-link">View Activity</a>
+				
 						</article>
 							
 			

@@ -29,6 +29,7 @@ section.gift-card {
   &::before {
     @include wave;
     background-image: url('./assets/wave-accent.svg');
+    top: -232px;
   }
 
 }
