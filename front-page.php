@@ -141,9 +141,11 @@ get_header();
 							?>
 
 							<article>
-								<h3><?php the_title(); ?></h3>
+								<div class="activities-info"> 
+									<h3><?php the_title(); ?></h3>
+									<a href="<?php the_permalink();?>" class="button-link">View Activity</a>
+								</div>
 								<?php the_post_thumbnail( 'large' );?>
-								<a href="<?php the_permalink();?>" class="button-link">View Activity</a>
 							</article>
 							
 							<?php
@@ -158,19 +160,24 @@ get_header();
 			<?php
 
 			if (get_field('map_legend')) {
-				$map_legend = get_field('map_legend'); // Assuming 'map_legend' is the repeater field name
-		
+				$map_legend = get_field('map_legend');
+
 				if ($map_legend) {
-					foreach ($map_legend as $row) {
-						$home_map_icon = $row['home_map_icon']; 
-						$home_map_text = $row['home_map_text']; 
+					?>
+					<div class="map-info">
+						<?php
+						foreach ($map_legend as $row) {
+							$home_map_icon = $row['home_map_icon']; 
+							$home_map_text = $row['home_map_text']; 
+							?>
+							
+								<img class="home-map-icon" src="<?php echo $home_map_icon; ?>" alt="<?php echo $home_map_text; ?>">
+								<p class="home-map-text"><?php echo $home_map_text; ?></p>
+							<?php
+						}
 						?>
-						<div class="map-item">
-							<img class="home-map-icon" src="<?php echo $home_map_icon; ?>" alt="<?php echo $home_map_text; ?>">
-							<p class="home-map-text"><?php echo $home_map_text; ?></p>
-						</div>
+					</div>
 					<?php
-					}
 				}
 			}
 			
