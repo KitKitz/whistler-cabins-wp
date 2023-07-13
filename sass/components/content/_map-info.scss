@@ -1,5 +1,5 @@
 .map-info {
-    background-color: $color__brand;
+    background-color: $color__background;
     display: grid;
     grid-template-columns: repeat(2, minmax(3rem, auto));
     justify-content: center;
@@ -7,7 +7,7 @@
     gap: 1rem;
 
     .home-map-text {
-        color: $color__body;
+        font-weight: bold;
     }
 }
 
