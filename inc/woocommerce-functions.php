@@ -140,30 +140,75 @@ function whistler_cabins_shop_init(){
 			add_action( 'woocommerce_single_product_summary', 'woocommerce_output_product_data_tabs', 35 );
 		}
 		add_action( 'woocommerce_single_product_summary', 'whistler_cabins_move_description');
-		
-		// Remove Product Short Description field from WooCommerce admin area
-		function remove_short_description() {
-			remove_meta_box( 'postexcerpt', 'product', 'normal');
-		}
-		add_action('add_meta_boxes', 'remove_short_description', 999);
-
-		//remove woocommerce gallery
-		function remove_woo_gallery() {
-			remove_meta_box( 'woocommerce-product-images', 'product', 'normal');
-		}
-		add_action('add_meta_boxes', 'remove_woo_gallery', 999);
 
 		
-		// Add hero section on Shop page, retrieve ACF values as content, get featured image
-		function whistler_cabins_shop_hero() {
-			if (is_shop()){ 
-				if ( has_post_thumbnail( 25 ) ){ ?>
-					<section class="hero"><?php
-					$thumb_id = get_post_thumbnail_id( 25 );
-					echo wp_get_attachment_image( $thumb_id , 'full' );
-				}
-				?>
+		// remove the link around a product image
+		function whistler_cabins_remove_product_link( $html ) {
+			return strip_tags( $html, '<div><img>' );
+		}
+		add_action( 'woocommerce_single_product_image_thumbnail_html', 'whistler_cabins_remove_product_link' );
+		
+
+		//display a single product title in the same container as a product image
+		
+		function whistler_cabins_display_product_title() {
+			remove_action('woocommerce_single_product_summary', 'woocommerce_template_single_title', 5);
+			add_action('woocommerce_before_single_product_summary', 'woocommerce_template_single_title', 15);
+			
+		}
+		add_action('woocommerce_before_single_product_summary', 'whistler_cabins_display_product_title');
+
+		//add a hero wrapper
+		function whistler_cabins_wrap_hero_section_open() {
+			echo '<div class="hero">';
+		}
+		
+		add_action( 'woocommerce_before_single_product_summary', 'whistler_cabins_wrap_hero_section_open', 14 );
+ 
+		function whistler_cabins_wrap_hero_section_close() {
+			echo '</div>';
+		}
+		
+		add_action( 'woocommerce_before_single_product_summary', 'whistler_cabins_wrap_hero_section_close', 21 );
+
 				
+
+		//change the display of a product image
+		// function whistler_cabins_product_image_as_featured_image() {
+		// 	global $product;
+
+		// 	remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
+					
+		// 	$image_url = wp_get_attachment_image_src($product->get_image_id(), 'full');
+
+		// 	echo '<img src="' . $image_url[0] . '" class="attachment-post-thumbnail size-post-thumbnail" alt="'.get_post_meta($product->get_image_id(), '_wp_attachment_image_alt', true).'" />';
+		// }
+		// add_action('woocommerce_before_single_product_summary', 'whistler_cabins_product_image_as_featured_image', 20);
+		
+
+	// Remove Product Short Description field from WooCommerce admin area
+	function remove_short_description() {
+		remove_meta_box( 'postexcerpt', 'product', 'normal');
+	}
+	add_action('add_meta_boxes', 'remove_short_description', 999);
+
+	//remove woocommerce gallery
+	function remove_woo_gallery() {
+		remove_meta_box( 'woocommerce-product-images', 'product', 'normal');
+	}
+	add_action('add_meta_boxes', 'remove_woo_gallery', 999);
+
+	
+	// Add hero section on Shop page, retrieve ACF values as content, get featured image
+	function whistler_cabins_shop_hero() {
+		if (is_shop()){ 
+			if ( has_post_thumbnail( 25 ) ){ ?>
+				<section class="hero"><?php
+				$thumb_id = get_post_thumbnail_id( 25 );
+				echo wp_get_attachment_image( $thumb_id , 'full' );
+			}
+			?>
+			<div class="align-center"> 
 				<h1><?php woocommerce_page_title(); ?></h1>
 
 				<?php
@@ -173,18 +218,23 @@ function whistler_cabins_shop_init(){
 						<?php
 					}
 				}
-			}
+				?>
+			</div>
+			<?php
 		}
-		add_action( 'woocommerce_before_main_content', 'whistler_cabins_shop_hero', 5 );
+	}
+	add_action( 'woocommerce_before_main_content', 'whistler_cabins_shop_hero', 5 );
 
-		// on Shop, modify the default behaviour of displaying page title
-		add_filter( 'woocommerce_show_page_title', 'whistler_cabins_hide_shop_title' );
-		function whistler_cabins_hide_shop_title($shop_title){
-			if (is_shop()){
-				return false;
-			}
-			return $shop_title;
+	// on Shop, modify the default behaviour of displaying page title
+	add_filter( 'woocommerce_show_page_title', 'whistler_cabins_hide_shop_title' );
+	function whistler_cabins_hide_shop_title($shop_title){
+		if (is_shop()){
+			return false;
 		}
+		return $shop_title;
+	}
+
+		
 
 }
 add_action('init', 'whistler_cabins_shop_init');
