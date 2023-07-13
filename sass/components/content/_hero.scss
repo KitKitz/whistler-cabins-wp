@@ -1,0 +1,53 @@
+
+.hero {
+    position: relative;
+    
+    img{
+        display: block;
+        height: 50vh;
+        object-fit: cover;
+    }
+
+    .align-center, .align-left-title, .product_title{
+        position: absolute;
+        color:$color__invert;
+        z-index: 50;
+    }
+
+    .align-center{
+        top: 40%; right: 50%;
+        transform: translate(50%,-50%);
+
+        h1{
+            text-align: center;
+        }
+    }
+
+    .align-left-title, .product_title{
+        top: 40%; 
+   
+    }
+    &::after{
+        @include wave;
+        background-image: url('./assets/wave-white.svg');
+        bottom:0; 
+      }
+
+}
+
+@media screen and (min-width: $tablet){
+    .hero{
+
+        h1{
+            font-size:3rem;
+        }
+        
+        .align-left-title, .product_title{
+            left:10%;
+        }
+
+        img{
+            height:70vh;
+        }
+    }
+}

@@ -27,15 +27,23 @@ get_header();
 			if (has_post_thumbnail()){
 				the_post_thumbnail();
 			}
+			
 			if(function_exists('get_field')){
-				if(get_field('home_hero_title')){
-					?><h1><?php the_field('home_hero_title');?></h1><?php
-				}
-				if(get_field('home_hero_content')){
-					?><p><?php the_field('home_hero_content');?></p><?php
-				}
-			}
+				?>
+				<div class="align-center">
+					<?php 
+					if(get_field('home_hero_title')){
+						?><h1><?php the_field('home_hero_title');?></h1><?php
+					}
+					if(get_field('home_hero_content')){
+						?><p><?php the_field('home_hero_content');?></p><?php
+					}
+					?>
+				</div>
+				<?php 
+			}	
 			?>
+			
 		</section>
 
 		<!-- CABINS SECTION  -->

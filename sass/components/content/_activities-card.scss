@@ -1,0 +1,22 @@
+.blog{
+    article{
+        position: relative;
+
+        .activities-info{
+            position: absolute;
+            color: $color__invert;
+            left: 20px;
+            bottom:20px;
+            
+
+            .button-link{
+                border: none;
+                background-color: $color__invert;
+                color: $color__brand_dark;
+            }
+
+        }
+
+        
+    }
+}
