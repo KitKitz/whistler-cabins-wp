@@ -15,10 +15,10 @@
     }
 
     .align-center{
-        top: 40%; right: 50%;
-        transform: translate(50%,-50%);
-
-        h1{
+        top: 0%; 
+        padding: 0 1rem;
+        
+        h1, p{
             text-align: center;
         }
     }
@@ -31,6 +31,7 @@
         @include wave;
         background-image: url('./assets/wave-white.svg');
         bottom:0; 
+        height: 20rem;
       }
 
 }
@@ -40,6 +41,12 @@
 
         h1{
             font-size:3rem;
+        }
+
+        .align-center{
+            top:40%;
+            right: 50%;
+            transform: translate(50%,-50%);
         }
         
         .align-left-title, .product_title{

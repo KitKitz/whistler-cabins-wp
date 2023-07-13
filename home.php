@@ -89,7 +89,7 @@ get_header();
 								<h3><?php the_title(); ?></h3>
 								<a href="<?php the_permalink();?>" class="button-link">View Activity</a>
 							</div>
-							<?php the_post_thumbnail( 'medium' );?>
+							<?php the_post_thumbnail( 'activities-card' );?>
 				
 						</article>
 							
