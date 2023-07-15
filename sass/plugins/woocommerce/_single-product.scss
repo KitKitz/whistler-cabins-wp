@@ -1,9 +1,41 @@
+.product.hero{
+	position:relative;
+	h1.product_title.entry-title{
+		color:$color__invert;
+		position:absolute;
+		top:40%;
+		display: block;
+		padding: 0 1rem;
+	}
+	&::after{
+        @include wave;
+        background-image: url('./assets/wave-white.svg');
+        bottom:0; 
+        height: 20rem;
+      }
+}
 .single-product {
 
 	div.product {
 		position: relative;
 
+		.summary{
+			form.cart{
+				width:40%;
+
+			}
+		}
+		
+
 		.woocommerce-product-gallery {
+			.woocommerce-product-gallery__wrapper{
+				div{
+					img{
+						height:50vh;
+						object-fit:cover;
+					}
+				}
+			}
 			
 			.woocommerce-product-gallery__trigger {
 				position: absolute;

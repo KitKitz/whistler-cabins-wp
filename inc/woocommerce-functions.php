@@ -28,10 +28,10 @@ function whistler_cabins_shop_init(){
 		if (is_shop() || is_front_page()) {
 			if(function_exists('get_field')){
 				if (get_field('cabin_sleeps')){
-					?><div class="cabin-info guests"><?php get_template_part('icons/user');?><p><?php the_field('cabin_sleeps');?></p></div><?php
+					?><div class="cabin-info guests"><?php get_template_part('assets/icons/user');?><p><?php the_field('cabin_sleeps');?></p></div><?php
 				}
 				if (get_field('cabin_view')){
-					?><div class="cabin-info view"><?php get_template_part('icons/sea-sun');?><p><?php the_field('cabin_view');?></p></div><?php
+					?><div class="cabin-info view"><?php get_template_part('assets/icons/sea-sun');?><p><?php the_field('cabin_view');?></p></div><?php
 				}
 			}
 		}
@@ -170,7 +170,11 @@ function whistler_cabins_shop_init(){
 		}
 		
 		add_action( 'woocommerce_before_single_product_summary', 'whistler_cabins_wrap_hero_section_close', 21 );
-		
+
+
+	//move the woocommerce breadcrumb 
+	remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
+
 
 	// Remove Product Short Description field from WooCommerce admin area
 	function remove_short_description() {
@@ -210,6 +214,7 @@ function whistler_cabins_shop_init(){
 		}
 	}
 	add_action( 'woocommerce_before_main_content', 'whistler_cabins_shop_hero', 5 );
+
 
 	// on Shop, modify the default behaviour of displaying page title
 	add_filter( 'woocommerce_show_page_title', 'whistler_cabins_hide_shop_title' );
