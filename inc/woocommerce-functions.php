@@ -170,20 +170,6 @@ function whistler_cabins_shop_init(){
 		}
 		
 		add_action( 'woocommerce_before_single_product_summary', 'whistler_cabins_wrap_hero_section_close', 21 );
-
-				
-
-		//change the display of a product image
-		// function whistler_cabins_product_image_as_featured_image() {
-		// 	global $product;
-
-		// 	remove_action('woocommerce_before_single_product_summary', 'woocommerce_show_product_images', 20);
-					
-		// 	$image_url = wp_get_attachment_image_src($product->get_image_id(), 'full');
-
-		// 	echo '<img src="' . $image_url[0] . '" class="attachment-post-thumbnail size-post-thumbnail" alt="'.get_post_meta($product->get_image_id(), '_wp_attachment_image_alt', true).'" />';
-		// }
-		// add_action('woocommerce_before_single_product_summary', 'whistler_cabins_product_image_as_featured_image', 20);
 		
 
 	// Remove Product Short Description field from WooCommerce admin area

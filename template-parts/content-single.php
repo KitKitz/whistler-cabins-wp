@@ -30,35 +30,55 @@
 				<?php
 				if (get_field('activity_text_1')){?>
 
-					<p><?php the_field('activity_text_1');?></p>
+					<p class="activity-intro"><?php the_field('activity_text_1');?></p>
 				
-				<?php }
+				<?php } ?>
 
-				if ( get_field( 'activity_image_1') ) {
-					echo wp_get_attachment_image( get_field( 'activity_image_1' ), 'large', '');
-				}
-			
-				if ( get_field( 'activity_text_2') ) {?>
-					
-					<p><?php the_field('activity_text_2');?></p>
-					
-				<?php }
+				<div class="activity-offset-1">
+					<div class="activity-offset-2">
+						<div class="activity-1">
+							<?php 
+							if ( get_field( 'activity_image_1') ) {
+								?>
+								<div class="activity-image-wrap"> 	
+									<?php
+									echo wp_get_attachment_image( get_field( 'activity_image_1' ), 'large', '');
+									?>
+								</div>
+								<?php
+							}
+						
+							if ( get_field( 'activity_text_2') ) {?>
+								
+								<p><?php the_field('activity_text_2');?></p>
+								
+							<?php } ?>
+						</div>
 
-				if ( get_field( 'activity_image_2') ) {
-					echo wp_get_attachment_image( get_field( 'activity_image_2' ), 'large', '');
-				}
-
-				if ( get_field( 'activity_text_3') ) {?>
-					
-					<p><?php the_field('activity_text_3');?></p>
-					
-				<?php }
-
-				?>
+						<div class="activity-2">
+							<?php
+							if ( get_field( 'activity_image_2') ) {
+								?>
+								<div class="activity-image-wrap"> 
+								<?php
+								echo wp_get_attachment_image( get_field( 'activity_image_2' ), 'large', '');
+								?>
+								</div>
+								<?php
+							}
+											
+							if ( get_field( 'activity_text_3') ) {?>
+								
+								<p><?php the_field('activity_text_3');?></p>
+							<?php } 
+							?>
+						</div>
+					</div> 
+				</div>
 
 			</section>
 
-			<section>
+			<section class="affiliate-section">
 
 				<?php
 				if (get_field('affiliate_title')){?>

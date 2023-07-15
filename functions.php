@@ -46,6 +46,9 @@ function whistler_cabins_setup() {
 		*/
 	add_theme_support( 'post-thumbnails' );
 
+
+	add_image_size( 'activities-card', 350, 500, true );
+
 	// Register menu location(s). Output menu(s) using wp_nav_menu()
 	register_nav_menus(
 		array(
