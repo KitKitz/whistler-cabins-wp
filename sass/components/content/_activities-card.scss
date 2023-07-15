@@ -2,7 +2,7 @@
     article{
         position: relative;
 
-        .activities-info{
+        .activities-info, .crp_title{
             position: absolute;
             color: $color__invert;
             left: 20px;
@@ -13,6 +13,7 @@
                 border: none;
                 background-color: $color__invert;
                 color: $color__brand_dark;
+                font-weight: 600;
             }
 
         }
