@@ -28,7 +28,9 @@ get_header();
 			if (function_exists('get_field')){
 				if(get_field('about_page_heading')){
 					?><h2><?php the_field('about_page_heading');?></h2><?php
-				}
+				}?>
+				<div class="about-grid">
+				<?php
 				$image1 = get_field('about_photo_1');
 				if(!empty($image1)){ 
 					echo wp_get_attachment_image($image1, $size);
@@ -45,6 +47,7 @@ get_header();
 					?><p><?php the_field('about_text_2')?></p><?php
 				}
 				?>
+				</div>
 				</section>
 				<section class="about-video">
 				<?php
