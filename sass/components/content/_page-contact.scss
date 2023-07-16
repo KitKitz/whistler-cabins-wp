@@ -1,8 +1,9 @@
 .page-id-17 .site-main{
     margin: 0 1rem;
+    
     h1 {
         text-align: center;
-        color: $color__heading;
+        color: $color__brand_dark;
     }
 
     .contact-page-business-info {
@@ -49,7 +50,7 @@
         input[type="email"],
         textarea {
             width: 100%;
-            background-color: $color_background-section;
+            background-color: $color__background_section;
         }
 
         input[type="submit"] {
