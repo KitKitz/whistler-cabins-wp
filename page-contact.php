@@ -20,28 +20,41 @@ get_header();
 	<?php
 		while ( have_posts() ) :
 			the_post();
-
-			get_template_part( 'template-parts/content', 'page' );
-
+			?>
+			<h1><?php the_title();?></h1>
+			<?php
+			get_template_part( 'template-parts/content', 'contact-form' );
+			
 			if (function_exists('get_field')) {
 				?>
 				<div class="contact-page-business-info">
 				<?php
-					if (get_field('business_address')) {
-						$address = get_field('business_address');
-						echo '<p>Address: ' . $address . '</p>';
-					}
-					
-					if (get_field('business_phone')) {
-						$phone = get_field('business_phone');
-						echo '<p>Phone: ' . $phone . '</p>';
-					}
-					
-					if (get_field('business_email')) {
-						$email = get_field('business_email');
-						echo '<p>Email: <a href="mailto:' . $email . '">' . $email . '</a></p>';
-					}
-				?>
+					if (get_field( 'business_address', 'option' )) : ?>
+					<div class="business-info-container">
+						<div class="business-info-item">
+							<?php get_template_part('assets/icons/pin'); ?>
+							<div><p>Location</p><address><?php the_field( 'business_address', 'option' )?></address></div>
+						</div>
+							<?php
+						endif; 
+		
+						if (get_field( 'business_phone', 'option' )) : ?>
+						<div class="business-info-item">
+							<?php get_template_part('assets/icons/phone'); ?>
+							<div><p>Phone</p><a href="tel:<?php the_field( 'business_phone', 'option' )?>"><?php the_field( 'business_phone', 'option' )?></a></div>
+						</div>
+							<?php
+						endif;
+		
+						if (get_field( 'business_email', 'option' )) : ?>
+						<div class="business-info-item">
+							<?php get_template_part('assets/icons/email'); ?>
+							<div><p>Email</p><a href="mailto:<?php the_field( 'business_email', 'option')?>"><?php the_field( 'business_email', 'option' )?></a></div>
+						</div>
+							<?php
+						endif;
+						?>
+					</div>
 				</div>
 		
 				<?php
