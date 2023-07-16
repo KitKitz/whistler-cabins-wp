@@ -59,7 +59,7 @@
 	a {
 		display: block;
 		text-decoration: none;
-		font-weight: 600;
+		font-weight: $font__weight-bold;
 		color: $color__heading;
 		transition: .3s ease-in-out, box-shadow .3s ease-in-out;
 
