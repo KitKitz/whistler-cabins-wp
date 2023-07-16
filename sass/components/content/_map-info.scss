@@ -1,5 +1,6 @@
 .map-info {
-    background-color: $color__background-map;
+
+    background-color: $color__brand_light;
     display: grid;
     grid-template-columns: repeat(2, minmax(3rem, auto));
     justify-content: center;
@@ -18,7 +19,13 @@
 
 @media screen and (min-width: $tablet) {
     .map-info {
-        width: 40%;
+        width: 50%;
         align-content: center
+    }
+}
+
+@media screen and (min-width: $laptop) {
+    .home-map-text {
+        font-size: 1.5rem;
     }
 }
