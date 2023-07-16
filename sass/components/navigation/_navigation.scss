@@ -60,7 +60,7 @@
 		display: block;
 		text-decoration: none;
 		font-weight: $font__weight-bold;
-		color: $color__heading;
+		color: $color__brand;
 		transition: .3s ease-in-out, box-shadow .3s ease-in-out;
 
 		&:hover,
@@ -101,7 +101,7 @@
 	background-color: $color__body;
 	a {
 		margin: 2rem 3rem 0 0;
-		color: $color__heading;
+		color: $color__brand;
 		font-size: 1.25rem;
 	}
 }
@@ -110,7 +110,7 @@
 	.line{
         width: 1.8rem;
         height: .2rem;
-        background-color: $color__heading;
+        background-color: $color__brand;
         display: block;
         margin: .3rem auto;
         transition: all 0.3s ease-in-out;
