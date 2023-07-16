@@ -1,10 +1,16 @@
 .map-info {
+
     background-color: $color__brand_light;
     display: grid;
     grid-template-columns: repeat(2, minmax(3rem, auto));
     justify-content: center;
-    padding: 2rem 0;
-    gap: 1rem;
+    padding: 3rem 0;
+    gap: .5rem;
+
+    .home-map-icon {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
 
     .home-map-text {
         font-weight: bold;
