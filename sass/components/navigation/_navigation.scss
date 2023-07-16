@@ -59,6 +59,7 @@
 	a {
 		display: block;
 		text-decoration: none;
+		font-weight: 600;
 		color: $color__heading;
 		transition: .3s ease-in-out, box-shadow .3s ease-in-out;
 
@@ -102,7 +103,6 @@
 		margin: 2rem 3rem 0 0;
 		color: $color__heading;
 		font-size: 1.25rem;
-		font-weight: 600;
 	}
 }
 
