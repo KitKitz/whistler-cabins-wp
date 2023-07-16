@@ -30,7 +30,8 @@
 
 @media screen and (min-width: $desktop) {
     .map {
+        padding: 0 5rem;
         margin: 5rem auto;
-        max-width: $maxWidth;
+        max-width: 100rem;
     }
 }
