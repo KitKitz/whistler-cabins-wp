@@ -4,21 +4,25 @@
         height: 400px;
         width: 100%;
         max-width: 350px;
-
+        
         > img { 
             height: 100%;
             object-fit: cover;
             width: auto;
             object-position: 50% 50%;
         }
-
+        
         .activities-info, .crp_title{
             position: absolute;
             color: $color__invert;
             left: 20px;
             bottom:20px;
             
-
+            
+            > h3 {
+                font-size: 2rem;
+            }
+            
             .button-link {
                 border: none;
                 background-color: $color__invert;

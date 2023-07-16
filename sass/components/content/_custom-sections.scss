@@ -1,5 +1,6 @@
 .cabins {
-  width: fit-content;
+  grid-template-columns: repeat(3, 1fr);
+  max-width: $maxWidth;
   justify-items: center;
 
   h2, a:last-child {
@@ -12,9 +13,10 @@
   color: $color__brand_dark;
   background-color: $color__background_section;
   position: relative;
+  grid-template-columns: repeat(auto, 1fr) auto auto;
   grid-auto-flow: column;
 
-  div {
+  > div {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -36,14 +38,12 @@
     grid-column-start: 3;
     grid-row: 1/4;
   }
-
-  
 }
 
 @media screen and (min-width: $laptop) {
   .featured-activities {
     background-color: transparent;
-    margin: 5rem auto;
+    padding: 5rem;
 
     div {
       align-items: flex-start;
