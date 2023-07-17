@@ -3,7 +3,23 @@
 	div.product {
 		position: relative;
 
+		.summary{
+			form.cart{
+				width:40%;
+
+			}
+		}
+		
+
 		.woocommerce-product-gallery {
+			.woocommerce-product-gallery__wrapper{
+				div{
+					img{
+						height:50vh;
+						object-fit:cover;
+					}
+				}
+			}
 			
 			.woocommerce-product-gallery__trigger {
 				position: absolute;

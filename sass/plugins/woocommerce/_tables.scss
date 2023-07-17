@@ -1,5 +1,6 @@
 table.shop_table_responsive {
-
+	margin: 1rem;
+	width:90%;
 	thead {
 		display: none;
 	}
@@ -12,14 +13,33 @@ table.shop_table_responsive {
 	}
 
 	tr {
-
+		.product-remove{
+			font-size: 2rem;
+		}
+		.product-subtotal{
+			display: none;
+		}
+		//Coupon Section Inputs
+		.actions{
+			display: flex;
+			flex-wrap: wrap;
+			gap:0.5rem;
+			padding:1rem;
+			border: 1px solid black;
+			border-radius: 1rem;
+			.coupon{
+				margin: 1rem 0;
+				display: flex;
+				gap:0.5rem;
+			}
+		}
 		td {
 			display: block;
-			text-align: right;
+			text-align: left;
 			clear: both;
 
 			&::before {
-				content: attr(data-title) ": ";
+				// content: attr(data-title) ": ";
 				float: left;
 			}
 

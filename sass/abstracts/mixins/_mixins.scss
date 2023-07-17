@@ -8,7 +8,7 @@
 
 // Column width with margin
 @mixin column-width($numberColumns: 3) {
-	width: map-get($columns, $numberColumns) - ( ( $columns__margin * ( $numberColumns - 1 ) ) / $numberColumns );
+	width: map-get($columns, $numberColumns) - calc(calc($columns__margin * ($numberColumns - 1)) / $numberColumns);
 }
 
 
@@ -16,22 +16,14 @@
 @mixin button-link {
 	display: block;
 	width: fit-content;
+	height: fit-content;
 	color: inherit;
 	border-radius: 0.25rem;
 	border: 1px solid;
 	border-color: inherit;
 	padding: 0.5rem 1rem;
 	margin: 1rem 0;
-}
-
-//Custom Main Button - Dark Green 
-@mixin button-main {
-	display: block;
-	width: fit-content;
-	background-color: $color__brand_dark;
-	color: $color__invert;
-	border-radius: 0.5rem;
-	padding: 0.5rem 1rem;
+	font-weight: 600;
 }
 
 @mixin wave {
