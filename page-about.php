@@ -26,9 +26,7 @@ get_header();
 		<section class="about-us">
 		<?php
 			if (function_exists('get_field')){
-				if(get_field('about_page_heading')){
-					?><h2><?php the_field('about_page_heading');?></h2><?php
-				}?>
+				?>
 				<div class="about-grid">
 				<?php
 				$image1 = get_field('about_photo_1');
@@ -53,8 +51,9 @@ get_header();
 				<?php
 				//video url: https://youtu.be/pqRBvwsh7F4 
 				if(get_field('about_video')){
+					?><div class="video-wrapper"><?php
 					$iframe = get_field('about_video');
-
+					
 				// Use preg_match to find iframe src.
 				preg_match('/src="(.+?)"/', $iframe, $matches);
 				$src = $matches[1];
@@ -73,11 +72,19 @@ get_header();
 				$iframe = str_replace($src, $new_src, $iframe);
 
 				// Add extra attributes to iframe HTML.
-				$attributes = 'frameborder="0"';
+				$attributes = 'frameborder="0" width="800" height="450"';
 				$iframe = str_replace('></iframe>', ' ' . $attributes . '></iframe>', $iframe);
 
 				// Display customized HTML.
 				echo $iframe;
+				?>
+				<div class="video-overlay"></div>
+				</div>
+				<?php
+
+				if(get_field('about_page_heading')){
+					?><h2><?php the_field('about_page_heading');?></h2><?php
+				}
 				?>
 				</section>
 				<section class="instagram-feed">
