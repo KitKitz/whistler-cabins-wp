@@ -1,0 +1,109 @@
+@use '../../abstracts/variables/colors';
+@use '../../abstracts/variables/breakpoints';
+
+h1{
+    text-align: center;
+}
+.about-us{
+  position:relative;
+   
+  .about-grid{
+    border-radius: 2rem;
+    @media (min-width: $tablet){
+      display: grid;
+      justify-content: center;
+      align-items: center;
+      grid-template-columns: repeat(6, minmax(auto, 1fr));
+      grid-template-rows: repeat(2,  minmax(150px, 1fr));
+      background-color: $color_background-section;
+      grid-row-gap: 2rem;
+      border-radius: 1rem;
+    }
+   
+    p{
+        margin:2rem 1rem;
+    }
+  }
+    div > img{
+      margin: 0 auto;
+      display:block;
+      @media (min-width: $tablet){
+        grid-column: 2/4;
+        margin:-2rem auto 0;
+      }
+      
+    }
+    p + img{
+      margin: 0 auto;
+      @media (min-width:$tablet) {
+        margin-bottom:-5rem; 
+      }
+    }
+    div p{
+      @media (min-width:$tablet) {
+        grid-column: 4/6;
+      }
+    }
+  
+
+  
+  
+}
+.about-video{
+  position:relative;
+  margin: 8rem auto;
+  .video-wrapper{
+    iframe{
+      margin:0 auto;
+      display: block;
+      border-radius: 1rem;
+      @media (min-width: $tablet){
+        width:736px;
+        height:414px;
+      }
+  }
+  .video-overlay{
+    position: absolute;
+    top: 0;
+    left: 0;
+    right:0;
+    background-color: rgba(0, 0, 0, 0.5); 
+    pointer-events: none;
+    border-radius: 1rem;
+    margin:0 auto;
+    display: block;
+    @media (min-width: $tablet) {
+      width:736px;
+      height: 100%;
+    }
+  }
+  }
+    h2{
+      display: none;
+      @media (min-width: $tablet){
+        position:absolute;
+        color:$color__invert;
+        text-align: center;
+        width:750px;
+        margin:0 auto;
+        display: block;
+        word-wrap: wrap;
+        right:0;
+        left:0;
+        top:50%;
+        z-index: 5;
+      }
+    }
+   
+}
+
+.instagram-feed{
+    text-align:center;
+}
+
+.about-us, .about-video, .instagram-feed{
+  margin:4rem 1rem;
+  @media (min-width: $tablet){
+    margin: 8rem 1rem;
+  }
+}

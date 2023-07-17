@@ -78,15 +78,15 @@ get_header();
 
 						<article>
 							<a href="<?php the_permalink(); ?>">
-							<?php the_post_thumbnail(); ?></a>
+							<?php the_post_thumbnail('product-card'); ?></a>
 							<h3><?php the_title(); ?></h3>
 							<?php
 							if(function_exists('get_field')){
 								if (get_field('cabin_sleeps')){
-									?><div class="cabin-info guests"><?php get_template_part('icons/user');?><p><?php the_field('cabin_sleeps');?></p></div><?php
+									?><div class="cabin-info guests"><?php get_template_part('assets/icons/user');?><p><?php the_field('cabin_sleeps');?></p></div><?php
 								}
 								if (get_field('cabin_view')){
-									?><div class="cabin-info view"><?php get_template_part('icons/sea-sun');?><p><?php the_field('cabin_view');?></p></div><?php
+									?><div class="cabin-info view"><?php get_template_part('assets/icons/sea-sun');?><p><?php the_field('cabin_view');?></p></div><?php
 								}
 							}
 							?>
