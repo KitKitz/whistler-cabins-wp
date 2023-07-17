@@ -71,46 +71,51 @@ get_header();
 			
 						);
 
-					$query = new WP_Query($args);
-			
-					if( $query->have_posts() ) :  
-					
-						echo '<h2>' . esc_html( $term->name ) . '</h2>';
-						$counter = 0;
-						$total_posts = $query->found_posts;
+					$query = new WP_Query($args);?>
+
+					<section class="categories"> 
+						<?php
+						if( $query->have_posts() ) :  
 						
-						while( $query->have_posts() ) : 
-						$query->the_post(); 
-						$counter++;
-						?>
-				
-						<article>
-							<div class="activities-info"> 
-								<h3><?php the_title(); ?></h3>
-								<a href="<?php the_permalink();?>" class="button-link">View Activity</a>
-							</div>
-							<?php the_post_thumbnail( 'activities-card' );?>
-				
-						</article>
+							echo '<h2>' . esc_html( $term->name ) . '</h2>';
+							$counter = 0;
+							$total_posts = $query->found_posts;
 							
-			
-						<?php 
-
-						// display the Get More Posts button when reaching the third post
-						if ( $counter == 3 && $counter < $total_posts ) {
+							while( $query->have_posts() ) : 
+							$query->the_post(); 
+							$counter++;
 							?>
-							<button class="get-more-posts">Get More Posts</button>
-							<div class="hidden-posts" style="display:none;">
-							<?php
-						}
-										
-						endwhile; 
-						echo '</div>';
-						wp_reset_postdata();
+					
+							<article>
+								<div class="activities-info"> 
+									<h3><?php the_title(); ?></h3>
+									<a href="<?php the_permalink();?>" class="button-link">View Activity</a>
+								</div>
+								<?php the_post_thumbnail( 'activities-card' );?>
+					
+							</article>
+								
+				
+							<?php 
 
-																			
-					endif; ?>
-			
+							// display the Get More Posts button when reaching the third post
+							if ( $counter == 3 && $counter < $total_posts ) {
+								?>
+								<button class="get-more-posts">Get More Posts</button>
+								<section class="hidden-posts" style="display:none;">
+								<?php
+							}
+											
+							endwhile;
+							?> 
+								</section>
+							<?php
+							wp_reset_postdata();
+
+																				
+						endif; ?>
+					</section>
+
 				<?php endforeach;
 			
 			endforeach; 
