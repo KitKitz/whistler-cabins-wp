@@ -113,7 +113,7 @@ get_header();
 			
 		<!-- FEATURED ACTIVITES SECTION -->
 		<section class="featured-activities">
-			
+			<div>
 			<?php
 				if (function_exists('get_field')){
 					if(get_field('fbp_section_title')){
@@ -126,8 +126,9 @@ get_header();
 					if(get_field('fbp_section_button')){
 						?><a href="<?php get_post_type_archive_link( 'post' );?>" class="button-link"><?php the_field('fbp_section_button');?></a><?php
 					}
-				}
-
+				}?>
+				</div>
+				<?php
 				// ADD ARGS HERE (will modify when more activity content)
 				$args = array (
 					'post_type' 	 =>'post',

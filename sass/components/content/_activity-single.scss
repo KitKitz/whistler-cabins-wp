@@ -4,7 +4,7 @@
     }
 
     .activity-offset-1{
-        background-color: $color_background-section;
+        background-color: $color__background_section;
         
     }
 
@@ -17,8 +17,10 @@
         }
 
         .button-link{
-            @include button-main;
-            @include center-block; 
+            @include button-link;
+            @include center-block;
+            background-color: $color__brand_dark;
+            color: $color__invert; 
         }
     
     }

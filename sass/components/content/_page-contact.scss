@@ -1,0 +1,131 @@
+.page-id-17 .site-main{
+    margin: 0 1rem;
+    
+    h1 {
+        text-align: center;
+        color: $color__brand_dark;
+    }
+
+    .contact-page-business-info {
+        padding: 2rem;
+        margin: 1rem 0;
+        background-color: $color__brand;
+        border-radius: .5rem;
+
+        .business-info-item {
+            color: $color__invert;
+            display: flex;
+            align-items: flex-start;
+            margin: 0.5rem 0;
+            gap: 0.5rem;
+            p {
+                font-weight: $font__weight-bold;
+                display: block;
+            }
+            a, address{
+                color: $color__invert;
+                font-size: .8rem;
+            }
+
+            svg {
+                transform: translateY(5px);
+            }
+        }
+    }
+
+    article.post-17 {
+        p{
+            margin-bottom: 1rem;
+            &:last-of-type {
+                margin-bottom: 0;
+            }
+        }
+
+        label {
+            font-size: .8rem;
+            font-weight: $font__weight-bold;
+        }
+
+        input[type="text"],
+        input[type="email"],
+        textarea {
+            width: 100%;
+            background-color: $color__background_section;
+        }
+
+        input[type="submit"] {
+            background-color: $color__brand_dark;
+            color: $color__invert;
+            border-radius: 0.5rem;
+            padding: 0.8rem 1.5rem;
+        }
+
+        textarea.wpcf7-textarea {
+            height: 10rem;
+        }
+    }
+
+    .contact-page-map {
+        margin: 1rem 0 3rem 0;
+        border-radius: .5rem;
+    }
+}
+
+@media screen and (min-width: $tablet) {
+    .page-id-17 .site-main {
+        max-width: $maxWidth;
+        box-sizing: border-box;
+        margin: 0 auto;
+        display: grid;
+        grid-template-columns: 40% 1fr;
+        grid-auto-rows: minmax(min-content, max-content);
+        gap: 1rem;
+        h1 {
+            grid-column: 1 / 3;
+        }
+    
+        .contact-page-business-info {
+            grid-column: 1 / 2;
+            grid-row: 2 / 3;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 0 0 2rem;
+
+            .business-info-item{
+                margin: 1.5rem 0;
+            }        
+        }
+    
+        article.post-17 {
+            grid-column: 2 / 3;
+            grid-row: 2 / 3;
+            margin: 0 2rem 0 0;
+            div.entry-content {
+                margin: 0;
+            }
+        }
+    
+        .contact-page-map {
+            grid-column: 1 / 3;
+            width: auto;
+            margin: 1rem 2rem 3rem 2rem;
+        }
+    }
+}
+
+@media screen and (min-width: $desktop) {
+    .page-id-17 .site-main {
+        .contact-page-business-info .business-info-item {
+            p {
+                font-size: 1.2rem;
+            }
+            a, address{
+                font-size: 1rem;
+            }
+        }
+        article.post-17 label {
+            font-size: 1rem;
+        }
+    }
+}

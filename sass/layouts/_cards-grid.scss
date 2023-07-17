@@ -1,0 +1,29 @@
+.home .site-main > section:nth-of-type(even) {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 5rem 1rem;
+  margin: auto;
+  gap: 2rem;
+
+  > a.button-link {
+    background-color: $color__brand_dark;
+    color: $color__invert;
+  }
+}
+
+@media screen and (min-width: $laptop) {
+  .home .site-main > section:nth-of-type(even) {
+    display: grid;
+    grid-template-rows: repeat(3, auto);
+    justify-items: center;
+    padding: 5rem;
+  }
+}
+
+@media screen and (min-width: $desktop) {
+  .home .site-main > section:nth-of-type(even) {
+    padding: 5rem;
+    margin: 5rem auto;
+  }
+}

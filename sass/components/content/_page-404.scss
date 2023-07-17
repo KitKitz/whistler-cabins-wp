@@ -1,0 +1,37 @@
+.error-404 {
+max-width: 50rem;
+min-height: calc(100vh - 29.15rem);
+text-align: center;
+margin: 0 auto;
+padding: 0 2rem;
+display: flex;
+flex-direction: column;
+justify-content: center;
+    .page-header {
+        height: auto;
+        justify-content: center;
+    }
+
+    h1, h2 {
+        color: $color__brand_dark;
+    }
+    .page-content {
+        margin: 0;
+        p{
+            margin: 3rem auto;
+        }
+        a{
+            color: $color__brand;
+            font-weight: $font__weight-bold;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+        section{
+            margin: 2rem auto;
+            h2 {
+                font-size: 1.5rem;
+            }
+        }
+    }
+}
