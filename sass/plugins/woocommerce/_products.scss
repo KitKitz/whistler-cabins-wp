@@ -1,153 +1,21 @@
-//REMOVE shop page filter before products
-.woocommerce-result-count, .woocommerce-ordering{
-	display: none;
+.post-type-archive-product, .tax-product_cat {
+
+  .site-main {
+    max-width: $maxWidth;
+    margin: auto;
+
+    .woocommerce-products-header {
+      width: fit-content;
+    }
+
+    > *:not(:last-child){
+      margin: 0 1rem;
+    }
+
+    ul.products {
+      display: flex;
+      flex-direction: column;
+      gap: 2rem;
+    }
+  }
 }
-
-//Cabin Tiles Home Page
-.cabins > article, .product {
-	box-shadow: 3px 11px 11px 3px rgba(0, 0, 0, 0.15);
-	border-radius: 0.5rem;
-	position: relative;
-	width: 100%;
-	max-width: 400px;
-	height: 100%;
-	padding-bottom: 1rem;
-	margin: auto;
-
-	> *:not(a) {
-		padding: 0 0.75rem;
-	}
-	
-	a img {
-		width: 100%;
-		height: 350px;
-		object-fit: cover;
-		object-position: 50% 50%;
-		border-radius: 0.25rem;
-	}
-
-	h3 {
-		font-weight: 600;
-		font-size: 1.3rem;
-		margin: 0.5rem 0;
-
-		@media screen and (min-width: $tablet) {
-			& {
-				font-size: 1.5rem;
-			}		
-		}
-	}
-
-	.cabin-info {
-		display: flex;
-		justify-content: flex-start;
-		gap: 0.25rem;
-		margin-top: 0.5rem;
-		font-size: 0.9rem;
-
-		@media screen and (min-width: $tablet) {
-			gap: 0.5rem;
-		}
-	}
-
-	.button-link, > .add_to_cart_button {
-		@include button-link;
-		background-color: $color__brand_dark;
-		color: $color__invert;
-		position: absolute;
-		margin: 0;
-		bottom: 22px;
-		right: 8px;
-		font-weight: 400;
-	}
-}
-
-// ul.products {
-// 	margin: 0;
-// 	padding: 0;
-
-// 	li.product {
-// 		list-style: none;
-// 		position: relative;
-// 		margin-bottom: 2em;
-// 		margin-right:0;
-// 		width:300px;
-// 		position:relative;
-		
-		
-// 		.cabin-info{
-// 			display:flex;
-// 			justify-content: flex-start;
-// 			gap:0.5rem;
-// 			margin-top:0.5rem;
-// 		}
-
-// 		a{
-// 			display:block;
-// 			width:300px;
-// 			.woocommerce-loop-product__title{
-// 				font-weight: 500;
-// 				font-size:1.5rem;
-// 			}
-// 			img{
-// 				border-radius:0.5rem;
-// 			}
-			
-// 		}
-
-// 		.button {
-// 			display: block;
-// 			position:absolute;
-// 			right:0;
-// 			bottom:0;
-
-// 			@include button-main;
-			
-// 		}
-// 	}
-// }
-
-// //Re-write media query/product grid 
-
-// @media screen and (min-width: 48em) {
-
-// 	ul.products {
-
-// 		li.product {
-// 			position:relative;
-
-// 			// @include column-width(3);
-// 			// float: left;
-// 			// margin-right: $columns__margin;
-
-// 			// &.first {
-// 			// 	clear: both;
-// 			// }
-
-// 			// &.last {
-// 			// 	margin-right: 0;
-// 			// }
-// 		}
-// 	}
-
-// 	ul.products.columns-1 {
-
-// 		li.product {
-// 			float: none;
-// 			width: 100%;
-// 		}
-
-// 	}
-
-// 	// @for $i from 2 through 6 {
-
-// 	// 	ul.products.columns-#{$i} {
-
-// 	// 		li.product {
-
-// 	// 			@include column-width( $i );
-// 	// 		}
-
-// 	// 	}
-// 	// }
-// }
