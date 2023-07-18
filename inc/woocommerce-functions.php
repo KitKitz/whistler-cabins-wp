@@ -171,6 +171,12 @@ function whistler_cabins_shop_init(){
 		
 		add_action( 'woocommerce_before_single_product_summary', 'whistler_cabins_wrap_hero_section_close', 21 );
 
+		// remove exceprts from displaying
+		function whistler_cabins_remove_product_excerpt() {
+			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );
+		}
+		add_action( 'woocommerce_before_single_product_summary', 'whistler_cabins_remove_product_excerpt' );
+
 
 	//move the woocommerce breadcrumb 
 	remove_action('woocommerce_before_main_content', 'woocommerce_breadcrumb', 20);
