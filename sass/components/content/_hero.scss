@@ -30,7 +30,7 @@
     &::after{
         @include wave;
         background-image: url('./assets/wave-white.svg');
-        bottom:0; 
+        bottom: -5px; 
         height: 20rem;
       }
 

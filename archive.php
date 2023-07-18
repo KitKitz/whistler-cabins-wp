@@ -7,11 +7,18 @@ get_header();
 		<?php if ( have_posts() ) : ?>
 
 			<section class="hero">
-				<?php
-				single_term_title( '<h1 class="page-title">', '</h1>' );
-				the_archive_description( '<div class="archive-description">', '</div>' );
-				?>
-			</section class="hero">
+				<div class="align-center">
+					<h1>
+						<?php single_term_title(); ?></h1>
+
+						<?php
+						if ( !empty(get_the_archive_description()) ){
+						 the_archive_description();
+						}
+
+					?>
+				</div>
+			</section>
 
 			<?php
 			get_sidebar(); ?>
