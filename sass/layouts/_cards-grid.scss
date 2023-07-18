@@ -20,10 +20,3 @@
     padding: 5rem;
   }
 }
-
-@media screen and (min-width: $desktop) {
-  .home .site-main > section:nth-of-type(even) {
-    padding: 5rem;
-    margin: 5rem auto;
-  }
-}

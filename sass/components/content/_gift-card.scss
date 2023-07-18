@@ -6,18 +6,20 @@ section.gift-card {
   display: grid;
   justify-items: center;
   position: relative;
+  text-align: center;
 
-  h2 { 
-    text-align: center;
+  h2 {
+    margin: 0.5rem 0;
   }
-
-  p, img {
+  
+  img, p {
     width: 100%;
     max-width: 30rem;
+    margin-bottom: 1rem;
   }
 
   p {
-    max-width: 25rem;
+    margin: 0;
   }
 
   a.button-link {
@@ -48,6 +50,20 @@ section.gift-card {
 
     img {
       grid-row: 1/5;
+      margin: 0;
+    }
+
+    h2 {
+      align-self: end;
+    }
+
+    p {
+      max-width: 25rem;
+      text-align: left;
+    }
+
+    a.button-link {
+      align-self: baseline;
     }
   }
 }

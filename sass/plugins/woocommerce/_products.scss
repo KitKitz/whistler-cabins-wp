@@ -38,6 +38,10 @@
         padding: 5rem 1rem;
       }
 
+      @media screen and (min-width: $desktop) {
+        padding: 5rem 1rem;
+      }
+
     }
   }
 }
