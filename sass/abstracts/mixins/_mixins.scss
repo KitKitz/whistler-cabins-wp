@@ -35,3 +35,17 @@
 	height: 15rem;
 	left: 0;
 }
+
+// Account Page 
+@mixin account-button {
+	width: 100%;
+	border: none;
+	color: $color__invert;
+	background-color: $color__brand;
+	margin: .5rem 0;
+	padding: .8rem;
+	cursor: pointer;
+	&:hover {
+		background-color: $color__brand_dark;
+	}
+}

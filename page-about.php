@@ -20,7 +20,7 @@ get_header();
 		while ( have_posts() ) :
 			the_post();
 
-		$size = 'medium';
+		$size = 'large';
 		?>
 		<h1><?php the_title();?></h1>
 		<section class="about-us">

@@ -1,0 +1,196 @@
+.page-id-28 .site-main{
+    background-color: $color__background_section;
+    min-height: calc(100vh - 29.15rem);
+    padding: 1rem 1rem 3rem 1rem;
+    position: relative;
+    h1 {
+        color: $color__brand_dark;
+        text-align: center;
+    }
+
+    h2{
+        color: $color__brand_dark;
+        font-size: 1.25rem;
+    }
+
+    .u-columns {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+    }
+    .u-column1, 
+    .u-column2,
+    .lost_reset_password {
+        margin: 0 auto;
+        padding: 1rem;
+        border-radius: .5rem;
+        background-color: $color__invert;
+        max-width: 30rem;
+
+        .input-text {
+            width: 100%;
+        }
+
+        button.woocommerce-form-login__submit,
+        button.woocommerce-form-register__submit,
+        button.woocommerce-Button {
+            @include account-button ; 
+        }
+
+        p{
+            margin-bottom: .5rem;
+            &:nth-last-of-type(1){
+                margin-bottom: 0;
+            }
+        }
+    }
+
+    .lost_password > a:hover {
+        text-decoration: underline;
+    }
+
+    .woocommerce-error {
+        max-width: 30rem;
+        margin: 1rem auto;
+        color: $color__invert;
+        border-radius: .5rem;
+    }
+
+    footer {
+        display: none;
+    }
+
+    article {
+        max-width: $maxWidth;
+        margin: 0 auto;
+        padding: 0 1rem;
+
+        .woocommerce-MyAccount-navigation ul {
+            font-weight: 600;
+            gap: 0.25rem;
+            font-size: .8rem;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+
+            li {
+                background-color: $color__invert;
+                border-radius: .25rem;
+                padding: .25rem .8rem;
+                text-align: center;
+            }
+            .woocommerce-MyAccount-navigation-link--customer-logout{
+                max-width: 20rem;
+                width: 50%;
+                position: absolute;
+                bottom: 0rem;
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+
+        
+        .woocommerce-MyAccount-content {
+            margin: 2rem auto;
+            a{
+                color: $color__brand;
+                font-weight: $font__weight-bold;
+                &:hover {
+                    text-decoration: underline;
+                }
+            }
+
+            .woocommerce-info {
+                background-color: transparent;
+            }
+
+            .woocommerce-Address {
+                max-width: 80rem;
+                margin-top: 1rem;
+                text-align: center;
+                
+                h3 {
+                    color: $color__brand_dark;
+                    font-size: 1.25rem;
+                }
+
+                address {
+                    white-space: normal;
+                }
+            }
+
+            .woocommerce-PaymentMethod {
+                background-color: $color__invert;
+                border-radius: .5rem;
+                padding: 1rem;
+            }
+
+            input{
+                width: 100%;
+            }
+
+            button {
+                @include account-button; 
+            }
+
+            p mark {
+                color: $color__brand;
+                background-color: transparent;
+                font-weight: $font__weight-bold;
+            }
+
+            .woocommerce-table--order-details {
+                background-color: $color__invert;
+                border-radius: .25rem;
+                padding: 1rem;
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $tablet) {
+    .page-id-28 .site-main {
+        padding-bottom: 5rem;
+        .u-column1, 
+        .u-column2,
+        .lost_reset_password {
+            padding: 3rem;
+        }
+
+        .woocommerce {
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            gap: 1rem;
+
+            .woocommerce-MyAccount-navigation ul {
+                width: 12rem;
+                grid-template-columns: 1fr;
+                font-size: 1rem;
+                gap: .5rem;
+            }
+
+            .woocommerce-MyAccount-content {
+                margin: 0;
+                width: 100%;
+                padding: 0 2rem;
+
+                .woocommerce-Address {
+                    margin: 1rem 0 0 0;
+                }
+            }
+        }
+    }
+}
+
+@media screen and (min-width: $laptop) {
+    .page-id-28 .site-main {
+        .u-columns {
+            flex-direction: row;
+        }
+
+        .woocommerce .woocommerce-MyAccount-navigation ul {
+            width: 20rem;
+        }
+    }
+}
