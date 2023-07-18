@@ -12,7 +12,7 @@
             object-position: 50% 50%;
         }
         
-        .activities-info, .crp_title{
+        .activities-info{
             position: absolute;
             color: $color__invert;
             left: 20px;
@@ -32,13 +32,7 @@
         }
 
         &::before {
-            content: '';
-            background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(0,0,0,0.8) 100%);
-            border-radius: 0.25rem;
-            display: block;
-            position: absolute;
-            height: 100%;
-            width: 100%;
+            @include overlay;
         }
     }
 }

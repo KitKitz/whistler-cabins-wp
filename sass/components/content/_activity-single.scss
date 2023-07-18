@@ -25,7 +25,12 @@
     
     }
 
-    img, p{
+    .activity-image-wrap{
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    p{
         margin: 0 auto;
     }
 
@@ -36,7 +41,22 @@
             display: flex;
             justify-content: center;
             flex-direction: column;
+            margin: 0 auto;
+
+            a{
+                width: fit-content;
+                margin: 1rem auto;
+            }
+
+            figure{
+                
+                &::before {
+                    @include overlay;
+                }
+            }
         }
+
+
        
         h2{
            text-align: center;
@@ -127,22 +147,25 @@
             padding-top:3rem;
         }
 
+        .crp_related{
+
+            ul{
+                max-width: 90rem;
+                flex-direction: row;
+                gap:2rem;
+                margin-bottom: 3rem;
+                
+                li{
+                    max-width: 30%;
+                }
+            }
+    
+        }
+
        
     }
 
-    .crp_related{
-
-        ul{
-            max-width: 90rem;
-            flex-direction: row;
-            gap:2rem;
-            
-            li{
-                max-width: 30%;
-            }
-        }
-
-    }
+    
 
 }
 
