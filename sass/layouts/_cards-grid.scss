@@ -31,3 +31,9 @@
     padding: 5rem;
   }
 }
+
+@media screen and (min-width: $desktop) {
+  .blog .taxonomy-content  {
+    gap: 2rem;
+  }
+}
