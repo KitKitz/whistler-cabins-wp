@@ -1,4 +1,15 @@
 /**
+ * WooCommerce Notices
+ */
+
+.woocommerce-notices-wrapper .woocommerce-message, .woocommerce-info{
+	padding:1rem;
+	a{
+		font-weight:600;
+	}
+}
+
+/**
  * WooCommerce Price Filter
  */
 .widget_price_filter {

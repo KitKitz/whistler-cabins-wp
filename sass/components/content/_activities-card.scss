@@ -1,15 +1,27 @@
-.blog, .featured-activities {
-    article{
-        position: relative;
-        height: 400px;
-        width: 100%;
-        max-width: 350px;
+.blog article,
+.featured-activities article,
+.archive article {
+    position: relative;
+    height: 420px;
+    width: 100%;
+    max-width: 350px;
+    
+    > img { 
+        height: 100%;
+        object-fit: cover;
+        width: auto;
+        object-position: 50% 50%;
+    }
+    
+    .activities-info, .crp_title{
+        position: absolute;
+        color: $color__invert;
+        left: 20px;
+        bottom:20px;
         
-        > img { 
-            height: 100%;
-            object-fit: cover;
-            width: auto;
-            object-position: 50% 50%;
+        
+        > h3 {
+            font-size: 2rem;
         }
         
         .activities-info{
@@ -33,6 +45,21 @@
 
         &::before {
             @include overlay;
+        .button-link {
+            border: none;
+            background-color: $color__invert;
+            color: $color__brand_dark;
+            font-weight: 400;
         }
+    }
+
+    &::before {
+        content: '';
+        background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(0,0,0,0.8) 100%);
+        border-radius: 0.25rem;
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
     }
 }

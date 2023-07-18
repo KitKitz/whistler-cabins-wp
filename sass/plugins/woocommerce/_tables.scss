@@ -1,14 +1,70 @@
+.woocommerce{
+	.woocommerce-cart-form__cart-item{
+		.product-name{
+			a{
+				font-size: 1.5rem;
+			}
+			.variation{
+				display: flex;
+				flex-wrap:wrap ;
+				width:20rem;
+			}
+		}
+		.product-price{
+			font-weight:600;
+		}
+	}
+	//Cart Totals 
+	.cart-collaterals {
+		position:relative;
+		.cart_totals{
+			
+			margin:1rem;
+			height:15rem;
+			@media (min-width: $tablet){
+				width:50%;
+				margin-left: auto;
+				margin-right:6rem;
+			}
+			h2{
+				font-size: 1.5rem;
+			}
+			th + td {
+				text-align: right;
+			}
+			.wc-proceed-to-checkout{
+				a{
+					@include button-link;
+					margin-left:auto;
+					@media (min-width:$tablet){
+						// margin-right:2rem;
+						position:absolute;
+						bottom:0;
+						left:50%;
+						transform: translateX(-50%);
+					}	
+				}
+			}
+		}
+	}
+}
+
 table.shop_table_responsive {
-	margin: 1rem;
-	width:90%;
+	margin: 0 auto;
+	width:80%;
 	thead {
 		display: none;
+		tr th{
+			padding:1rem 0;
+			font-size: 1.25rem;
+		}
 	}
 
 	tbody {
 
 		th {
-			display: none;
+			// display: none;
+			text-align: left;
 		}
 	}
 
@@ -19,18 +75,25 @@ table.shop_table_responsive {
 		.product-subtotal{
 			display: none;
 		}
+		.product-quantity{
+			display:none;
+		}
+		.product-thumbnail{
+			@media (min-width:$tablet) {
+				text-align: center;
+			}
+		}
 		//Coupon Section Inputs
 		.actions{
-			display: flex;
-			flex-wrap: wrap;
-			gap:0.5rem;
-			padding:1rem;
-			border: 1px solid black;
-			border-radius: 1rem;
+			text-align: right;
 			.coupon{
-				margin: 1rem 0;
+				margin: 1rem 1rem;
 				display: flex;
+				justify-content: flex-end;
 				gap:0.5rem;
+			}
+			.coupon + button{
+				margin-right:1rem;
 			}
 		}
 		td {

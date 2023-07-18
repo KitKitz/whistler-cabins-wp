@@ -14,18 +14,21 @@ function whistler_cabins_shop_init(){
 		'whistler_cabins_shop_giftcard_section',
 		9
 	);
+	
+	// Remove Result Count on Shop
+	remove_action('woocommerce_before_shop_loop', 'woocommerce_result_count', 20 );
+
+	// Remove Sorting Dropdown on Shop
+	remove_action( 'woocommerce_before_shop_loop', 'woocommerce_catalog_ordering', 30 );
 
 	function whistler_cabins_sidebar(){
 		get_sidebar();
 	}
-	add_action(
-		'woocommerce_before_shop_loop',
-		'whistler_cabins_sidebar',
-		31
-	);
+	add_action( 'woocommerce_before_shop_loop', 'whistler_cabins_sidebar', 31 );
+	
 
 	function whistler_cabins_category() {
-		if (is_shop() || is_front_page()) {
+		if (is_shop() || is_front_page() || is_product_category()) {
 			if(function_exists('get_field')){
 				if (get_field('cabin_sleeps')){
 					?><div class="cabin-info guests"><?php get_template_part('assets/icons/user');?><p><?php the_field('cabin_sleeps');?></p></div><?php
@@ -230,8 +233,6 @@ function whistler_cabins_shop_init(){
 		}
 		return $shop_title;
 	}
-
-		
 
 }
 add_action('init', 'whistler_cabins_shop_init');

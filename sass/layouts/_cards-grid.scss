@@ -1,14 +1,25 @@
-.home .site-main > section:nth-of-type(even) {
+.home .site-main > section:nth-of-type(even),
+.blog .taxonomy-content {
   display: flex;
   flex-direction: column;
   align-items: center;
+  gap: 2rem;
   padding: 5rem 1rem;
   margin: auto;
-  gap: 2rem;
 
   > a.button-link {
     background-color: $color__brand_dark;
     color: $color__invert;
+  }
+}
+
+@media screen and (min-width: $tablet) {
+  .blog .taxonomy-content  {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(auto, 1fr));
+    grid-template-rows: auto;
+    justify-content: center;
+    gap: 1rem;
   }
 }
 
@@ -22,8 +33,7 @@
 }
 
 @media screen and (min-width: $desktop) {
-  .home .site-main > section:nth-of-type(even) {
-    padding: 5rem;
-    margin: 5rem auto;
+  .blog .taxonomy-content  {
+    gap: 2rem;
   }
 }

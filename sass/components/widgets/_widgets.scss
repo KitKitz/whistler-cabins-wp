@@ -1,8 +1,24 @@
 .widget {
-	margin: 0 0 1.5em;
+	margin: 1rem 0;
 
 	// Make sure select elements fit in widgets.
 	select {
 		max-width: 100%;
+	}
+}
+
+aside.widget-area {
+	padding: 0;
+	margin: 1rem;
+
+	h2 {
+		font-size: 1.5rem;
+	}
+	
+	@media screen and (min-width:$tablet) {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		text-align: center;
 	}
 }

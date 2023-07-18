@@ -1,17 +1,4 @@
 <?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Whistler_Cabins
- */
-
 get_header();
 ?>
 
@@ -71,13 +58,13 @@ get_header();
 			
 						);
 
-					$query = new WP_Query($args);?>
-
-					<section class="categories"> 
-						<?php
-						if( $query->have_posts() ) :  
+					$query = new WP_Query($args);
+			
+					if( $query->have_posts() ) :  ?>
 						
-							echo '<h2>' . esc_html( $term->name ) . '</h2>';
+						<section class="taxonomy-content">
+							<h2><?php echo esc_html( $term->name ); ?></h2>
+							<?php 
 							$counter = 0;
 							$total_posts = $query->found_posts;
 							
@@ -94,29 +81,26 @@ get_header();
 								<?php the_post_thumbnail( 'activities-card' );?>
 					
 							</article>
-								
-				
+							
 							<?php 
 
 							// display the Get More Posts button when reaching the third post
 							if ( $counter == 3 && $counter < $total_posts ) {
 								?>
-								<button class="get-more-posts">Get More Posts</button>
+								<button class="more">More Activites</button>
 								<section class="hidden-posts" style="display:none;">
 								<?php
 							}
-											
-							endwhile;
-							?> 
-								</section>
-							<?php
-							wp_reset_postdata();
+							endwhile; ?>
+							</section>
+						</section>
 
-																				
-						endif; ?>
-					</section>
-
-				<?php endforeach;
+						<?php 
+						wp_reset_postdata();
+																			
+					endif; 
+				
+				endforeach;
 			
 			endforeach; 
 
@@ -127,7 +111,7 @@ get_header();
 		endif;
 		?>
 
-	</main><!-- #main -->
+	</main>
 
 <?php
 get_footer();
