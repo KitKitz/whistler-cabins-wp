@@ -1,0 +1,80 @@
+.page-id-19 .site-main {
+  margin: 5rem 1rem;
+
+  h1 {
+    text-align: center;
+  }
+
+  > p {
+    max-width: 48rem;
+    margin: 1rem auto;
+
+    @media screen and (min-width: $tablet) {
+      text-align: center;
+    }
+
+  }
+  
+  section {
+    max-width: 48rem;
+    margin: 5rem auto;
+
+    div.topic-btn-wrapper {
+      border-bottom: 1px solid $color__accent;
+      display: flex;
+      gap: 0.5rem;
+  
+      button.topic {
+        background-color: $color__accent;
+        color: $color__invert;
+        border-radius: 1rem 1rem 0 0rem;
+        padding: 0.5rem 1rem;
+        cursor: pointer;
+      }
+    }
+  }
+
+  div.qa-wrapper {
+    display: none;
+
+    article.single-qa {
+      border: 1px solid $color__brand;
+      border-radius: 0.25rem;
+      margin: 1rem 0;
+
+      button.question {
+        border: none;
+        text-align: left;
+        font-weight: 600;
+        position: relative;
+        width: 100%;
+        padding: 1rem 0.5rem;
+        cursor: pointer;
+
+        span {
+          display: block;
+          width: 90%;
+        }
+
+        &::after {
+          content: url('./assets/plus.svg');
+          display: block;
+          position: absolute;
+          right: 0;
+          top: 16%;
+        }
+      }
+
+      div.answer-wrapper {
+        background-color: $color__background_section;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+
+        > p {
+          margin: 1rem;
+        }
+      }
+    }
+  }
+}

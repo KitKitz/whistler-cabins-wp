@@ -1,35 +1,23 @@
 <?php
-/**
- * The template for displaying all pages
- *
- * This is the template that displays all pages by default.
- * Please note that this is the WordPress construct of pages
- * and that other 'pages' on your WordPress site may use a
- * different template.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Whistler_Cabins
- */
-
-get_header();
+	get_header();
 ?>
 
-	<main id="primary" class="site-main">
-		<?php
-		while ( have_posts() ) :
-			the_post();
+<main id="primary" class="site-main">
+	
+	<?php
+	while ( have_posts() ) :
+		the_post();
 		?>
-		<section class="hero">
-			<!-- Page title and overview (acf) -->
-			<h1 class="page-title"><?php the_title() ?></h1> <?php
 
+		<h1><?php the_title() ?></h1>
+		<?php
 			if( function_exists('get_field') ) :
 				if( get_field('faq_page_overview') ) : ?>
-					<p><?php the_field('faq_page_overview') ?></p> <?php
+					<p><?php the_field('faq_page_overview') ?></p>
+				<?php
 				endif;
-			endif; ?>
-		</section>
+			endif;
+		?>
 
 		<?php 
 		// Get FAQ CPT
@@ -40,38 +28,59 @@ get_header();
 		);
 		$query = new WP_Query($args); 
 
-
 		if( $query -> have_posts() ) : ?>
-			<?php
+		<section>
+			<div class="topic-btn-wrapper">
+				<?php
 				while ( $query->have_posts() ) :
-					$query -> the_post(); ?>
-					<section class="topic-qa">
-						<button class="btn-topic"><p><?php the_title(); ?></p></button> <?php
-						
-						// Check if ACF Repeater rows exist and loop 
-						if( function_exists('get_field') && have_rows( 'faq_repeater' ) ) :
-							while( have_rows( 'faq_repeater' ) ) : the_row() ?>
-								<div class="single-qa" style="display: none;">
-									<button class="btn-qa"><p><?php the_sub_field( 'faq_question' ); ?></p></button>
-									<p style="max-height: 0; overflow: hidden; transition: max-height 0.3s ease-in-out;"><?php the_sub_field( 'faq_answer' ); ?></p>
-								</div> <?php
-							endwhile;
-						
-						else: ?>
-						<p><?php _e( 'Sorry, no FAQs to display.', 'whistler-cabins' ); ?></p> <?php
-						endif; ?> 
+					$query->the_post(); ?>
+						<button class="topic"><?php the_title(); ?></button>
+					<?php
+				endwhile; ?>
+			</div>
+			
+			<?php 
+			while ( $query->have_posts() ) :
+				$query -> the_post(); 
 
-					</section> <?php
-				endwhile;
-				wp_reset_postdata();
-		
+				// Check if ACF Repeater rows exist and loop 
+				if( function_exists('get_field') && have_rows( 'faq_repeater' ) ) : ?>
+
+					<div class="qa-wrapper"> <?php
+						while( have_rows( 'faq_repeater' ) ) : the_row() ?>
+
+							<article class="single-qa" >
+
+								<button class="question">
+									<span><?php the_sub_field( 'faq_question' ); ?></span>
+								</button>
+
+								<div class="answer-wrapper">
+									<p><?php the_sub_field( 'faq_answer' ); ?></p>
+								</div>
+								
+							</article> <?php
+
+						endwhile; ?>
+					</div> <?php
+					
+				else: ?>	
+					<div><p><?php _e( 'Sorry, no FAQs to display.', 'whistler-cabins' ); ?></p></div> <?php
+				
+				endif;
+
+			endwhile;
+				wp_reset_postdata(); ?>
+			<?php
+
 		else: ?>
-			<p><?php _e( 'Sorry, no FAQs to display.', 'whistler-cabins' ); ?></p> <?php
+		<p><?php _e( 'Sorry, no FAQs to display.', 'whistler-cabins' ); ?></p> <?php
 		
-		endif; 
+		endif;
+
 	endwhile; ?>
-	
-	</main>
+
+</main>
 
 <?php
 get_footer();
