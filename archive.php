@@ -1,12 +1,4 @@
 <?php
-/**
- * The template for displaying archive pages
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Whistler_Cabins
- */
-
 get_header();
 ?>
 
@@ -14,39 +6,36 @@ get_header();
 
 		<?php if ( have_posts() ) : ?>
 
-			<header class="page-header">
+			<section class="hero">
 				<?php
 				single_term_title( '<h1 class="page-title">', '</h1>' );
 				the_archive_description( '<div class="archive-description">', '</div>' );
 				?>
-			</header><!-- .page-header -->
+			</section class="hero">
 
 			<?php
-			get_sidebar();
-			/* Start the Loop */
-			while ( have_posts() ) :
-				the_post();
+			get_sidebar(); ?>
+			<section class="taxonomy-content">
+				<?php
+				while ( have_posts() ) :
+					?>
+						<?php
+						the_post();
+						?>
 
-				?>
-				
-					<article>
-						<h2><?php the_title(); ?></h2>
-						<?php the_post_thumbnail( 'medium' );?>
-						<a href="<?php the_permalink();?>">View Activity</a>
-					</article>
-							
+							<article>
+								<div class="activities-info"> 
+									<h3><?php the_title(); ?></h3>
+									<a href="<?php the_permalink();?>" class="button-link">View Activity</a>
+								</div>
+								<?php the_post_thumbnail( 'activities-card' );?>
+							</article>		
+					
+							<?php
+				endwhile; ?>
+			</section>
+			<?php
 			
-				<?php 
-
-				/*
-				 * Include the Post-Type-specific template for the content.
-				 * If you want to override this in a child theme, then include a file
-				 * called content-___.php (where ___ is the Post Type name) and that will be used instead.
-				 */
-				// get_template_part( 'template-parts/content', get_post_type() );
-
-			endwhile;
-
 			the_posts_navigation();
 
 		else :
@@ -56,7 +45,7 @@ get_header();
 		endif;
 		?>
 
-	</main><!-- #main -->
+	</main>
 
 <?php
 get_footer();

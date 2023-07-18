@@ -18,7 +18,7 @@ get_header();
 				?>
 
 				<div class="align-center"> 
-					<h1><?php echo get_the_title(); ?></h1>
+					<h1><?php echo get_the_title(14); ?></h1>
 					
 					<?php
 					if (function_exists('get_field')){
