@@ -18,7 +18,12 @@ $woocommerce__color-info: #3d9cd2;
 @import "plugins/woocommerce/tables";
 
 /**
- * Products
+ * Products Card / Cabin Cards
+ */
+@import "plugins/woocommerce/product-card";
+
+/**
+ * Products / Cabin Shop Page
  */
 @import "plugins/woocommerce/products";
 
