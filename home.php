@@ -1,17 +1,4 @@
 <?php
-/**
- * The main template file
- *
- * This is the most generic template file in a WordPress theme
- * and one of the two required files for a theme (the other being style.css).
- * It is used to display a page when nothing more specific matches a query.
- * E.g., it puts together the home page when no home.php file exists.
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package Whistler_Cabins
- */
-
 get_header();
 ?>
 
@@ -73,45 +60,47 @@ get_header();
 
 					$query = new WP_Query($args);
 			
-					if( $query->have_posts() ) :  
-					
-						echo '<h2>' . esc_html( $term->name ) . '</h2>';
-						$counter = 0;
-						$total_posts = $query->found_posts;
+					if( $query->have_posts() ) :  ?>
 						
-						while( $query->have_posts() ) : 
-						$query->the_post(); 
-						$counter++;
-						?>
-				
-						<article>
-							<div class="activities-info"> 
-								<h3><?php the_title(); ?></h3>
-								<a href="<?php the_permalink();?>" class="button-link">View Activity</a>
-							</div>
-							<?php the_post_thumbnail( 'activities-card' );?>
-				
-						</article>
+						<section class="taxonomy-content">
+							<h2><?php echo esc_html( $term->name ); ?></h2>
+							<?php 
+							$counter = 0;
+							$total_posts = $query->found_posts;
 							
-			
-						<?php 
-
-						// display the Get More Posts button when reaching the third post
-						if ( $counter == 3 && $counter < $total_posts ) {
+							while( $query->have_posts() ) : 
+							$query->the_post(); 
+							$counter++;
 							?>
-							<button class="get-more-posts">Get More Posts</button>
-							<div class="hidden-posts" style="display:none;">
-							<?php
-						}
-										
-						endwhile; 
-						echo '</div>';
-						wp_reset_postdata();
+					
+							<article>
+								<div class="activities-info"> 
+									<h3><?php the_title(); ?></h3>
+									<a href="<?php the_permalink();?>" class="button-link">View Activity</a>
+								</div>
+								<?php the_post_thumbnail( 'activities-card' );?>
+					
+							</article>
+							
+							<?php 
 
+							// display the Get More Posts button when reaching the third post
+							if ( $counter == 3 && $counter < $total_posts ) {
+								?>
+								<button class="more">More Activites</button>
+								<section class="hidden-posts" style="display:none;">
+								<?php
+							}
+							endwhile; ?>
+							</section>
+						</section>
+
+						<?php 
+						wp_reset_postdata();
 																			
-					endif; ?>
-			
-				<?php endforeach;
+					endif; 
+				
+				endforeach;
 			
 			endforeach; 
 
@@ -122,7 +111,7 @@ get_header();
 		endif;
 		?>
 
-	</main><!-- #main -->
+	</main>
 
 <?php
 get_footer();

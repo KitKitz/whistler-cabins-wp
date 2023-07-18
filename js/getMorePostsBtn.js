@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
-    const getMorePostsButtons = document.querySelectorAll('.get-more-posts');
+    const moreActivitiesButtons = document.querySelectorAll('.more');
   
-    getMorePostsButtons.forEach(function(button) {
+    moreActivitiesButtons.forEach(function(button) {
       button.addEventListener('click', function() {
         const hiddenPosts = this.nextElementSibling;
         hiddenPosts.style.display = 'block';
