@@ -38,25 +38,22 @@
 
 @mixin overlay{
 	content: '';
-	background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(0,0,0,0.8) 100%);
-	border-radius: 0.25rem;
-	display: block;
-	position: absolute;
-	height: 100%;
-	width: 100%;
+		background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(0,0,0,0.8) 100%);
+		border-radius: 0.25rem;
+		display: block;
+		position: absolute;
+		height: 100%;
+		width: 100%;
 }
-
 // Account Page 
 @mixin account-button {
-	
 	width: 100%;
 	border: none;
-	color: $color__invert
+	color: $color__invert;
 	background-color: $color__brand;
 	margin: .5rem 0;
 	padding: .8rem;
 	cursor: pointer;
-
 	&:hover {
 		background-color: $color__brand_dark;
 	}
