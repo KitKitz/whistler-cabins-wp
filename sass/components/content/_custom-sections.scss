@@ -1,6 +1,6 @@
 .cabins {
   grid-template-columns: repeat(3, 1fr);
-  max-width: $maxWidth;
+  max-width: fit-content;
   justify-items: center;
 
   h2, a:last-child {
