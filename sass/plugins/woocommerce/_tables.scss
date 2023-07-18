@@ -87,10 +87,13 @@ table.shop_table_responsive {
 		.actions{
 			text-align: right;
 			.coupon{
-				margin: 1rem 0;
+				margin: 1rem 1rem;
 				display: flex;
 				justify-content: flex-end;
 				gap:0.5rem;
+			}
+			.coupon + button{
+				margin-right:1rem;
 			}
 		}
 		td {
