@@ -1,14 +1,17 @@
 .home .site-main > section:nth-of-type(even),
 .blog .taxonomy-content,
 .related ul.products, 
-.archive .taxonomy-content {
+.archive.category .taxonomy-content {
   display: flex;
   flex-direction: column;
   align-items: center;
   gap: 2rem;
   padding: 5rem 1rem;
   margin: auto;
+}
 
+.home .site-main > section:nth-of-type(even),
+.blog .taxonomy-content {
   > a.button-link {
     background-color: $color__brand_dark;
     color: $color__invert;
@@ -18,7 +21,7 @@
 @media screen and (min-width: $tablet) {
   .blog .taxonomy-content,
   .related ul.products,  
-  .archive .taxonomy-content  {
+  .archive.category .taxonomy-content  {
     display: grid;
     grid-template-columns: repeat(3, minmax(auto, 1fr));
     grid-template-rows: auto;
@@ -37,8 +40,8 @@
 
 @media screen and (min-width: $desktop) {
   .blog .taxonomy-content,
-  .related ul.products   
-  .archive .taxonomy-content  {
+  .related ul.products,   
+  .archive.category .taxonomy-content  {
     gap: 2rem;
   }
 }

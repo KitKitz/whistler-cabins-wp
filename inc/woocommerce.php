@@ -21,13 +21,13 @@ function whistler_cabins_woocommerce_setup() {
 		'woocommerce',
 		array(
 			'thumbnail_image_width' => 150,
-			'single_image_width'    => 1920,
+			'single_image_width'    => 2200,
 			'product_grid'          => array(
 				'default_rows'    => 3,
 				'min_rows'        => 1,
-				'default_columns' => 4,
+				'default_columns' => 3,
 				'min_columns'     => 1,
-				'max_columns'     => 6,
+				'max_columns'     => 3,
 			),
 		)
 	);
