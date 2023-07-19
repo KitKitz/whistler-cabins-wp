@@ -1,3 +1,102 @@
+.checkout{
+	background-color: $color__background_section;
+	padding-bottom:2rem;
+	@media (min-width:$laptop){
+		padding: 0 4rem 4rem;
+		display:grid;
+		grid-template-columns: repeat(2, 1fr);
+		grid-auto-rows: repeat(2, minmax(min-content, max-content));
+	}
+	.col2-set{
+		background-color: $color__body;
+		width:90%;
+		margin:0 auto;
+		border-radius:1rem;
+		grid-column:1/2;
+		.col-1, .col-2{
+			margin:1rem;
+			padding: 2rem 1rem;
+			@media (min-width:$laptop){
+				margin:2rem;
+				padding:1rem;
+			}
+		}
+		.woocommerce-billing-fields + .woocommerce-account-fields{
+			margin-top:1rem;
+			.create-account{
+				p {
+					margin-top:1.5rem;
+					span > input{
+						width:100%;
+						display:block;
+					}
+				}
+			}
+		}
+		.col-1 .woocommerce-billing-fields div p{
+			margin-top:1.5rem;
+			label + span input{
+				width:100%;
+				display:block;
+			}
+		}
+		.col-2 .woocommerce-additional-fields{
+			h3{
+				margin:1rem 0 1rem;
+			}
+		}
+	}
+	div + h3, .woocommerce-checkout-review-order{
+		margin:2rem;
+	}
+	div +h3{
+		grid-row:1/2;
+	}
+	.woocommerce-checkout-review-order{
+		background-color: $color__body;
+		width:90%;
+		margin:0 auto;
+		border-radius:1rem;
+		padding:0.5rem;
+		@media (min-width:$laptop){
+			padding:1rem;
+		}
+		table{
+			width:80%;
+			margin:2rem auto;
+			thead{
+				font-size:1.25rem;
+			}
+		}
+		.woocommerce-checkout-payment{
+			margin:2rem;
+		}
+		.woocommerce-checkout-payment{
+			ul li .payment_box.payment_method_stripe{
+				@media (min-width: $laptop){
+					margin:1rem;
+				}
+				fieldset{
+					border:none;
+				}
+			}
+			.woocommerce-terms-and-conditions-wrapper + button{
+				@include button-link;
+				margin:2rem auto;
+				background-color: $color__brand;
+				border:none;
+				color: $color__invert;
+				width:100%;
+				&:hover{
+					background-color: $color__border-button;
+				}
+			}
+		}
+		table > thead, tfoot > tr th{
+			text-align: left;
+		}
+	}
+}
 @media screen and (min-width: 768px) {
 
 	.col2-set {

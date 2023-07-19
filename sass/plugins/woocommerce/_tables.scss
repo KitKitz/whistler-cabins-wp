@@ -18,8 +18,7 @@
 	.cart-collaterals {
 		position:relative;
 		.cart_totals{
-			
-			margin:1rem;
+			margin:1rem 2rem;
 			height:15rem;
 			@media (min-width: $tablet){
 				width:50%;
@@ -36,6 +35,12 @@
 				a{
 					@include button-link;
 					margin-left:auto;
+					background-color: $color__brand;
+					border:none;
+					color: $color__invert;
+					&:hover{
+						background-color: $color__border-button;
+					}
 					@media (min-width:$tablet){
 						// margin-right:2rem;
 						position:absolute;
@@ -83,6 +88,11 @@ table.shop_table_responsive {
 				text-align: center;
 			}
 		}
+		.product-name{
+			@media (min-width:$tablet) {
+				padding-left:2rem;
+			}
+		}
 		//Coupon Section Inputs
 		.actions{
 			text-align: right;
@@ -91,9 +101,16 @@ table.shop_table_responsive {
 				display: flex;
 				justify-content: flex-end;
 				gap:0.5rem;
+				
 			}
 			.coupon + button{
 				margin-right:1rem;
+				background-color: $color__brand;
+				border:none;
+				color: $color__invert;
+				&:hover{
+					background-color: $color__border-button;
+				}
 			}
 		}
 		td {

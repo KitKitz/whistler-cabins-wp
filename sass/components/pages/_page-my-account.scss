@@ -148,6 +148,11 @@
     }
 }
 
+.page-id-28 aside.widget-area,
+.page-id-28 .crp_related {
+    display: none;
+}
+
 @media screen and (min-width: $tablet) {
     .page-id-28 .site-main {
         padding-bottom: 5rem;

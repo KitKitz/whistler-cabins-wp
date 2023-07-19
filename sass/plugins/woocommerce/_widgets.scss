@@ -9,6 +9,26 @@
 	}
 }
 
+.woocommerce-notices-wrapper + .woocommerce-form-login-toggle + .woocommerce-form,
+ .woocommerce-form-coupon-toggle + .checkout_coupon{
+	margin: 1rem;
+	p{
+		.input-text{
+			display:block;
+			margin-bottom:1rem;
+		}
+		button{
+			@include button-link;
+			background-color: $color__brand;
+			border:none;
+			color: $color__invert;
+			&:hover{
+				background-color: $color__border-button;
+			}
+		}
+	}
+}
+
 /**
  * WooCommerce Price Filter
  */

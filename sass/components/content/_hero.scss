@@ -1,60 +1,64 @@
 
 .hero {
+    background-color: $color__brand;
+    color: $color__invert;
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     position: relative;
+    width: 100%;
+    height: 45vh;
     
-    img{
-        
-        height: 50vh;
-        object-fit: cover;
+    p {
+        max-width: 40rem;
     }
 
-    .align-center, .align-left-title, .product_title{
+    > img,
+    .post-thumbnail,
+    .post-thumbnail img {
         position: absolute;
-        color:$color__invert;
-        z-index: 50;
+        height: 100%;
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
     }
 
-    .align-center{
-        top: 0%; 
+    .post-thumbnail > img {
+        position: relative;
+    }
+
+    .align-center,
+    .align-left-title,
+    .product_title {
+        position: relative;
+        bottom: 5%;
+        z-index: 50;
         padding: 0 1rem;
-        
-        h1, p{
-            text-align: center;
+    }
+
+    .align-left-title,
+    .product_title {
+        align-self: flex-start;
+
+        @media screen and (min-width: $laptop) {
+            margin: 0 5rem;
         }
     }
 
-    .align-left-title, .product_title{
-        top: 40%; 
-   
-    }
-    &::after{
+    &::after {
         @include wave;
         background-image: url('./assets/wave-white.svg');
-        bottom:0; 
+        bottom: -1px; 
         height: 20rem;
-      }
+    }
 
-}
+    @media screen and (min-width:$laptop) {
+        height: 60vh;
 
-@media screen and (min-width: $tablet){
-    .hero{
-
-        h1{
-            font-size:3rem;
-        }
-
-        .align-center{
-            top:40%;
-            right: 50%;
-            transform: translate(50%,-50%);
-        }
-        
-        .align-left-title, .product_title{
-            left:10%;
-        }
-
-        img{
-            height:70vh;
-        }
+        h1 {
+            font-size: 3rem;
+        }    
     }
 }

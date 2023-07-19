@@ -10,6 +10,7 @@
 }
 
 .featured-activities {
+  max-width: $maxWidth;
   color: $color__brand_dark;
   background-color: $color__background_section;
   position: relative;
@@ -61,7 +62,7 @@
       position: absolute;
       background-color: $color__background_section;
       height: 65%;
-      width: 100%;
+      width: 100vw;
       z-index: -10;
     }
   }
