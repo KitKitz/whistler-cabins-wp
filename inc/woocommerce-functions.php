@@ -53,7 +53,7 @@ function whistler_cabins_shop_init(){
 	//Support for larger WooCommerce Thumbnails: 
 	add_filter( 'single_product_archive_thumbnail_size', 'custom_product_archive_thumbnail_size', 1000 );
 	function custom_product_archive_thumbnail_size( $size ) {
-		$size = array('300', '300');
+		$size = array('400', '400');
 		return $size;
 	}
 
