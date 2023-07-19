@@ -113,8 +113,4 @@
 			the_content();
 		?>
 	</div>
-
-	<footer class="entry-footer">
-		<?php whistler_cabins_entry_footer(); ?>
-	</footer>
 </article><!-- #post-<?php the_ID(); ?> -->
