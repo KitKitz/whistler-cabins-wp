@@ -1,6 +1,6 @@
 .home .site-main > section:nth-of-type(even),
 .blog .taxonomy-content,
-.related ul.products 
+.related ul.products, 
 .archive .taxonomy-content {
   display: flex;
   flex-direction: column;
@@ -17,7 +17,7 @@
 
 @media screen and (min-width: $tablet) {
   .blog .taxonomy-content,
-  .related ul.products  
+  .related ul.products,  
   .archive .taxonomy-content  {
     display: grid;
     grid-template-columns: repeat(3, minmax(auto, 1fr));
