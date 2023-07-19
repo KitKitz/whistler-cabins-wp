@@ -10,6 +10,7 @@
     .home-map-icon {
         width: 1.5rem;
         height: 1.5rem;
+        transform: translateY(.5rem);
     }
 
     .home-map-text {
@@ -26,6 +27,6 @@
 
 @media screen and (min-width: $laptop) {
     .home-map-text {
-        font-size: 1.5rem;
+        font-size: 1.25rem;
     }
 }
