@@ -22,22 +22,3 @@
     }
   }
 }
-
-.archive {
-  .hero {
-    height: 30vh;
-    background-color: $color__brand;
-
-    @media screen and (min-width: $tablet) {
-      height: 50vh;
-    }
-
-    @media screen and (min-width: $desktop) {
-      height: 55vh;
-    }
-  }
-
-  .taxonomy-content {
-    width: fit-content;
-  }
-}

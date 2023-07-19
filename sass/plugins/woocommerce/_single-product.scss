@@ -3,15 +3,21 @@
 	div.product {
 		position: relative;		
 
-		.woocommerce-product-gallery {
-			.woocommerce-product-gallery__wrapper{
-				div{
-					img{
-						height:50vh;
-						object-fit:cover;
-					}
-				}
+		.woocommerce-product-gallery,
+		.woocommerce-product-gallery__wrapper,
+		.woocommerce-product-gallery__wrapper > div {
+			position: absolute;
+			height:100%;
+			width: 100%;
+			object-fit:cover;
+
+			img.wp-post-image {
+				position: relative;
+				object-fit:cover;
+				height: 100%;
+				width: 100%;
 			}
+			
 			
 			.woocommerce-product-gallery__trigger {
 				position: absolute;
