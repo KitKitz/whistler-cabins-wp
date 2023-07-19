@@ -1,10 +1,11 @@
 header.site-header {
   width: 100%;
-  height: 60px;
-  padding: .5rem;
+  height: 10vh;
+  padding: 0.5rem;
   display: flex;
   justify-content: space-between;  
   align-items: center;
+  margin: auto;
  
   .site-branding, 
   .custom-logo-link {
@@ -18,9 +19,7 @@ header.site-header {
   }
 
   @media screen and (min-width: $tablet) {
-    padding: .5rem 2rem;
+    padding: 0.5rem 1rem;
   }
-  
 }
-
 
