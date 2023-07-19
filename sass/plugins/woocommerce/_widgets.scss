@@ -29,6 +29,17 @@
 	}
 }
 
+.return-to-shop a{
+	@include button-link;
+	margin:2rem auto;
+	background-color: $color__brand;
+	color: $color__invert;
+	border:none;
+	&:hover{
+		background-color: $color__border-button;
+	}
+}
+
 /**
  * WooCommerce Price Filter
  */
