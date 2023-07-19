@@ -25,7 +25,12 @@
     
     }
 
-    img, p{
+    .activity-image-wrap{
+        width: fit-content;
+        margin: 0 auto;
+    }
+
+    p{
         margin: 0 auto;
     }
 
@@ -36,32 +41,53 @@
             display: flex;
             justify-content: center;
             flex-direction: column;
-        }
-       
-        h2{
-           text-align: center;
-        }
+            margin: 0 auto;
 
-        .crp_link{
-            display: block;
-            position: relative;
-            
-            
-            .crp_title{
-                display: block;
-                font-family: $font__main;
-                font-weight: 600;
-                font-size: 2rem;
-                position: absolute;
-                color: $color__invert;
-                left: 20px;
-                bottom:20px;
+            a{
+                width: fit-content;
+                margin: 1rem auto;
             }
-    
-        }
-    }     
 
-}
+            figure{
+                
+                &::before {
+                    content: '';
+                    height: 97%;
+                    background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(0,0,0,0.8) 100%);
+                    border-radius: 0.25rem;
+                    display: block;
+                    position: absolute;
+                    width: 100%;
+                }
+            }
+        }    
+
+    }
+       
+    h2{
+        text-align: center;
+    }
+
+    .crp_link{
+        display: block;
+        position: relative;
+        
+        
+        .crp_title{
+            display: block;
+            font-family: $font__main;
+            font-weight: 600;
+            font-size: 2rem;
+            position: absolute;
+            color: $color__invert;
+            left: 20px;
+            bottom:20px;
+        }
+
+    }
+}     
+
+
 
 @media screen and (min-width: $tablet){
     .single-post{
@@ -127,22 +153,25 @@
             padding-top:3rem;
         }
 
+        .crp_related{
+
+            ul{
+                max-width: 90rem;
+                flex-direction: row;
+                gap:2rem;
+                margin-bottom: 3rem;
+                
+                li{
+                    max-width: 30%;
+                }
+            }
+    
+        }
+
        
     }
 
-    .crp_related{
-
-        ul{
-            max-width: 90rem;
-            flex-direction: row;
-            gap:2rem;
-            
-            li{
-                max-width: 30%;
-            }
-        }
-
-    }
+    
 
 }
 

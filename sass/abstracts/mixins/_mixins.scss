@@ -23,6 +23,7 @@
 	border-color: inherit;
 	padding: 0.5rem 1rem;
 	margin: 1rem 0;
+	font-weight: 600;
 }
 
 @mixin wave {
@@ -35,6 +36,7 @@
 	height: 15rem;
 	left: 0;
 }
+
 
 // Account Page 
 @mixin account-button {

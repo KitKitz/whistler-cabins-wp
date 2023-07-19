@@ -1,8 +1,13 @@
 .single-product {
 
-	div.product {
-		position: relative;		
+	.entry-summary{
+		max-width: 70rem;
+		margin: 0 auto;
+	}
 
+	section, p{
+		padding: 0 1rem;
+	}
 		.woocommerce-product-gallery,
 		.woocommerce-product-gallery__wrapper,
 		.woocommerce-product-gallery__wrapper > div {
@@ -26,73 +31,242 @@
 				display: block;
 				z-index: 99;
 			}
+		}
 
-			.flex-viewport {
-				margin-bottom: 1em;
-			}
+	h2{ 
+		padding-bottom: 1.5rem;
+	}
 
-			.flex-control-thumbs {
-				margin: 0;
-				padding: 0;
+	.price{
+		font-size: 1.5rem;
+		
+		
+	}
 
-				li {
-					list-style: none;
-					cursor: pointer;
-					float: left;
+	.booking-description-wrap{
+		padding-top: 2rem;
+	}
 
-					img {
-						opacity: 0.5;
+	.cart{
+		display: flex;
+		flex-direction: column;
+		
 
-						&.flex-active {
-							opacity: 1;
-						}
+		.wc-bookings-booking-form{
+			border: none;
+			padding: 0;
+			margin: 0;
+
+			fieldset{
+				width: 17.5rem;
+				margin-right: auto;
+				margin-left: auto;
+				border: none;
+				box-shadow: 3px 11px 11px 3px rgba(0, 0, 0, 0.15);
+				border-radius: 0.5rem;
+
+				.wc-bookings-date-picker-date-fields, {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 0.25rem;
+					justify-content: center;
+
+					span{
+						width: 100%;
+						
 					}
 
-					&:hover {
-
-						img {
-							opacity: 1;
-						}
-					}
-				}
-			}
-
-			@for $i from 2 through 5 {
-
-				&.woocommerce-product-gallery--columns-#{$i} {
-
-					.flex-control-thumbs {
-
-						li {
-
-							@include column-width($i);
-
-							&:nth-child(#{$i}n) {
-								margin-right: 0;
-							}
-
-							&:nth-child(#{$i}n+1) {
-								clear: both;
-							}
-						}
+					label{
+						width:auto;
 					}
 				}
 			}
 		}
+	
+		.wc-bookings-booking-form-button{ 
+			@include button-link;
+			margin-right: auto;
+			margin-left: auto;
+			background-color: $color__brand_dark;
+			color: $color__invert;
+			width: 17.5rem;
+			height: 3.75rem;
+			text-transform: uppercase;
+
+		}
+	
 	}
-}
 
-.stock {
-
-	&:empty::before {
+	.tabs, .wc-tabs{
 		display: none;
 	}
 
-	&.in-stock {
-		color: $woocommerce__color-success;
+	.woocommerce-Tabs-panel{
+		h2{
+			display: none;
+		}
+
+		p{
+			max-width: 42rem;
+			margin-right: auto;
+			margin-left: auto;
+		}
 	}
 
-	&.out-of-stock {
-		color: $woocommerce__color-error;
+	.amenities{
+
+		padding-top: 2rem;
+		padding-bottom: 4rem;
+
+		ul{	
+				
+			display: grid;
+			grid-template-columns: repeat(2, minmax(auto, 1fr));
+			max-width: 40rem;
+			row-gap: 0.5rem;
+
+			
+		}
+	}
+	
+		
+	.swiper-slide, .testimonial{
+		margin-right: auto;
+		margin-left: auto;
+		img{
+			display: block;
+			width:62.5rem;
+			height: 20rem;
+			object-fit: cover;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+	
+
+	.testimonial{
+		background-color: $color__background_section;
+		max-width: 46rem;
+		margin-top: 2rem;
+
+		
+	}
+	
+
+	figure{
+		padding: 1rem 0;
+		margin: 0;
+		text-align: center;
+		
+	}
+
+	section.related{
+		max-width: fit-content;
+		margin: auto;
+
+		h2{
+			padding-top: 2rem;
+			text-align: center;
+		}
+
+		ul.products{
+			padding-top: 1.5rem;
+
+			.price{
+				font-size: 1rem;
+			}
+
+			li.product{
+				.button-link, > .add_to_cart_button{
+					position: static;
+					margin: 0 0.75rem;
+				}
+			}
+		}
+
+		
+	
 	}
 }
+
+@media screen and (min-width: 35em){
+	.single-product{
+		.amenities{
+			
+			ul{	
+				grid-template-columns: repeat(3, minmax(auto, 1fr));
+				column-gap: 4rem;
+			}
+		}
+		
+	}
+
+}
+
+
+@media screen and (min-width: $tablet) {
+	.single-product{
+
+		.price{
+			text-align: right;
+		}
+
+		.booking-description-wrap{
+			display: flex;
+			flex-direction: row-reverse;
+			gap: 1rem;
+			justify-content: space-between;
+
+			.cart{
+				padding-right: 1rem;
+			
+		
+			}
+
+		}
+
+		.amenities{
+			padding-bottom: 8rem;
+		}
+
+		.swiper-wrapper{
+			
+			.swiper-slide{
+				img{
+					height: 32rem;
+				}
+		
+			}	
+		}
+		
+		.testimonial{
+			margin-top: 6rem;
+			margin-bottom: 3rem;
+		}
+
+		
+	}
+}
+
+@media screen and (min-width: $laptop){
+
+	.single-product{
+
+		.cart{
+
+			.wc-bookings-booking-form{
+
+				fieldset{
+					width: 20rem;
+				}
+		
+			}
+
+			.wc-bookings-booking-form-button{
+				width: 20rem;
+			}
+		}
+	}
+	
+}
+

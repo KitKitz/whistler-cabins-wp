@@ -24,9 +24,9 @@ $args = array(
 $query = new WP_Query ($args);
 if ($query -> have_posts()){
     ?>
-    <div class="swiper">
+    <div class="testimonial swiper slider2">
        
-       <div class="swiper-wrapper">
+       <div class=" swiper-wrapper">
             <?php
             while($query -> have_posts()){
                 $query -> the_post();
@@ -34,29 +34,30 @@ if ($query -> have_posts()){
                 
                 if(function_exists('get_field')){
                     ?>            
-                        <blockquote class="swiper-slide">
-                            
+                        <figure class="swiper-slide">         
+                            <blockquote >
                                 <?php 
                                 if(get_field('testimonial_content')){
-                                    echo '<p>'. the_field ('testimonial_content') . '</p>';
-                                    
-                                }
-                                if(get_field('testimonial_author')){
-                                    echo '<p>' . the_field('testimonial_author') . '</p>'; 
+                                echo the_field ('testimonial_content');
+                                
                                 }
                                 ?>
-                            
-                        </blockquote>
-                                                
-                  
+                            </blockquote>
+                            <figcaption>
+                                <?php 
+                                if(get_field('testimonial_author')){
+                                    echo the_field('testimonial_author'); 
+                                }
+                                ?>
+                            </figcaption>
+                         </figure> 
+                   
                     <?php
 
                 } 
             
             }?>
         </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
         <div class="swiper-pagination"></div>  
     </div>
     <?php 
@@ -75,20 +76,25 @@ if ($query -> have_posts()){
         $query -> the_post();
 
         if(function_exists('get_field')){
-            ?>            
-                <blockquote class="swiper-slide">
-                    
+            ?>  
+                 
+                <figure class="testimonial">         
+                    <blockquote >
                         <?php 
                         if(get_field('testimonial_content')){
-                            echo '<p>'. the_field ('testimonial_content') . '</p>';
-                            
-                        }
-                        if(get_field('testimonial_author')){
-                            echo '<p>' . the_field('testimonial_author') . '</p>'; 
+                           echo the_field ('testimonial_content');
+                          
                         }
                         ?>
-                    
-                </blockquote>
+                    </blockquote>
+                    <figcaption>
+                        <?php 
+                        if(get_field('testimonial_author')){
+                            echo the_field('testimonial_author'); 
+                        }
+                        ?>
+                    </figcaption>
+                </figure> 
                                         
           
             <?php
