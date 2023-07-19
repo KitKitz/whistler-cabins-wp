@@ -32,13 +32,15 @@
 
 					<p class="activity-intro"><?php the_field('activity_text_1');?></p>
 				
-				<?php } ?>
+				<?php } 
 
+				
+				if ( get_field( 'activity_image_1') ) { ?>
 				<div class="activity-offset-1">
 					<div class="activity-offset-2">
 						<div class="activity-1">
 							<?php 
-							if ( get_field( 'activity_image_1') ) {
+							
 								?>
 								<div class="activity-image-wrap"> 	
 									<?php
@@ -46,7 +48,7 @@
 									?>
 								</div>
 								<?php
-							}
+				}
 						
 							if ( get_field( 'activity_text_2') ) {?>
 								

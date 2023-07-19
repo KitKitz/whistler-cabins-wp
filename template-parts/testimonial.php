@@ -24,9 +24,9 @@ $args = array(
 $query = new WP_Query ($args);
 if ($query -> have_posts()){
     ?>
-    <div class="swiper">
+    <div class="testimonial swiper slider2">
        
-       <div class="swiper-wrapper">
+       <div class=" swiper-wrapper">
             <?php
             while($query -> have_posts()){
                 $query -> the_post();
@@ -58,8 +58,6 @@ if ($query -> have_posts()){
             
             }?>
         </div>
-        <div class="swiper-button-prev"></div>
-        <div class="swiper-button-next"></div>
         <div class="swiper-pagination"></div>  
     </div>
     <?php 
@@ -80,7 +78,7 @@ if ($query -> have_posts()){
         if(function_exists('get_field')){
             ?>  
                  
-                <figure class="swiper-slide">         
+                <figure class="testimonial">         
                     <blockquote >
                         <?php 
                         if(get_field('testimonial_content')){

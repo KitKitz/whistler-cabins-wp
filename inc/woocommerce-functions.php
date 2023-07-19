@@ -71,7 +71,7 @@ function whistler_cabins_shop_init(){
 			if (function_exists('get_field')){
 				$images = get_field( 'gallery' );
 				?>
-				<div class="swiper">
+				<div class="swiper slider1">
 					<div class="swiper-wrapper">
 						<?php
 						if($images){
@@ -144,6 +144,19 @@ function whistler_cabins_shop_init(){
 		}
 		add_action( 'woocommerce_single_product_summary', 'whistler_cabins_move_description');
 
+		//add a booking/description wrapper
+		function whistler_cabins_wrap_boorking_description_open() {
+			echo '<div class="booking-description-wrap">';
+		}
+		
+		add_action( 'woocommerce_single_product_summary', 'whistler_cabins_wrap_boorking_description_open', 29 );
+ 
+		function  whistler_cabins_wrap_boorking_description_close() {
+			echo '</div>';
+		}
+		
+		add_action( 'woocommerce_single_product_summary', 'whistler_cabins_wrap_boorking_description_close', 36 );
+
 		
 		// remove the link around a product image
 		function whistler_cabins_remove_product_link( $html ) {
@@ -174,6 +187,7 @@ function whistler_cabins_shop_init(){
 		
 		add_action( 'woocommerce_before_single_product_summary', 'whistler_cabins_wrap_hero_section_close', 21 );
 
+		
 		// remove exceprts from displaying
 		function whistler_cabins_remove_product_excerpt() {
 			remove_action( 'woocommerce_single_product_summary', 'woocommerce_template_single_excerpt', 20 );

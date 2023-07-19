@@ -1,23 +1,68 @@
 .single-product {
 
-	h2, p{
-		padding: 1rem;
+	.entry-summary{
+		max-width: 70rem;
+		margin: 0 auto;
+	}
+
+	section, p{
+		padding: 0 1rem;
+	}
+
+	h2{ 
+		padding-bottom: 1.5rem;
 	}
 
 	.price{
-		font-size: 2rem;
-		text-transform: uppercase;
+		font-size: 1.5rem;
+		
+		
+	}
+
+	.booking-description-wrap{
+		padding-top: 2rem;
 	}
 
 	.cart{
+		display: flex;
+		flex-direction: column;
+		
 
 		.wc-bookings-booking-form{
 			border: none;
+			padding: 0;
+			margin: 0;
+
+			fieldset{
+				width: 17.5rem;
+				margin-right: auto;
+				margin-left: auto;
+				border: none;
+				box-shadow: 3px 11px 11px 3px rgba(0, 0, 0, 0.15);
+				border-radius: 0.5rem;
+
+				.wc-bookings-date-picker-date-fields, {
+					display: flex;
+					flex-wrap: wrap;
+					gap: 0.25rem;
+					justify-content: center;
+
+					span{
+						width: 100%;
+						
+					}
+
+					label{
+						width:auto;
+					}
+				}
+			}
 		}
 	
 		.wc-bookings-booking-form-button{ 
 			@include button-link;
-			@include center-block;
+			margin-right: auto;
+			margin-left: auto;
 			background-color: $color__brand_dark;
 			color: $color__invert;
 			width: 17.5rem;
@@ -26,7 +71,6 @@
 
 		}
 	
-
 	}
 
 	.tabs, .wc-tabs{
@@ -37,119 +81,168 @@
 		h2{
 			display: none;
 		}
-	}
-	
-	.swiper-slide{
-		img{
-			height: 20rem;
-			object-fit: cover;
+
+		p{
+			max-width: 42rem;
+			margin-right: auto;
+			margin-left: auto;
 		}
 	}
+
+	.amenities{
+
+		padding-top: 2rem;
+		padding-bottom: 4rem;
+
+		ul{	
+				
+			display: grid;
+			grid-template-columns: repeat(2, minmax(auto, 1fr));
+			max-width: 40rem;
+			row-gap: 0.5rem;
+
+			
+		}
+	}
+	
+		
+	.swiper-slide, .testimonial{
+		margin-right: auto;
+		margin-left: auto;
+		img{
+			display: block;
+			width:62.5rem;
+			height: 20rem;
+			object-fit: cover;
+			margin-right: auto;
+			margin-left: auto;
+		}
+	}
+	
+
+	.testimonial{
+		background-color: $color__background_section;
+		max-width: 46rem;
+		margin-top: 2rem;
+
+		
+	}
+	
 
 	figure{
 		padding: 1rem 0;
 		margin: 0;
 		text-align: center;
-		background-color: $color__background_section;
-	}
-	
-	
-
-	// div.product {
-	// 	position: relative;
-
-	// 	.summary{
-	// 		form.cart{
-	// 			width:100%;
-
-	// 		}
-	// 	}
 		
+	}
 
-	// 	.woocommerce-product-gallery {
-	// 		.woocommerce-product-gallery__wrapper{
-	// 			div{
-	// 				img{
-	// 					height:50vh;
-	// 					object-fit:cover;
-	// 				}
-	// 			}
-	// 		}
+	section.related{
+		max-width: fit-content;
+		margin: auto;
+
+		h2{
+			padding-top: 2rem;
+			text-align: center;
+		}
+
+		ul.products{
+			padding-top: 1.5rem;
+
+			.price{
+				font-size: 1rem;
+			}
+
+			li.product{
+				.button-link, > .add_to_cart_button{
+					position: static;
+					margin: 0 0.75rem;
+				}
+			}
+		}
+
+		
+	
+	}
+}
+
+@media screen and (min-width: 35em){
+	.single-product{
+		.amenities{
 			
-	// 		.woocommerce-product-gallery__trigger {
-	// 			position: absolute;
-	// 			top: 2em;
-	// 			right: 1em;
-	// 			display: block;
-	// 			z-index: 99;
-	// 		}
+			ul{	
+				grid-template-columns: repeat(3, minmax(auto, 1fr));
+				column-gap: 4rem;
+			}
+		}
+		
+	}
 
-	// 		.flex-viewport {
-	// 			margin-bottom: 1em;
-	// 		}
-
-	// 		.flex-control-thumbs {
-	// 			margin: 0;
-	// 			padding: 0;
-
-	// 			li {
-	// 				list-style: none;
-	// 				cursor: pointer;
-	// 				float: left;
-
-	// 				img {
-	// 					opacity: 0.5;
-
-	// 					&.flex-active {
-	// 						opacity: 1;
-	// 					}
-	// 				}
-
-	// 				&:hover {
-
-	// 					img {
-	// 						opacity: 1;
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-
-	// 		@for $i from 2 through 5 {
-
-	// 			&.woocommerce-product-gallery--columns-#{$i} {
-
-	// 				.flex-control-thumbs {
-
-	// 					li {
-
-	// 						@include column-width($i);
-
-	// 						&:nth-child(#{$i}n) {
-	// 							margin-right: 0;
-	// 						}
-
-	// 						&:nth-child(#{$i}n+1) {
-	// 							clear: both;
-	// 						}
-	// 					}
-	// 				}
-	// 			}
-	// 		}
-	// 	}
-	// }
 }
 
-.stock {
 
-	&:empty::before {
-		display: none;
-	}
+@media screen and (min-width: $tablet) {
+	.single-product{
 
-	&.in-stock {
-		color: $woocommerce__color-success;
-	}
+		.price{
+			text-align: right;
+		}
 
-	&.out-of-stock {
-		color: $woocommerce__color-error;
+		.booking-description-wrap{
+			display: flex;
+			flex-direction: row-reverse;
+			gap: 1rem;
+			justify-content: space-between;
+
+			.cart{
+				padding-right: 1rem;
+			
+		
+			}
+
+		}
+
+		.amenities{
+			padding-bottom: 8rem;
+		}
+
+		.swiper-wrapper{
+			
+			.swiper-slide{
+				img{
+					height: 32rem;
+				}
+		
+			}	
+		}
+		
+		.testimonial{
+			margin-top: 6rem;
+			margin-bottom: 3rem;
+		}
+
+		
 	}
 }
+
+@media screen and (min-width: $laptop){
+
+	.single-product{
+
+		.cart{
+
+			.wc-bookings-booking-form{
+
+				fieldset{
+					width: 20rem;
+				}
+		
+			}
+
+			.wc-bookings-booking-form-button{
+				width: 20rem;
+			}
+		}
+	}
+	
+}
+

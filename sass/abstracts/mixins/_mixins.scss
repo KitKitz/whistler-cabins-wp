@@ -23,6 +23,7 @@
 	border-color: inherit;
 	padding: 0.5rem 1rem;
 	margin: 1rem 0;
+	font-weight: 600;
 }
 
 @mixin wave {
@@ -36,15 +37,7 @@
 	left: 0;
 }
 
-@mixin overlay{
-	content: '';
-		background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(0,0,0,0.8) 100%);
-		border-radius: 0.25rem;
-		display: block;
-		position: absolute;
-		height: 100%;
-		width: 100%;
-}
+
 // Account Page 
 @mixin account-button {
 	width: 100%;
