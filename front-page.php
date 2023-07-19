@@ -124,7 +124,7 @@ get_header();
 						?><p><?php the_field('fbp_section_content');?></p><?php
 					}
 					if(get_field('fbp_section_button')){
-						?><a href="<?php get_post_type_archive_link( 'post' );?>" class="button-link"><?php the_field('fbp_section_button');?></a><?php
+						?><a href="<?php echo get_post_type_archive_link( 'post' );?>" class="button-link"><?php the_field('fbp_section_button');?></a><?php
 					}
 				}?>
 				</div>
