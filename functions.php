@@ -207,6 +207,11 @@ require get_template_directory() . '/inc/woocommerce-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * LOGIN PAGE CUSTOMIZATION 
+ */
+require get_template_directory() . '/inc/login-customizations.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
@@ -219,6 +224,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
 
 /**
  * ACF Google Map API Key
@@ -282,3 +288,8 @@ function whistler_cabins_remove_admin_links(){
 add_action('admin_menu', 'whistler_cabins_remove_admin_links');
 
 
+//Remove the Block Editor (Applies to whole site)
+function disable_block_editor() {
+    add_filter('use_block_editor_for_post', '__return_false');
+}
+add_action('init', 'disable_block_editor');
