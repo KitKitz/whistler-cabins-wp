@@ -207,6 +207,11 @@ require get_template_directory() . '/inc/woocommerce-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 /**
+ * LOGIN PAGE CUSTOMIZATION 
+ */
+require get_template_directory() . '/inc/login-customizations.php';
+
+/**
  * Load Jetpack compatibility file.
  */
 if ( defined( 'JETPACK__VERSION' ) ) {
@@ -219,6 +224,7 @@ if ( defined( 'JETPACK__VERSION' ) ) {
 if ( class_exists( 'WooCommerce' ) ) {
 	require get_template_directory() . '/inc/woocommerce.php';
 }
+
 
 /**
  * ACF Google Map API Key
@@ -242,3 +248,48 @@ if ( function_exists('acf_add_options_page') ) {
 		'menu_slug' => 'general-content',
 	));
 };
+
+// Remove Welcome panel and customize the dashboard widgets
+function whistler_cabins_remove_all_dashboard_metaboxes() {
+	
+	remove_action( 'welcome_panel', 'wp_welcome_panel' );
+	remove_meta_box( 'dashboard_primary', 'dashboard', 'side' );
+	remove_meta_box( 'dashboard_quick_press', 'dashboard', 'side' );
+	remove_meta_box( 'dashboard_right_now', 'dashboard', 'normal' );
+	remove_meta_box( 'dashboard_activity', 'dashboard', 'normal');
+}
+add_action( 'wp_dashboard_setup', 'whistler_cabins_remove_all_dashboard_metaboxes' );
+
+// Add and output PDF widget 
+function whistler_cabins_add_dashboard_widget() {
+	wp_add_dashboard_widget( 
+		'whistler_cabins_tutorial', 
+		esc_html__( 'Alpenglow Cabins Tutorial', 'whistler_cabins' ), 
+		'whistler_cabins_tutorial_widget_render' 
+	);
+
+}
+add_action('wp_dashboard_setup', 'whistler_cabins_add_dashboard_widget');
+
+function whistler_cabins_tutorial_widget_render(){
+	echo '<p>See the link below for the tutorial</p><a href="#">Alpenglow Cabins Tutorial</a></p>';
+}
+
+// Customize menu output for non-admins
+function whistler_cabins_remove_admin_links(){
+	if ( !current_user_can( 'manage_options' )){
+		remove_menu_page('tools.php'); // Tools
+		remove_menu_page('edit-comments.php'); //Comments 
+		remove_menu_page( 'themes.php' ); //Appearance
+		remove_menu_page( 'users.php' );  //Users  
+	}
+}
+
+add_action('admin_menu', 'whistler_cabins_remove_admin_links');
+
+
+//Remove the Block Editor (Applies to whole site)
+function disable_block_editor() {
+    add_filter('use_block_editor_for_post', '__return_false');
+}
+add_action('init', 'disable_block_editor');

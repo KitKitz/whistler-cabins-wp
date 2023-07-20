@@ -1,0 +1,44 @@
+.woocommerce-order {
+    max-width: $maxWidth;
+    margin: 0 auto;
+    padding: 1rem 2rem;
+
+    h2,
+    h3 {
+    color: $color__brand_dark;
+    font-size: 1.5rem;
+    margin: 1rem 0;
+    text-align: center;
+    }
+
+    .order_details {
+        background-color: $color__background_section;
+        padding: .5rem;
+        border-radius: .5rem;
+        .product-total {
+            text-align: center;
+        }
+
+        tfoot {
+            text-align: end;
+        }
+
+    }
+}
+
+@media screen and (min-width: $tablet) {
+    .woocommerce-order {
+        .woocommerce-notice,
+        .woocommerce-order-overview > li {
+            text-align: center;
+        }
+        .order_details{
+            padding: 1rem;
+            tfoot td{
+                text-align: center;
+            }
+        }
+    }
+    
+    
+}

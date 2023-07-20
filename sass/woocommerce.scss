@@ -38,6 +38,11 @@ $woocommerce__color-info: #7cb4d5;
 @import "plugins/woocommerce/checkout";
 
 /**
+ * Order Status
+ */     
+@import "plugins/woocommerce/order-status";
+
+/**
  * General WooCommerce components
  */
 @import "plugins/woocommerce/components";
