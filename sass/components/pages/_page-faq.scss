@@ -48,7 +48,7 @@
         font-weight: 600;
         position: relative;
         width: 100%;
-        padding: 1rem 0.5rem;
+        padding: 0.75rem;
         cursor: pointer;
 
         span {
@@ -61,7 +61,8 @@
           display: block;
           position: absolute;
           right: 0;
-          top: 16%;
+          top: 25%;
+          margin-right: 0.75rem;
         }
       }
 
