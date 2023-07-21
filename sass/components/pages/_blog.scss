@@ -30,3 +30,13 @@
     margin: 5rem auto;
   }
 }
+
+.blog .taxonomy-content,
+.archive.category .taxonomy-content {
+  .hidden-posts {
+    grid-column: 1/4;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+  }
+}
