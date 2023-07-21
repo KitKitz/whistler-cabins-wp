@@ -387,6 +387,7 @@
   top: var(--swiper-pagination-top, auto);
   left: 0;
   width: 100%;
+  padding: 1rem 0;
 }
 /* Bullets */
 .swiper-pagination-bullets-dynamic {

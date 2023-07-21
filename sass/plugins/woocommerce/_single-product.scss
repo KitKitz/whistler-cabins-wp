@@ -167,7 +167,7 @@
 		max-width: fit-content;
 		margin: auto;
 
-		h2{
+		> h2 {
 			padding-top: 2rem;
 			text-align: center;
 		}
@@ -175,11 +175,19 @@
 		ul.products{
 			padding-top: 1.5rem;
 
+			
+
 			.price{
 				font-size: 1rem;
 			}
 
 			li.product{
+				
+				h2 {
+					font-size: 1.5rem;
+					text-align: left;
+				}
+
 				.button-link, > .add_to_cart_button{
 					position: static;
 					margin: 0 0.75rem;

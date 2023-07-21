@@ -27,9 +27,15 @@
       button.topic {
         background-color: $color__accent;
         color: $color__invert;
+        border-bottom: none;
         border-radius: 1rem 1rem 0 0rem;
         padding: 0.5rem 1rem;
         cursor: pointer;
+
+        &:hover, &:active, &:focus {
+          border-color: $color__brand_dark;
+          border-width: 1px;
+        }
       }
     }
   }

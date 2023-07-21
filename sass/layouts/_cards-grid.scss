@@ -16,6 +16,10 @@
   > a.button-link {
     background-color: $color__brand_dark;
     color: $color__invert;
+
+    &:hover, &:active, &:focus {
+      background-color: $color__brand;
+    }
   }
 }
 

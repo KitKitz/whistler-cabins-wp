@@ -4,7 +4,7 @@
     
     h1 {
         text-align: center;
-        color: $color__brand_dark;
+        margin-bottom: 4rem;
     }
 
     .contact-page-business-info {
@@ -59,6 +59,10 @@
             color: $color__invert;
             border-radius: 0.5rem;
             padding: 0.8rem 1.5rem;
+
+            &:hover, &:active, &:focus {
+                background-color: $color__brand;
+            }
         }
 
         textarea.wpcf7-textarea {
