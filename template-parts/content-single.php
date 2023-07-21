@@ -20,13 +20,13 @@
 			?>
 		</section>
 
+		
+		<!-- display the content of the post -->
 		<?php
-		//display the content of the post
-
-		if (function_exists('get_field')){?> 
-
+		if (function_exists('get_field')){
+			?>
 			<section>
-
+			
 				<?php
 				if (get_field('activity_text_1')){?>
 
@@ -77,7 +77,8 @@
 						</div>
 					</div> 
 				</div>
-
+			
+							
 			</section>
 
 			<section class="affiliate-section">
