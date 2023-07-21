@@ -272,7 +272,7 @@ function whistler_cabins_add_dashboard_widget() {
 add_action('wp_dashboard_setup', 'whistler_cabins_add_dashboard_widget');
 
 function whistler_cabins_tutorial_widget_render(){
-	echo '<p>See the link below for the tutorial</p><a href="#">Alpenglow Cabins Tutorial</a></p>';
+	echo '<p>See the link below for the tutorial</p><a href="https://whistlercabins.bcitwebdeveloper.ca/wp-content/uploads/2023/07/alpenglow_tutorial.pdf">Alpenglow Cabins Tutorial</a></p>';
 }
 
 // Customize menu output for non-admins
