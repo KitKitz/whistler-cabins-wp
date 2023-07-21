@@ -8,8 +8,9 @@
 	width: 100%;
 	max-width: 350px;
 	height: 100%;
-	padding-bottom: 1rem;
+	padding-bottom: 0.75rem;
 	margin: auto;
+	overflow: hidden;
 
 	> *:not(a), .woocommerce-LoopProduct-link > *:not(img) {
 		padding: 0 0.75rem;
@@ -26,7 +27,6 @@
 	h2, h3 {
 		font-weight: 600;
 		font-size: 1.3rem;
-		width: 80%;
 		margin: 0.5rem 0;
 
 		@media screen and (min-width: $tablet) {
@@ -54,8 +54,20 @@
 		color: $color__invert;
 		position: absolute;
 		margin: 0;
-		bottom: 22px;
-		right: 8px;
+		bottom: 16px;
+		right: 16px;
 		font-weight: 400;
+
+		&:hover, &:active, &:focus {
+			background-color: $color__brand;
+		}
+	}
+
+	&:hover, &:active, &:focus {
+		a img {
+			transform: scale(1.03);
+			transition: all 0.5s ease;
+			z-index: -5;
+		}
 	}
 }

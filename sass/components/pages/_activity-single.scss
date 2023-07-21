@@ -21,6 +21,10 @@
             @include center-block;
             background-color: $color__brand_dark;
             color: $color__invert; 
+
+            &:hover, &:active, &:focus {
+                background-color: $color__brand;
+            }
         }
     
     }
@@ -52,12 +56,13 @@
                 
                 &::before {
                     content: '';
-                    height: 99%;
+                    height: 98%;
                     background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(0,0,0,0.8) 100%);
                     border-radius: 0.25rem;
                     display: block;
                     position: absolute;
                     width: 100%;
+                    bottom: 7px;
                 }
             }
         }    
@@ -77,11 +82,11 @@
             display: block;
             font-family: $font__main;
             font-weight: 600;
-            font-size: 2rem;
+            font-size: 1.5rem;
             position: absolute;
             color: $color__invert;
             left: 20px;
-            bottom:20px;
+            bottom: 30px;
         }
 
     }

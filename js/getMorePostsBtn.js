@@ -4,7 +4,8 @@ document.addEventListener('DOMContentLoaded', function() {
     moreActivitiesButtons.forEach(function(button) {
       button.addEventListener('click', function() {
         const hiddenPosts = this.nextElementSibling;
-        hiddenPosts.style.display = 'block';
+        parentTaxDisplay = hiddenPosts.parentElement.style.display;
+        hiddenPosts.style.display = parentTaxDisplay;
         this.style.display = 'none';
       });
     });

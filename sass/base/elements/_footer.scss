@@ -20,7 +20,7 @@ footer, footer.site {
     width: fit-content;
 
     &:hover, &:active, &:focus {
-      color: inherit;
+      text-decoration: underline;
     }
   }
   
@@ -29,6 +29,11 @@ footer, footer.site {
     margin: 0.5rem 0;
     gap: 0.5rem;
     align-items: flex-start;
+
+    a:hover, a:active, a:focus {
+      text-decoration: underline;
+      color: $color__invert;
+    }
   }
 
   section:last-child {

@@ -1,10 +1,13 @@
 .blog article,
 .featured-activities article,
 .archive article {
+    border-radius: 0.25rem;
     position: relative;
     height: 420px;
     width: 100%;
     max-width: 350px;
+    overflow: hidden;
+    z-index: 5;
     
     > img { 
         height: 100%;
@@ -16,42 +19,45 @@
     .activities-info{
         position: absolute;
         color: $color__invert;
-        left: 20px;
-        bottom:20px;
+        left: 16px;
+        bottom: 24px;
         
         
         > h3 {
-            font-size: 2rem;
+            font-size: 1.5rem;
+            font-weight: 600;
         }
         
-        .activities-info{
-            position: absolute;
-            color: $color__invert;
-            left: 20px;
-            bottom:20px;
-            
-            
-            > h3 {
-                font-size: 2rem;
-            }
-            
-            .button-link {
-                border: none;
-                background-color: $color__invert;
-                color: $color__brand_dark;
-                font-weight: 400;
+        .button-link {
+            border: none;
+            background-color: $color__invert;
+            color: $color__brand_dark;
+            font-weight: 400;
+            margin: 0;
+            margin-top: 0.75rem;
+
+            &:hover, &:active, &:focus {
+                background-color: $color__brand;
+                color: $color__invert;
             }
         }
-
     }
 
-        &::before {
-            content: '';
-            background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(0,0,0,0.8) 100%);
-            border-radius: 0.25rem;
-            display: block;
-            position: absolute;
-            height: 100%;
-            width: 100%;
+    &::before {
+        content: '';
+        background: linear-gradient(180deg, rgba(255,255,255,0) 60%, rgba(0,0,0,0.8) 100%);
+        display: block;
+        position: absolute;
+        height: 100%;
+        width: 100%;
+    }
+
+    &:hover, &:active, &:focus {
+        > img {
+            position: relative;
+            transform: scale(1.05);
+            transition: all 0.5s ease;
+            z-index: -5;
         }
+    }
 }

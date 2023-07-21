@@ -25,6 +25,13 @@ section.gift-card {
   a.button-link {
     background-color: $color__invert;
     color: $color__accent;
+
+    &:hover, &:active, &:focus {
+      background-color: $color__brand;
+      color: $color__invert;
+      border: none;
+    }
+
   }
 
   &::before {

@@ -19,6 +19,10 @@
       margin: auto;
       padding: 0.75rem 1rem;
       cursor: pointer;
+
+      &:hover, &:active, &:focus {
+        background-color: $color__brand;
+      }
     }
   }
 }
@@ -28,5 +32,15 @@
     width: fit-content;
     padding: 0 1rem;
     margin: 5rem auto;
+  }
+}
+
+.blog .taxonomy-content,
+.archive.category .taxonomy-content {
+  .hidden-posts {
+    grid-column: 1/4;
+    padding: 0;
+    margin: 0;
+    width: 100%;
   }
 }
